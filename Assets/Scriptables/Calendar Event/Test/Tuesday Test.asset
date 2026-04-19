@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61555571a74e7dd44b330330de6ba4fa, type: 3}
   m_Name: Tuesday Test
   m_EditorClassIdentifier: Assembly-CSharp::Systems.Calendar.CalendarEvent
-  eventName: Tuesday Event
-  description: Tuesday Event GOO
+  eventName: Tuesday Test Event
+  description: Tuesday Test Event Description
   icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   occurrenceType: 2
   triggerDay: 64
