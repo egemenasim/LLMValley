@@ -22,7 +22,7 @@ public class PlayerMove : Move
 
         Vector3 direction = new Vector3(horizontal, vertical, 0f).normalized;
 
-        _transform.position += direction * _speed * Time.deltaTime;
+        _transform.position += direction * speed * Time.deltaTime;
     }
 }
 
