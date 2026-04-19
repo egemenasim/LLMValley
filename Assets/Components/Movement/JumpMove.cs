@@ -1,4 +1,5 @@
-using UnityEngine;
+﻿using UnityEngine;
+
 public class JumpMove : WildMove
 {
     public AnimationCurve jumpCurve;
@@ -15,19 +16,15 @@ public class JumpMove : WildMove
     {
         _jumpTimer += Time.deltaTime;
 
+        Vector3 dir = GetDirection();
+
+        //  flat movement (XZ düzlemi)
+        Vector3 movement = new Vector3(dir.x, 0f, 0f);
+
+        //  jump sadece Y ekseni
         float yOffset = jumpCurve.Evaluate(_jumpTimer);
 
-     Vector3 baseDir = GetDirection();
-
-Vector3 jitter = new Vector3(
-    Random.Range(-0.3f, 0.3f),
-    0,
-    0
-);
-
-Vector3 finalDir = (baseDir + jitter).normalized;
-_transform.position += new Vector3(finalDir.x, yOffset, 0f) * speed * Time.deltaTime;
-
-
+        _transform.position += (movement * speed * Time.deltaTime);
+        _transform.position += new Vector3(0f, yOffset, 0f) * Time.deltaTime;
     }
 }
