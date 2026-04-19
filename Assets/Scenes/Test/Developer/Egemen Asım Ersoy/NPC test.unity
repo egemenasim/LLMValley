@@ -456,7 +456,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: b85afc3283e2d4350905e0cf478549be, type: 2}
     - target: {fileID: 8387676380463628663, guid: df9195175c968448299291d8ae018ace, type: 3}
       propertyPath: selectedModelId
-      value: openai/gpt-oss-20b:free
+      value: openai/gpt-oss-120b:free
       objectReference: {fileID: 0}
     - target: {fileID: 8387676380463628663, guid: df9195175c968448299291d8ae018ace, type: 3}
       propertyPath: conversationSaveId
@@ -818,10 +818,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2787458554000808313, guid: f1e175b8854a47f4eac9ddd1d74f5eb0, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4168496851342488380, guid: f1e175b8854a47f4eac9ddd1d74f5eb0, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -973,10 +969,6 @@ PrefabInstance:
     - target: {fileID: 8807813923529183984, guid: f1e175b8854a47f4eac9ddd1d74f5eb0, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8857611303322878122, guid: f1e175b8854a47f4eac9ddd1d74f5eb0, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
