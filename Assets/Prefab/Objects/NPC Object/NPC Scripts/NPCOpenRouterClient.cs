@@ -36,6 +36,10 @@ namespace LLMValley.NPCChat
             }
 
             Instance = this;
+            // DontDestroyOnLoad requires a root GameObject; detach from the prefab
+            // hierarchy first so Unity doesn't throw an error when this component
+            // lives inside a nested prefab (e.g. NPC Chat UI System).
+            transform.SetParent(null);
             DontDestroyOnLoad(gameObject);
         }
 
