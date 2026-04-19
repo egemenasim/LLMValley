@@ -1,10 +1,19 @@
 ﻿using UnityEngine;
-
 public class JumpMove : WildMove
 {
     public AnimationCurve jumpCurve;
 
     private float _jumpTimer;
+
+    [SerializeField] private float jumpDuration = 1f;
+
+    private Vector3 _basePosition;
+
+    void Start()
+    {
+        Initialize(transform, speed);
+        _basePosition = transform.position;
+    }
 
     void Update()
     {
@@ -16,15 +25,22 @@ public class JumpMove : WildMove
     {
         _jumpTimer += Time.deltaTime;
 
+        if (_jumpTimer > jumpDuration)
+            _jumpTimer = 0f;
+
         Vector3 dir = GetDirection();
-        Debug.Log(GetDirection());
-        //  flat movement (XZ düzlemi)
-        Vector3 movement = new Vector3(dir.x, 0f, 0f);
 
-        //  jump sadece Y ekseni
-        float yOffset = jumpCurve.Evaluate(_jumpTimer);
+        // 🔹 sadece horizontal movement
+        _basePosition += dir * speed * Time.deltaTime;
 
-        _transform.position += (movement * speed * Time.deltaTime);
-        _transform.position += new Vector3(0f, yOffset, 0f) * Time.deltaTime;
+        // 🔹 jump sadece offset
+        float t = _jumpTimer / jumpDuration;
+        float jumpOffset = jumpCurve.Evaluate(t);
+
+        _transform.position = new Vector3(
+            _basePosition.x,
+            _basePosition.y + jumpOffset,
+            0f
+        );
     }
 }

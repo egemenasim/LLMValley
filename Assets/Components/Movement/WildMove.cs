@@ -1,10 +1,12 @@
 using UnityEngine;
 
-public abstract class WildMove : Move
+public class WildMove : Move
 {
     protected Vector3 _currentDirection;
     protected float _timer;
-    protected float _changeInterval = 0.5f; // daha sık değişim
+
+    [SerializeField] protected float changeInterval = 1.5f;
+    [SerializeField] protected float turnSpeed = 3f;
 
     void Start()
     {
@@ -15,28 +17,38 @@ public abstract class WildMove : Move
     void Update()
     {
         Tick();
+        MoveCharacter();
     }
 
     public override void Tick()
     {
-        if (!CanMove()) return;
-
         _timer += Time.deltaTime;
 
-        if (_timer >= _changeInterval)
+        if (_timer >= changeInterval)
         {
             SetNewDirection();
+            _timer = 0f;
         }
     }
 
     protected void SetNewDirection()
     {
-        float x = Random.Range(-1f, 1f);
-        float y = Random.Range(-1f, 1f);
+        Vector3 target = new Vector3(
+            Random.Range(-1f, 1f),
+            Random.Range(-1f, 1f),
+            0f
+        ).normalized;
 
-        _currentDirection = new Vector3(x, y, 0f).normalized;
+        _currentDirection = Vector3.Lerp(
+            _currentDirection,
+            target,
+            turnSpeed * Time.deltaTime
+        );
+    }
 
-        _timer = 0f;
+    protected void MoveCharacter()
+    {
+        _transform.position += _currentDirection * speed * Time.deltaTime;
     }
 
     public Vector3 GetDirection()
@@ -44,3 +56,4 @@ public abstract class WildMove : Move
         return _currentDirection;
     }
 }
+
