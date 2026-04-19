@@ -19,6 +19,9 @@ namespace LLMValley.NPCChat
         [SerializeField] private string conversationSaveId = string.Empty;
         [SerializeField] private float interactionRadius = 3f;
         [SerializeField] private Transform interactionOrigin;
+        [SerializeField] private SpriteRenderer worldSpriteRenderer;
+        [SerializeField] private int worldSpriteSortingOrder = 10;
+        [SerializeField] private bool hideMeshRendererWhenUsingSprite = true;
 
         [Header("Detection")]
         [SerializeField] private Collider interactionTrigger;
@@ -43,6 +46,21 @@ namespace LLMValley.NPCChat
             {
                 interactionTrigger.isTrigger = true;
             }
+
+            RefreshVisualFromPersona();
+        }
+
+        private void OnValidate()
+        {
+            interactionOrigin ??= transform;
+            interactionTrigger ??= GetComponent<Collider>();
+
+            if (worldSpriteRenderer == null)
+            {
+                worldSpriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            }
+
+            RefreshVisualFromPersona();
         }
 
         private void Update()
@@ -134,6 +152,30 @@ namespace LLMValley.NPCChat
             }
 
             return deleted;
+        }
+
+        public void RefreshVisualFromPersona()
+        {
+            if (worldSpriteRenderer == null)
+            {
+                return;
+            }
+
+            var sprite = persona != null ? persona.WorldSprite : null;
+            worldSpriteRenderer.sprite = sprite;
+            worldSpriteRenderer.sortingOrder = worldSpriteSortingOrder;
+            worldSpriteRenderer.enabled = sprite != null;
+
+            if (!hideMeshRendererWhenUsingSprite)
+            {
+                return;
+            }
+
+            var meshRenderer = GetComponent<MeshRenderer>();
+            if (meshRenderer != null)
+            {
+                meshRenderer.enabled = sprite == null;
+            }
         }
 
         public void SendPlayerMessage(string text)

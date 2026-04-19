@@ -336,6 +336,13 @@ namespace LLMValley.Editor
             collider.isTrigger = true;
             collider.size = new Vector3(4f, 3f, 4f);
 
+            var visual = EnsureChild(npc, "Visual");
+            visual.transform.localPosition = new Vector3(0f, 0.25f, 0f);
+            visual.transform.localRotation = Quaternion.identity;
+            visual.transform.localScale = Vector3.one;
+            var spriteRenderer = EnsureComponent<SpriteRenderer>(visual);
+            spriteRenderer.sortingOrder = 10;
+
             var agent = EnsureComponent<NPCChatAgent>(npc);
             var serializedAgent = new SerializedObject(agent);
             serializedAgent.FindProperty("apiKey").stringValue = string.Empty;
@@ -345,8 +352,13 @@ namespace LLMValley.Editor
             serializedAgent.FindProperty("conversationSaveId").stringValue = "sample-blacksmith";
             serializedAgent.FindProperty("interactionRadius").floatValue = 4f;
             serializedAgent.FindProperty("interactionOrigin").objectReferenceValue = npc.transform;
+            serializedAgent.FindProperty("worldSpriteRenderer").objectReferenceValue = spriteRenderer;
+            serializedAgent.FindProperty("worldSpriteSortingOrder").intValue = 10;
+            serializedAgent.FindProperty("hideMeshRendererWhenUsingSprite").boolValue = true;
             serializedAgent.FindProperty("interactionTrigger").objectReferenceValue = collider;
             serializedAgent.ApplyModifiedPropertiesWithoutUndo();
+
+            agent.RefreshVisualFromPersona();
         }
 
         private static GameObject EnsureChild(GameObject parent, string childName)

@@ -11,11 +11,13 @@ namespace LLMValley.NPCChat
             "You are a helpful NPC. Stay in character and answer briefly.";
         [SerializeField, TextArea(2, 6)] private string openingLine = string.Empty;
         [SerializeField] private Sprite portrait;
+        [SerializeField] private Sprite worldSprite;
 
         public string NpcId => npcId;
         public string DisplayName => string.IsNullOrWhiteSpace(displayName) ? name : displayName;
         public string SystemPrompt => systemPrompt;
         public string OpeningLine => openingLine;
         public Sprite Portrait => portrait;
+        public Sprite WorldSprite => worldSprite;
     }
 }
