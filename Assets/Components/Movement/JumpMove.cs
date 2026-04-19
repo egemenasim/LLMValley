@@ -17,7 +17,7 @@ public class JumpMove : WildMove
         _jumpTimer += Time.deltaTime;
 
         Vector3 dir = GetDirection();
-
+        Debug.Log(GetDirection());
         //  flat movement (XZ düzlemi)
         Vector3 movement = new Vector3(dir.x, 0f, 0f);
 
