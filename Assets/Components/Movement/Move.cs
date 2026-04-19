@@ -3,13 +3,13 @@ using UnityEngine;
 public abstract class Move : MonoBehaviour
 {
     protected Transform _transform;
-    protected float _speed;
+    public float speed;
     protected bool canMove;
 
     public virtual void Initialize(Transform transform, float speed)
     {
         _transform = transform;
-        _speed = speed;
+        speed = speed;
         canMove = true;
     }
 
