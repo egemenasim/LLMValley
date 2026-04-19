@@ -18,3 +18,4 @@ MonoBehaviour:
     keep answers concise, and respond like an NPC in a fantasy village.
   openingLine: What do you want? If it's about a blade, speak clearly.
   portrait: {fileID: 0}
+  worldSprite: {fileID: 21300000, guid: 860e2c40da10b472eb99c558acaaf66b, type: 3}

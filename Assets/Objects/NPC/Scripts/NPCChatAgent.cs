@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,6 +9,8 @@ namespace LLMValley.NPCChat
     [RequireComponent(typeof(Collider))]
     public class NPCChatAgent : MonoBehaviour
     {
+        private const string PlayerTag = "Player";
+
         [Header("OpenRouter")]
         [SerializeField] private string apiKey;
         [SerializeField] private string selectedModelId = "openai/gpt-oss-20b:free";
@@ -22,6 +25,9 @@ namespace LLMValley.NPCChat
         [SerializeField] private SpriteRenderer worldSpriteRenderer;
         [SerializeField] private int worldSpriteSortingOrder = 10;
         [SerializeField] private bool hideMeshRendererWhenUsingSprite = true;
+        [SerializeField] private GameObject interactionPrompt;
+        [SerializeField] private TMP_Text interactionPromptLabel;
+        [SerializeField] private string interactionPromptText = "Press \"E\" to interact";
 
         [Header("Detection")]
         [SerializeField] private Collider interactionTrigger;
@@ -48,6 +54,8 @@ namespace LLMValley.NPCChat
             }
 
             RefreshVisualFromPersona();
+            RefreshPromptReferences();
+            UpdateInteractionPrompt(false);
         }
 
         private void OnValidate()
@@ -61,16 +69,23 @@ namespace LLMValley.NPCChat
             }
 
             RefreshVisualFromPersona();
+            RefreshPromptReferences();
+            ApplyInteractionPromptText();
         }
 
         private void Update()
         {
-            if (NPCChatUIManager.FindExisting()?.IsOpen == true)
+            var uiIsOpen = NPCChatUIManager.FindExisting()?.IsOpen == true;
+            if (uiIsOpen)
             {
+                UpdateInteractionPrompt(false);
                 return;
             }
 
-            if (!IsPlayerInRange())
+            var isPlayerInRange = IsPlayerInRange();
+            UpdateInteractionPrompt(isPlayerInRange);
+
+            if (!isPlayerInRange)
             {
                 return;
             }
@@ -87,6 +102,7 @@ namespace LLMValley.NPCChat
             {
                 nearbyPlayer = other.transform;
                 CacheInteractionAction(other);
+                UpdateInteractionPrompt(IsPlayerInRange());
             }
         }
 
@@ -96,6 +112,7 @@ namespace LLMValley.NPCChat
             {
                 nearbyPlayer = null;
                 interactionAction = null;
+                UpdateInteractionPrompt(false);
             }
         }
 
@@ -125,12 +142,14 @@ namespace LLMValley.NPCChat
             LogDebug(
                 $"Conversation opened.\nNPC: {PersonaDisplayName}\nModel: {selectedModelId}\nSaved messages: {conversation.messages.Count}\nSave file: {NPCConversationStore.GetPath(ResolveConversationSaveId())}");
 
+            UpdateInteractionPrompt(false);
             uiManager.OpenConversation(this);
         }
 
         public void EndConversation()
         {
             requestInFlight = false;
+            UpdateInteractionPrompt(IsPlayerInRange());
         }
 
         public bool ClearConversationHistory()
@@ -176,6 +195,25 @@ namespace LLMValley.NPCChat
             {
                 meshRenderer.enabled = sprite == null;
             }
+        }
+
+        public void RefreshPromptReferences()
+        {
+            if (interactionPrompt == null)
+            {
+                var promptTransform = transform.Find("Interaction Prompt");
+                if (promptTransform != null)
+                {
+                    interactionPrompt = promptTransform.gameObject;
+                }
+            }
+
+            if (interactionPromptLabel == null && interactionPrompt != null)
+            {
+                interactionPromptLabel = interactionPrompt.GetComponentInChildren<TMP_Text>(true);
+            }
+
+            ApplyInteractionPromptText();
         }
 
         public void SendPlayerMessage(string text)
@@ -281,11 +319,11 @@ namespace LLMValley.NPCChat
 
         private Transform FindPlayerTransform()
         {
-            var playerInput = FindFirstObjectByType<PlayerInput>();
-            if (playerInput != null)
+            var playerObject = GameObject.FindGameObjectWithTag(PlayerTag);
+            if (playerObject != null)
             {
-                CacheInteractionAction(playerInput.gameObject.GetComponent<Collider>());
-                return playerInput.transform;
+                CacheInteractionAction(playerObject.GetComponent<Collider>());
+                return playerObject.transform;
             }
 
             return null;
@@ -293,7 +331,7 @@ namespace LLMValley.NPCChat
 
         private bool IsPlayerCollider(Collider other)
         {
-            return other != null && other.GetComponentInParent<PlayerInput>() != null;
+            return other != null && other.CompareTag(PlayerTag);
         }
 
         private void CacheInteractionAction(Collider sourceCollider)
@@ -310,6 +348,25 @@ namespace LLMValley.NPCChat
             }
 
             interactionAction = playerInput.actions.FindAction("Interact", throwIfNotFound: false);
+        }
+
+        private void UpdateInteractionPrompt(bool shouldShow)
+        {
+            if (interactionPrompt == null)
+            {
+                return;
+            }
+
+            interactionPrompt.SetActive(shouldShow);
+            ApplyInteractionPromptText();
+        }
+
+        private void ApplyInteractionPromptText()
+        {
+            if (interactionPromptLabel != null)
+            {
+                interactionPromptLabel.text = interactionPromptText;
+            }
         }
 
         private string ResolveConversationSaveId()
