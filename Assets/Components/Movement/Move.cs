@@ -6,10 +6,10 @@ public abstract class Move : MonoBehaviour
     public float speed;
     protected bool canMove;
 
-    public virtual void Initialize(Transform transform, float speed)
+    public virtual void Initialize(Transform transform, float speedGet)
     {
         _transform = transform;
-        speed = speed;
+        speed = speedGet;
         canMove = true;
     }
 

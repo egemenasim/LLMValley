@@ -3,13 +3,12 @@ using UnityEngine;
 public abstract class WildMove : Move
 {
     protected Vector3 _currentDirection;
-    protected float _changeInterval = 2f;
     protected float _timer;
-    
+    protected float _changeInterval = 0.5f; // daha sık değişim
 
     void Start()
     {
-        Initialize(transform, speed);
+        Initialize(transform, 5f);
         SetNewDirection();
     }
 
@@ -40,13 +39,8 @@ public abstract class WildMove : Move
         _timer = 0f;
     }
 
-    // dış dünyaya direction vermek için
     public Vector3 GetDirection()
     {
         return _currentDirection;
-    }
-
-    public float GetChangeInterval(){
-        return _changeInterval;
     }
 }
