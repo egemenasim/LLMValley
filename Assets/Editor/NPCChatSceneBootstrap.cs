@@ -156,6 +156,7 @@ namespace LLMValley.Editor
             var body = EnsureChild(panel, "Body");
             EnsureComponent<LayoutElement>(body).flexibleHeight = 1f;
             EnsureComponent<Image>(body).color = new Color(0.93f, 0.93f, 0.94f, 1f);
+            EnsureComponent<RectMask2D>(body);
 
             var scrollRect = EnsureComponent<ScrollRect>(body);
             scrollRect.horizontal = false;
@@ -207,6 +208,8 @@ namespace LLMValley.Editor
 
             var textArea = EnsureChild(inputObject, "Text Area");
             Stretch(textArea.GetComponent<RectTransform>());
+            textArea.GetComponent<RectTransform>().offsetMin = new Vector2(18f, 10f);
+            textArea.GetComponent<RectTransform>().offsetMax = new Vector2(-18f, -10f);
             var placeholder = CreateLabel(
                 textArea,
                 "Placeholder",
@@ -217,6 +220,12 @@ namespace LLMValley.Editor
             placeholder.color = new Color(0.44f, 0.47f, 0.55f, 0.8f);
             var inputText = CreateLabel(textArea, "Text", string.Empty, 20f, FontStyles.Normal, TextAlignmentOptions.Left);
             inputText.color = new Color(0.14f, 0.16f, 0.20f, 1f);
+            Stretch(placeholder.rectTransform);
+            Stretch(inputText.rectTransform);
+            placeholder.margin = Vector4.zero;
+            inputText.margin = Vector4.zero;
+            inputText.richText = false;
+            placeholder.richText = false;
 
             var serializedInput = new SerializedObject(inputField);
             serializedInput.FindProperty("m_TextViewport").objectReferenceValue = textArea.GetComponent<RectTransform>();
