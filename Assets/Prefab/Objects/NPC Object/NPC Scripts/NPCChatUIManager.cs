@@ -241,6 +241,10 @@ namespace LLMValley.NPCChat
         private void ScrollToBottom()
         {
             Canvas.ForceUpdateCanvases();
+            if (messageContainer is RectTransform rectTransform)
+            {
+                LayoutRebuilder.ForceRebuildLayoutImmediate(rectTransform);
+            }
             if (historyScrollRect != null)
             {
                 historyScrollRect.verticalNormalizedPosition = 0f;
