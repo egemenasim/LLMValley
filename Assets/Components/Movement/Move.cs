@@ -13,9 +13,10 @@ public abstract class Move : MonoBehaviour
         canMove = true;
     }
 
-    public virtual bool CanMove()
+public virtual bool CanMove()
     {
-        return canMove;
+        // Also blocked when any dialog/UI has locked player input globally.
+        return canMove && !PlayerInputLock.IsLocked;
     }
 
     public virtual void SetMoveState(bool state)

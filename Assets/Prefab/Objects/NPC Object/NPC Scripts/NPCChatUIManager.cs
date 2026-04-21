@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 namespace LLMValley.NPCChat
 {
-    public class NPCChatUIManager : MonoBehaviour
+    public class NPCChatUIManager : MonoBehaviour, IDialog
     {
         [SerializeField] private GameObject panelRoot;
         [SerializeField] private TMP_Text titleLabel;
@@ -21,7 +21,6 @@ namespace LLMValley.NPCChat
         [SerializeField] private Button sendButton;
         [SerializeField] private Button closeButton;
         [SerializeField] private GameObject loadingIndicator;
-        [SerializeField] private NPCChatInputLocker inputLocker;
 
         private readonly List<GameObject> activeMessageObjects = new();
         private NPCChatAgent currentAgent;
@@ -57,6 +56,9 @@ namespace LLMValley.NPCChat
             }
         }
 
+        // IDialog — CloseDialog is called by DialogInputManager when Escape is pressed.
+        public void CloseDialog() => CloseConversation();
+
         private void Update()
         {
             if (!IsOpen)
@@ -64,12 +66,7 @@ namespace LLMValley.NPCChat
                 return;
             }
 
-            if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
-            {
-                CloseConversation();
-                return;
-            }
-
+            // Enter to send (Escape is handled globally by DialogInputManager).
             if (Keyboard.current != null &&
                 Keyboard.current.enterKey.wasPressedThisFrame &&
                 !Keyboard.current.leftShiftKey.isPressed &&
@@ -106,8 +103,9 @@ namespace LLMValley.NPCChat
                 portraitImage.enabled = agent.PersonaPortrait != null;
             }
 
-            inputLocker ??= FindFirstObjectByType<NPCChatInputLocker>(FindObjectsInactive.Include);
-            inputLocker?.LockForChat();
+            // Lock player movement globally while the chat is open.
+            PlayerInputLock.Lock();
+            DialogInputManager.Register(this);
 
             RenderHistory(agent.CurrentConversation.messages);
             SetLoading(false, "Talk to the NPC.");
@@ -202,7 +200,8 @@ namespace LLMValley.NPCChat
             SetLoading(false, string.Empty);
             panelRoot.SetActive(false);
             ClearMessages();
-            inputLocker?.UnlockAfterChat();
+            DialogInputManager.Unregister(this);
+            PlayerInputLock.Unlock();
             agent?.EndConversation();
         }
 

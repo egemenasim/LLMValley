@@ -20,6 +20,16 @@ public class WildMove : Move
         MoveCharacter();
     }
 
+    /// <summary>
+    /// Wild creatures intentionally ignore the global dialog input lock.
+    /// The simulation (animals, NPCs wandering) keeps running while the
+    /// player is in a dialog — only player-controlled movement is blocked.
+    /// </summary>
+    public override bool CanMove()
+    {
+        return canMove;
+    }
+
     public override void Tick()
     {
         _timer += Time.deltaTime;

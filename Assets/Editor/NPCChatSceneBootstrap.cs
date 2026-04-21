@@ -26,17 +26,16 @@ namespace LLMValley.Editor
             var persona = EnsurePersonaAsset();
 
             var systems = GameObject.Find("NPC Chat Systems") ?? new GameObject("NPC Chat Systems");
-            var inputLocker = EnsureComponent<NPCChatInputLocker>(systems);
+            EnsureComponent<DialogInputManager>(systems);
             var uiManager = EnsureComponent<NPCChatUIManager>(systems);
             EnsureComponent<NPCOpenRouterClient>(systems);
 
             EnsureEventSystem();
             var canvas = EnsureCanvas();
             var uiRefs = BuildChatPanel(canvas.gameObject);
-            AssignUIManager(uiManager, inputLocker, uiRefs);
+            AssignUIManager(uiManager, uiRefs);
 
-            var playerInput = EnsureSamplePlayer();
-            AssignInputLocker(inputLocker, playerInput);
+            EnsureSamplePlayer();
             EnsureSampleNpc(persona);
 
             EditorSceneManager.MarkSceneDirty(scene);
@@ -283,7 +282,6 @@ namespace LLMValley.Editor
 
         private static void AssignUIManager(
             NPCChatUIManager uiManager,
-            NPCChatInputLocker inputLocker,
             NPCChatUIRefs refs)
         {
             var serializedUI = new SerializedObject(uiManager);
@@ -299,7 +297,6 @@ namespace LLMValley.Editor
             serializedUI.FindProperty("sendButton").objectReferenceValue = refs.SendButton;
             serializedUI.FindProperty("closeButton").objectReferenceValue = refs.CloseButton;
             serializedUI.FindProperty("loadingIndicator").objectReferenceValue = refs.LoadingIndicator;
-            serializedUI.FindProperty("inputLocker").objectReferenceValue = inputLocker;
             serializedUI.ApplyModifiedPropertiesWithoutUndo();
         }
 
@@ -319,13 +316,6 @@ namespace LLMValley.Editor
             playerInput.notificationBehavior = PlayerNotifications.InvokeUnityEvents;
 
             return playerInput;
-        }
-
-        private static void AssignInputLocker(NPCChatInputLocker inputLocker, PlayerInput playerInput)
-        {
-            var serializedLocker = new SerializedObject(inputLocker);
-            serializedLocker.FindProperty("playerInput").objectReferenceValue = playerInput;
-            serializedLocker.ApplyModifiedPropertiesWithoutUndo();
         }
 
         private static void EnsureSampleNpc(NPCPersona persona)
