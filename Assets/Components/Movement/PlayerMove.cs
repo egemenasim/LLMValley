@@ -22,7 +22,7 @@ public class PlayerMove : Move
         {
             if (_animationManager != null)
             {
-                _animationManager.UpdateDirectionFromVelocity(Vector2.zero);
+                _animationManager.SetMovement(Vector2.zero);
             }
             return;
         }
@@ -36,9 +36,7 @@ public class PlayerMove : Move
 
         if (_animationManager != null)
         {
-            // Hareket vektörünü animasyon yöneticisine gönderiyoruz
-            _animationManager.UpdateDirectionFromVelocity(new Vector2(direction.x, direction.y));
+            _animationManager.SetMovement(new Vector2(direction.x, direction.y));
         }
     }
 }
-
