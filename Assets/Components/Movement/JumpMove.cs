@@ -30,10 +30,10 @@ public class JumpMove : WildMove
 
         Vector3 dir = GetDirection();
 
-        // 🔹 sadece horizontal movement
+        //  sadece horizontal movement
         _basePosition += dir * speed * Time.deltaTime;
 
-        // 🔹 jump sadece offset
+        //  jump sadece offset
         float t = _jumpTimer / jumpDuration;
         float jumpOffset = jumpCurve.Evaluate(t);
 

@@ -129,8 +129,8 @@ GameObject:
   m_Component:
   - component: {fileID: 503431837}
   - component: {fileID: 503431836}
-  - component: {fileID: 503431835}
   - component: {fileID: 503431838}
+  - component: {fileID: 503431839}
   m_Layer: 0
   m_Name: Animal
   m_TagString: Untagged
@@ -138,19 +138,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &503431835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 503431834}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 409dc863142365f428b8849bd3f661eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WalkMove
-  speed: 0
 --- !u!212 &503431836
 SpriteRenderer:
   serializedVersion: 2
@@ -232,18 +219,63 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 503431834}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef3dce6dafa1a4247b05599531e4bce6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::JumpMove
   speed: 10
+  changeInterval: 1.5
+  turnSpeed: 3
   jumpCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.47425407
+      value: 0.81045735
+      inSlope: 0.06541936
+      outSlope: 0.06541936
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.8571086
+      value: 0.0007159114
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  jumpDuration: 1
+--- !u!114 &503431839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503431834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6f1e207f05645343a365d5d3299a859, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WildMove
+  speed: 0
+  changeInterval: 1.5
+  turnSpeed: 3
 --- !u!1 &1229851721
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,6 +287,8 @@ GameObject:
   - component: {fileID: 1229851724}
   - component: {fileID: 1229851723}
   - component: {fileID: 1229851722}
+  - component: {fileID: 1229851725}
+  - component: {fileID: 1229851726}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -324,7 +358,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: -356806162271949364, guid: 2ecad8141a12fac42ac3adc6066fd13f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -349,6 +383,45 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1229851725
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229851721}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 54d317b665c0a6c45941639f9c311833, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1229851726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229851721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59be5b2af38b7b34ba4febcf27ee3d96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LLMValley.Components.Animation.PlayerAnimationManager
+  walkUpAnim: MainRunUp
+  walkDownAnim: MainRunDown
+  walkLeftAnim: MainRunLeft
+  walkRightAnim: MainRunRight
+  idleAnim: MainIdle
 --- !u!1 &1400754319
 GameObject:
   m_ObjectHideFlags: 0
