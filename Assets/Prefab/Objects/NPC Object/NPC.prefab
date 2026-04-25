@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LLMValley.NPCChat.NPCChatAgent
   apiKey: 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
-  selectedModelId: openai/gpt-oss-120b:free
+  selectedModelId: minimax/minimax-m2.5:free
   allowFreeModelsOnly: 1
   enableConsoleDebug: 1
   persona: {fileID: 0}
