@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LLMValley.Items.ItemData
   itemName: Cabbage
   description: A dense, leafy cabbage head.
-  icon: {fileID: 0}
+  icon: {fileID: -356806162271949364, guid: 2ecad8141a12fac42ac3adc6066fd13f, type: 3}
   itemID: 2009
   itemType: 1
   baseValue: 28
