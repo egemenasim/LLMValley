@@ -5,18 +5,18 @@ using LLMValley.Items;
 namespace LLMValley.Items
 {
     /// <summary>
-    /// A world-space item that floats in place and is picked up when the Player
-    /// enters its trigger collider.
+    /// A world-space item that is picked up when the Player enters its trigger.
     ///
-    /// Dependencies:
-    ///   • Requires a <see cref="SpriteRenderer"/> on the same GameObject.
-    ///   • Requires a trigger <see cref="Collider2D"/> on the same GameObject.
-    ///   • The Player GameObject must have the tag "Player" and implement
-    ///     <see cref="IItemCollector"/> to receive the pickup callback.
-    ///     If no collector is found the item is still destroyed (silent pickup).
+    /// Works with:
+    ///   • 2D physics  (OnTriggerEnter2D — Collider2D + Rigidbody2D on player)
+    ///   • 3D physics  (OnTriggerEnter   — Collider   + Rigidbody  on player)
+    ///   • Direct transform movement (distance check in Update — no physics needed)
+    ///
+    /// Requirements:
+    ///   • Player GameObject must be tagged "Player"
+    ///   • Player must have PlayerInventory (IItemCollector) to receive the item
     /// </summary>
     [RequireComponent(typeof(SpriteRenderer))]
-    [RequireComponent(typeof(Collider2D))]
     public class CollectibleItem : MonoBehaviour
     {
         // ── Inspector ─────────────────────────────────────────────────────────────
@@ -40,32 +40,63 @@ namespace LLMValley.Items
         [Tooltip("Seconds for one full bob cycle.")]
         public float bobCycle = 1f;
 
+        [Header("Pickup")]
+        [Tooltip("Fallback collection radius used when trigger events don't fire " +
+                 "(e.g. direct transform movement without Rigidbody).")]
+        public float pickupRadius = 0.6f;
+
         // ── Private ───────────────────────────────────────────────────────────────
 
         private SpriteRenderer _spriteRenderer;
         private Vector3        _originPosition;
         private bool           _collected;
+        private Transform      _playerTransform;   // cached for the proximity check
 
         // ── Unity lifecycle ───────────────────────────────────────────────────────
 
         private void Awake()
         {
-            _spriteRenderer  = GetComponent<SpriteRenderer>();
-            _originPosition  = transform.position;
-
+            _spriteRenderer = GetComponent<SpriteRenderer>();
+            _originPosition = transform.position;
             ApplyIcon();
         }
 
         private void Start()
         {
             StartCoroutine(BobRoutine());
+
+            // Cache the player transform once so Update doesn't call
+            // FindGameObjectWithTag every frame.
+            var player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null)
+                _playerTransform = player.transform;
         }
+
+        private void Update()
+        {
+            // Proximity fallback — works even when trigger events don't fire
+            // because the player moves via direct transform assignment.
+            if (_collected || _playerTransform == null) return;
+
+            if (Vector3.Distance(transform.position, _playerTransform.position) <= pickupRadius)
+                Collect(_playerTransform.gameObject);
+        }
+
+        // ── Trigger detection (2D) ────────────────────────────────────────────────
 
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (_collected) return;
             if (!other.CompareTag("Player")) return;
+            Collect(other.gameObject);
+        }
 
+        // ── Trigger detection (3D) ────────────────────────────────────────────────
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (_collected) return;
+            if (!other.CompareTag("Player")) return;
             Collect(other.gameObject);
         }
 
