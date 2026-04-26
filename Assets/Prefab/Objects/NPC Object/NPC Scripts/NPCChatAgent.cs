@@ -63,6 +63,11 @@ namespace LLMValley.NPCChat
             interactionOrigin ??= transform;
             interactionTrigger ??= GetComponent<Collider>();
 
+            if (persona != null && !string.IsNullOrWhiteSpace(persona.NpcId))
+            {
+                conversationSaveId = persona.NpcId;
+            }
+
             if (worldSpriteRenderer == null)
             {
                 worldSpriteRenderer = GetComponentInChildren<SpriteRenderer>();
@@ -371,14 +376,14 @@ namespace LLMValley.NPCChat
 
         private string ResolveConversationSaveId()
         {
-            if (!string.IsNullOrWhiteSpace(conversationSaveId))
-            {
-                return conversationSaveId;
-            }
-
             if (persona != null && !string.IsNullOrWhiteSpace(persona.NpcId))
             {
                 return persona.NpcId;
+            }
+
+            if (!string.IsNullOrWhiteSpace(conversationSaveId))
+            {
+                return conversationSaveId;
             }
 
             return gameObject.name;
