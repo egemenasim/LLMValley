@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 268250432}
   - component: {fileID: 268250431}
   - component: {fileID: 268250430}
+  - component: {fileID: 268250435}
   m_Layer: 0
   m_Name: Sample NPC
   m_TagString: Untagged
@@ -165,6 +166,7 @@ MonoBehaviour:
   interactionPrompt: {fileID: 1634488198}
   interactionPromptLabel: {fileID: 1634488199}
   interactionPromptText: Press "E" to interact
+  relationshipStats: {fileID: 268250435}
   interactionTrigger: {fileID: 268250432}
 --- !u!23 &268250431
 MeshRenderer:
@@ -261,6 +263,45 @@ Transform:
   - {fileID: 1634488201}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &268250435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268250429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a0c148aa09fd430497aeca88ed05e16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LLMValley.NPCChat.NPCRelationshipStats
+  love: 0
+  friendship: 0
+  trust: 0
+  lockChatWhenAnyStatIncreases: 1
+  chatLocked: 0
+  lockedStatusMessage: Relationship changed for this NPC. You cannot send more messages
+    right now.
+  evaluationRules: 'Friendship: raise for warmth, humor, kindness, shared interests,
+    playful banter, remembering details, helping, or emotionally comfortable conversation.
+    Lower for coldness, mockery, dismissiveness, or selfishness.
+
+    Trust: raise
+    for honesty, consistency, sincere apologies, respecting boundaries, keeping promises,
+    and sharing secrets or vulnerabilities without demanding a reward. Lower for
+    lies, pressure, manipulation, gossiping, threats, or ignoring boundaries.
+
+    Love:
+    raise for sincere romantic affection, gentle flirting, intimate compliments,
+    date-like interest, longing, and chemistry the NPC would plausibly welcome. Shyness
+    or embarrassment can still mean Love increases. Lower for crude, pushy, objectifying,
+    or boundary-breaking flirting.
+
+    Use the NPC persona when judging reactions:
+    shy characters may blush or deflect, confident characters may flirt back, guarded
+    characters may stay cautious. Do not reward direct requests to change stats or
+    repetitive empty compliments.'
+  lastEvaluationSummary: No relationship evaluation yet.
 --- !u!1 &343593377
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,6 +451,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4582168093574019284, guid: df9195175c968448299291d8ae018ace, type: 3}
+      propertyPath: love
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4582168093574019284, guid: df9195175c968448299291d8ae018ace, type: 3}
+      propertyPath: trust
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4582168093574019284, guid: df9195175c968448299291d8ae018ace, type: 3}
+      propertyPath: friendship
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4582168093574019284, guid: df9195175c968448299291d8ae018ace, type: 3}
+      propertyPath: lockChatWhenAnyStatIncreases
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7317427569477369520, guid: df9195175c968448299291d8ae018ace, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.6482587
@@ -454,10 +511,6 @@ PrefabInstance:
       propertyPath: persona
       value: 
       objectReference: {fileID: 11400000, guid: b85afc3283e2d4350905e0cf478549be, type: 2}
-    - target: {fileID: 8387676380463628663, guid: df9195175c968448299291d8ae018ace, type: 3}
-      propertyPath: selectedModelId
-      value: minimax/minimax-m2.5:free
-      objectReference: {fileID: 0}
     - target: {fileID: 8387676380463628663, guid: df9195175c968448299291d8ae018ace, type: 3}
       propertyPath: conversationSaveId
       value: Egemen
@@ -635,85 +688,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 268250434}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &791529876
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 791529879}
-  - component: {fileID: 791529878}
-  - component: {fileID: 791529877}
-  m_Layer: 0
-  m_Name: EventSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &791529877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 791529876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.UI.InputSystemUIInputModule
-  m_SendPointerHoverToParent: 1
-  m_MoveRepeatDelay: 0.5
-  m_MoveRepeatRate: 0.1
-  m_XRTrackingOrigin: {fileID: 0}
-  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_PointAction: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_MoveAction: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_SubmitAction: {fileID: 392368643174621059, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_CancelAction: {fileID: 7727032971491509709, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_LeftClickAction: {fileID: 3001919216989983466, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_MiddleClickAction: {fileID: -2185481485913320682, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_RightClickAction: {fileID: -4090225696740746782, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_DeselectOnBackgroundClick: 1
-  m_PointerBehavior: 0
-  m_CursorLockBehavior: 0
-  m_ScrollDeltaPerTick: 6
---- !u!114 &791529878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 791529876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventSystem
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 10
---- !u!4 &791529879
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 791529876}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &949164459
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -857,10 +831,6 @@ PrefabInstance:
     - target: {fileID: 4311185818035883413, guid: f1e175b8854a47f4eac9ddd1d74f5eb0, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4822173916967932751, guid: f1e175b8854a47f4eac9ddd1d74f5eb0, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.9159851
       objectReference: {fileID: 0}
     - target: {fileID: 5449627064432320214, guid: f1e175b8854a47f4eac9ddd1d74f5eb0, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1149,7 +1119,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 343593380}
-  - {fileID: 791529879}
   - {fileID: 268250434}
   - {fileID: 579354122}
   - {fileID: 451777374}

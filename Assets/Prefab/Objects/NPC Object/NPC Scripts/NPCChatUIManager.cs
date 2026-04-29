@@ -108,13 +108,16 @@ namespace LLMValley.NPCChat
             DialogInputManager.Register(this);
 
             RenderHistory(agent.CurrentConversation.messages);
-            SetLoading(false, "Talk to the NPC.");
+            SetLoading(false, agent.ChatAvailabilityMessage);
 
             if (inputField != null)
             {
                 inputField.text = string.Empty;
-                EventSystem.current?.SetSelectedGameObject(inputField.gameObject);
-                inputField.ActivateInputField();
+                if (agent.CanSendMessages)
+                {
+                    EventSystem.current?.SetSelectedGameObject(inputField.gameObject);
+                    inputField.ActivateInputField();
+                }
             }
         }
 
@@ -159,6 +162,7 @@ namespace LLMValley.NPCChat
         public void SetLoading(bool loading, string status = null)
         {
             isSending = loading;
+            var canSendMessages = currentAgent == null || currentAgent.CanSendMessages;
 
             if (loadingIndicator != null)
             {
@@ -167,12 +171,12 @@ namespace LLMValley.NPCChat
 
             if (sendButton != null)
             {
-                sendButton.interactable = !loading;
+                sendButton.interactable = !loading && canSendMessages;
             }
 
             if (inputField != null)
             {
-                inputField.interactable = !loading;
+                inputField.interactable = !loading && canSendMessages;
             }
 
             if (statusLabel != null)
