@@ -28,6 +28,13 @@ namespace LLMValley.NPCChat
         public string conversationSaveId;
         public string modelId;
         public List<NPCChatMessage> messages = new();
+        public string miniChatHistory;
+        public int lastEvaluatedUserMessageCount;
+        public int love;
+        public int friendship;
+        public int trust;
+        public bool chatLocked;
+        public string lastEvaluationSummary;
     }
 
     [Serializable]
@@ -35,5 +42,16 @@ namespace LLMValley.NPCChat
     {
         public string Id;
         public string Name;
+    }
+
+    [Serializable]
+    public class NPCRelationshipEvaluation
+    {
+        public int loveDelta;
+        public int friendshipDelta;
+        public int trustDelta;
+        public bool lockChat;
+        public string reason;
+        public string summary;
     }
 }

@@ -35,6 +35,9 @@ namespace LLMValley.NPCChat
                     : data.conversationSaveId;
                 data.modelId = string.IsNullOrWhiteSpace(data.modelId) ? modelId : data.modelId;
                 data.messages ??= new System.Collections.Generic.List<NPCChatMessage>();
+                data.lastEvaluationSummary = string.IsNullOrWhiteSpace(data.lastEvaluationSummary)
+                    ? "No relationship evaluation yet."
+                    : data.lastEvaluationSummary;
                 return data;
             }
             catch (Exception exception)
