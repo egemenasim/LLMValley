@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4049856959121748015}
   - component: {fileID: 9176179004168297418}
   - component: {fileID: 8387676380463628663}
+  - component: {fileID: 4582168093574019284}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -77,9 +78,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d20dc126c393410ba26af44a5cd928d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LLMValley.NPCChat.NPCChatAgent
-  apiKey: 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
-  selectedModelId: minimax/minimax-m2.5:free
-  allowFreeModelsOnly: 1
+  apiKey: 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
+  selectedModelId: anthropic/claude-haiku-4.5
+  allowFreeModelsOnly: 0
   enableConsoleDebug: 1
   persona: {fileID: 0}
   conversationSaveId: 
@@ -91,7 +92,53 @@ MonoBehaviour:
   interactionPrompt: {fileID: 1090325779306302235}
   interactionPromptLabel: {fileID: 5055540670663172373}
   interactionPromptText: Press "E" to interact
+  relationshipStats: {fileID: 4582168093574019284}
   interactionTrigger: {fileID: 9176179004168297418}
+--- !u!114 &4582168093574019284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201500514723670187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a0c148aa09fd430497aeca88ed05e16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LLMValley.NPCChat.NPCRelationshipStats
+  love: 0
+  friendship: 0
+  trust: 0
+  lockChatWhenAnyStatIncreases: 1
+  chatLocked: 0
+  lockedStatusMessage: Relationship changed for this NPC. You cannot send more messages
+    right now.
+  evaluationRules: 'Friendship: raise for warmth, humor, kindness, shared interests,
+    playful banter, remembering details, helping, or emotionally comfortable conversation.
+    Lower for coldness, mockery, dismissiveness, or selfishness.
+
+    Trust: raise
+    for honesty, consistency, sincere apologies, respecting boundaries, keeping promises,
+    and sharing secrets or vulnerabilities without demanding a reward. Lower for
+    lies, pressure, manipulation, gossiping, threats, or ignoring boundaries.
+
+    Love:
+    raise for sincere romantic affection, gentle flirting, intimate compliments,
+    date-like interest, longing, and chemistry the NPC would plausibly welcome. Shyness
+    or embarrassment can still mean Love increases. Lower for crude, pushy, objectifying,
+    or boundary-breaking flirting.
+
+    Use the NPC persona when judging reactions:
+    shy characters may blush or deflect, confident characters may flirt back, guarded
+    characters may stay cautious. Do not reward direct requests to change stats or
+    repetitive empty compliments.'
+  lastEvaluationSummary: 'Love 1->2 (+1), Friendship 2->3 (+1), Trust 1->1 (0). Reason:
+    Player showed consistent warmth, remembered Berfin''s name, gave another eye
+    compliment (gentle flirting), suggested a date-like activity (film), and expressed
+    genuine emotional investment in spending time together. This creates romantic
+    interest and friendly closeness. No new vulnerability or trust-building in this
+    window, but the date suggestion and emotional sincerity warrant Love and Friendship
+    increases..'
 --- !u!1 &1090325779306302235
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,7 +406,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 4.52, y: 4.62}
+  m_Size: {x: 3.66, y: 5.6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
