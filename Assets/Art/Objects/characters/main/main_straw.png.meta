@@ -1,0 +1,3393 @@
+fileFormatVersion: 2
+guid: 30fa989e94268a5429c560c67e5a7149
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4542534228768234930
+    second: main_straw_0
+  - first:
+      213: 8036650277782641970
+    second: main_straw_1
+  - first:
+      213: 4013453496462158113
+    second: main_straw_2
+  - first:
+      213: -3296505981478864580
+    second: main_straw_3
+  - first:
+      213: -8574103244026647844
+    second: main_straw_4
+  - first:
+      213: 6890496648633108264
+    second: main_straw_5
+  - first:
+      213: 2943625073683024201
+    second: main_straw_6
+  - first:
+      213: -3315105454018541154
+    second: main_straw_7
+  - first:
+      213: -953815023489157070
+    second: main_straw_8
+  - first:
+      213: 5099116292758062129
+    second: main_straw_9
+  - first:
+      213: -5456982324104676415
+    second: main_straw_10
+  - first:
+      213: -8699000417861775834
+    second: main_straw_11
+  - first:
+      213: -1174563598662356282
+    second: main_straw_12
+  - first:
+      213: 930880391150428086
+    second: main_straw_13
+  - first:
+      213: -1291367203338596306
+    second: main_straw_14
+  - first:
+      213: -6682241652941825589
+    second: main_straw_15
+  - first:
+      213: 3149185930610306607
+    second: main_straw_16
+  - first:
+      213: 3858641845386115717
+    second: main_straw_17
+  - first:
+      213: 2934576693806366108
+    second: main_straw_18
+  - first:
+      213: 5821421810270950693
+    second: main_straw_19
+  - first:
+      213: -8396721658144886552
+    second: main_straw_20
+  - first:
+      213: 8230522216613353079
+    second: main_straw_21
+  - first:
+      213: 4004780276620892915
+    second: main_straw_22
+  - first:
+      213: 4386974504275512921
+    second: main_straw_23
+  - first:
+      213: 5496472874414218547
+    second: main_straw_24
+  - first:
+      213: -349419629225092599
+    second: main_straw_25
+  - first:
+      213: -4353440742987905099
+    second: main_straw_26
+  - first:
+      213: 3922025861837250089
+    second: main_straw_27
+  - first:
+      213: 2723288526324131287
+    second: main_straw_28
+  - first:
+      213: -4999605020054071858
+    second: main_straw_29
+  - first:
+      213: -7051274780696817434
+    second: main_straw_30
+  - first:
+      213: -3679218587738389713
+    second: main_straw_31
+  - first:
+      213: 9017003312662953253
+    second: main_straw_32
+  - first:
+      213: -3527693344864426756
+    second: main_straw_33
+  - first:
+      213: 4247866564921097582
+    second: main_straw_34
+  - first:
+      213: -5205706907368132717
+    second: main_straw_35
+  - first:
+      213: 2689473100431956523
+    second: main_straw_36
+  - first:
+      213: -5507098575443488951
+    second: main_straw_37
+  - first:
+      213: 7411175951200748036
+    second: main_straw_38
+  - first:
+      213: 960133396316605971
+    second: main_straw_39
+  - first:
+      213: 7666116797799622186
+    second: main_straw_40
+  - first:
+      213: 895561504353536380
+    second: main_straw_41
+  - first:
+      213: 1425839359378314472
+    second: main_straw_42
+  - first:
+      213: -8131262463793824968
+    second: main_straw_43
+  - first:
+      213: -1954960941233156013
+    second: main_straw_44
+  - first:
+      213: -5184743700393028024
+    second: main_straw_45
+  - first:
+      213: 1363703482099228660
+    second: main_straw_46
+  - first:
+      213: -782689335720670446
+    second: main_straw_47
+  - first:
+      213: -4348158604028639648
+    second: main_straw_48
+  - first:
+      213: -5456582363897807625
+    second: main_straw_49
+  - first:
+      213: 8947396379668351805
+    second: main_straw_50
+  - first:
+      213: 5410696329665056309
+    second: main_straw_51
+  - first:
+      213: 3463862565474028220
+    second: main_straw_52
+  - first:
+      213: 8885628973109742077
+    second: main_straw_53
+  - first:
+      213: -3794566085498198540
+    second: main_straw_54
+  - first:
+      213: -5635288522083888975
+    second: main_straw_55
+  - first:
+      213: -7756523668014653114
+    second: main_straw_56
+  - first:
+      213: -3594305923320396436
+    second: main_straw_57
+  - first:
+      213: 5046614449200378705
+    second: main_straw_58
+  - first:
+      213: -7864407237681907285
+    second: main_straw_59
+  - first:
+      213: 3112549495940911890
+    second: main_straw_60
+  - first:
+      213: 3457961529814154738
+    second: main_straw_61
+  - first:
+      213: 7346113662565836035
+    second: main_straw_62
+  - first:
+      213: -1434565341094571413
+    second: main_straw_63
+  - first:
+      213: -3329471864541585900
+    second: main_straw_64
+  - first:
+      213: -5962913401884196827
+    second: main_straw_65
+  - first:
+      213: 7141912802764367571
+    second: main_straw_66
+  - first:
+      213: 7401766042308203987
+    second: main_straw_67
+  - first:
+      213: -7073456123579936832
+    second: main_straw_68
+  - first:
+      213: -6153951190398760863
+    second: main_straw_69
+  - first:
+      213: 5932577259374431083
+    second: main_straw_70
+  - first:
+      213: 1176636593078085853
+    second: main_straw_71
+  - first:
+      213: 3363278009644208650
+    second: main_straw_72
+  - first:
+      213: -8422386043858967808
+    second: main_straw_73
+  - first:
+      213: 3068510909685230817
+    second: main_straw_74
+  - first:
+      213: -8797050734688673628
+    second: main_straw_75
+  - first:
+      213: 989015575507447202
+    second: main_straw_76
+  - first:
+      213: 780667091203643190
+    second: main_straw_77
+  - first:
+      213: -7742639354314383618
+    second: main_straw_78
+  - first:
+      213: -8336335663347348471
+    second: main_straw_79
+  - first:
+      213: -7419215123030239909
+    second: main_straw_80
+  - first:
+      213: 82153400511716032
+    second: main_straw_81
+  - first:
+      213: 536538819760036957
+    second: main_straw_82
+  - first:
+      213: -6681590059521550387
+    second: main_straw_83
+  - first:
+      213: 5598255201053704159
+    second: main_straw_84
+  - first:
+      213: 3263324374294276773
+    second: main_straw_85
+  - first:
+      213: -2734910839253441326
+    second: main_straw_86
+  - first:
+      213: 4838921734515714701
+    second: main_straw_87
+  - first:
+      213: -1923833104429258693
+    second: main_straw_88
+  - first:
+      213: 4811443600366980829
+    second: main_straw_89
+  - first:
+      213: -7661797097057263000
+    second: main_straw_90
+  - first:
+      213: 475508835335993249
+    second: main_straw_91
+  - first:
+      213: 342198118133017996
+    second: main_straw_92
+  - first:
+      213: -726581648905822118
+    second: main_straw_93
+  - first:
+      213: -4211424501546284054
+    second: main_straw_94
+  - first:
+      213: 8439456326550989235
+    second: main_straw_95
+  - first:
+      213: -3111785913694975898
+    second: main_straw_96
+  - first:
+      213: 1806474214662477047
+    second: main_straw_97
+  - first:
+      213: 3962048110253773339
+    second: main_straw_98
+  - first:
+      213: 3148027989835501948
+    second: main_straw_99
+  - first:
+      213: 8457401190991288265
+    second: main_straw_100
+  - first:
+      213: -5270751105478173557
+    second: main_straw_101
+  - first:
+      213: -4275124497123789128
+    second: main_straw_102
+  - first:
+      213: 7666958380310476995
+    second: main_straw_103
+  - first:
+      213: -905084987236441450
+    second: main_straw_104
+  - first:
+      213: -4834010201871813923
+    second: main_straw_105
+  - first:
+      213: 5195547491478105552
+    second: main_straw_106
+  - first:
+      213: -4555974165336077781
+    second: main_straw_107
+  - first:
+      213: -8653069179245311784
+    second: main_straw_108
+  - first:
+      213: 2825254556582334508
+    second: main_straw_109
+  - first:
+      213: 4796361670320716746
+    second: main_straw_110
+  - first:
+      213: 2785407844584766446
+    second: main_straw_111
+  - first:
+      213: -359608337120696813
+    second: main_straw_112
+  - first:
+      213: 3842314240501462480
+    second: main_straw_113
+  - first:
+      213: 7542573407809589430
+    second: main_straw_114
+  - first:
+      213: 5600501687670606655
+    second: main_straw_115
+  - first:
+      213: -7502820658860842422
+    second: main_straw_116
+  - first:
+      213: 18245096387986854
+    second: main_straw_117
+  - first:
+      213: 613489962843111633
+    second: main_straw_118
+  - first:
+      213: -1601764541013546400
+    second: main_straw_119
+  - first:
+      213: -347610658370529572
+    second: main_straw_120
+  - first:
+      213: -6017818960886765924
+    second: main_straw_121
+  - first:
+      213: -1816917086008010858
+    second: main_straw_122
+  - first:
+      213: -3006811120368770692
+    second: main_straw_123
+  - first:
+      213: 1508192824715147028
+    second: main_straw_124
+  - first:
+      213: -3777511795672235207
+    second: main_straw_125
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: main_straw_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 159
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bd98cd40d25a0f30800000000000000
+      internalID: 4542534228768234930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_1
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 159
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23d574ff8dae78f60800000000000000
+      internalID: 8036650277782641970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_2
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 159
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1292d2bd0b6a2b730800000000000000
+      internalID: 4013453496462158113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_3
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 159
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c39700686457042d0800000000000000
+      internalID: -3296505981478864580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_4
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 159
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cda6440f68aa20980800000000000000
+      internalID: -8574103244026647844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_5
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 159
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 827cbcbc136ff9f50800000000000000
+      internalID: 6890496648633108264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_6
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 159
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9494fc4986bd9d820800000000000000
+      internalID: 2943625073683024201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_7
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 153
+        width: 21
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e99c34c57216ef1d0800000000000000
+      internalID: -3315105454018541154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_8
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 155
+        width: 20
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2387f772a4e53c2f0800000000000000
+      internalID: -953815023489157070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_9
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 155
+        width: 20
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13440428043b3c640800000000000000
+      internalID: 5099116292758062129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_10
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 157
+        width: 19
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cbb7221d77e444b0800000000000000
+      internalID: -5456982324104676415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_11
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 156
+        width: 19
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62ecf509531f64780800000000000000
+      internalID: -8699000417861775834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_12
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 156
+        width: 19
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c230af41ac13bfe0800000000000000
+      internalID: -1174563598662356282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_13
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 156
+        width: 19
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bfd5e2a8c62bec00800000000000000
+      internalID: 930880391150428086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_14
+      rect:
+        serializedVersion: 2
+        x: 687
+        y: 159
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e20d96ade54241ee0800000000000000
+      internalID: -1291367203338596306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_15
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 151
+        width: 18
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc95515ee98e343a0800000000000000
+      internalID: -6682241652941825589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_16
+      rect:
+        serializedVersion: 2
+        x: 783
+        y: 151
+        width: 18
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2e6fa53be724bb20800000000000000
+      internalID: 3149185930610306607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_17
+      rect:
+        serializedVersion: 2
+        x: 831
+        y: 151
+        width: 18
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58a72bd7056ac8530800000000000000
+      internalID: 3858641845386115717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_18
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 159
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9df77874f5b9b820800000000000000
+      internalID: 2934576693806366108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_19
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 155
+        width: 18
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52559e01b48d9c050800000000000000
+      internalID: 5821421810270950693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_20
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 151
+        width: 18
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e0f170c32ad87b80800000000000000
+      internalID: -8396721658144886552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_21
+      rect:
+        serializedVersion: 2
+        x: 1023
+        y: 151
+        width: 18
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 776133d4950b83270800000000000000
+      internalID: 8230522216613353079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_22
+      rect:
+        serializedVersion: 2
+        x: 1066
+        y: 159
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fa9a7f7176d39730800000000000000
+      internalID: 4004780276620892915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_23
+      rect:
+        serializedVersion: 2
+        x: 1114
+        y: 151
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95e8906811aa1ec30800000000000000
+      internalID: 4386974504275512921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_24
+      rect:
+        serializedVersion: 2
+        x: 1167
+        y: 151
+        width: 22
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33d970d25f4674c40800000000000000
+      internalID: 5496472874414218547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_25
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 151
+        width: 22
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90a5d72d2bc962bf0800000000000000
+      internalID: -349419629225092599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_26
+      rect:
+        serializedVersion: 2
+        x: 1263
+        y: 159
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b74e73b5b87593c0800000000000000
+      internalID: -4353440742987905099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_27
+      rect:
+        serializedVersion: 2
+        x: 1311
+        y: 159
+        width: 20
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92e54b6ddb5dd6630800000000000000
+      internalID: 3922025861837250089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_28
+      rect:
+        serializedVersion: 2
+        x: 1352
+        y: 159
+        width: 30
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d562707c701bc520800000000000000
+      internalID: 2723288526324131287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_29
+      rect:
+        serializedVersion: 2
+        x: 1395
+        y: 159
+        width: 35
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec5da6a29b5dd9ab0800000000000000
+      internalID: -4999605020054071858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_30
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 159
+        width: 38
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e055ea32f6d42e90800000000000000
+      internalID: -7051274780696817434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_31
+      rect:
+        serializedVersion: 2
+        x: 1502
+        y: 159
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f23c6d2103ac0fcc0800000000000000
+      internalID: -3679218587738389713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_32
+      rect:
+        serializedVersion: 2
+        x: 1550
+        y: 159
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52dbbcd1db4d22d70800000000000000
+      internalID: 9017003312662953253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_33
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 111
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf4a8d6e79d1b0fc0800000000000000
+      internalID: -3527693344864426756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_34
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 111
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6d7167722473fa30800000000000000
+      internalID: 4247866564921097582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_35
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 111
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39f6685162d91c7b0800000000000000
+      internalID: -5205706907368132717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_36
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 111
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2a1730198de25520800000000000000
+      internalID: 2689473100431956523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_37
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 111
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94f81a3060bd293b0800000000000000
+      internalID: -5507098575443488951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_38
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 111
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4020d33f249c9d660800000000000000
+      internalID: 7411175951200748036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_39
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 111
+        width: 20
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31ec078ac34135d00800000000000000
+      internalID: 960133396316605971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_40
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 106
+        width: 22
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a26608b5c94836a60800000000000000
+      internalID: 7666116797799622186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_41
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 108
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c79c18d717cad6c00800000000000000
+      internalID: 895561504353536380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_42
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 108
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e4d38ac75999c310800000000000000
+      internalID: 1425839359378314472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_43
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 111
+        width: 25
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83bf916ded3f72f80800000000000000
+      internalID: -8131262463793824968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_44
+      rect:
+        serializedVersion: 2
+        x: 535
+        y: 110
+        width: 27
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 350d80cb1659ed4e0800000000000000
+      internalID: -1954960941233156013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_45
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 110
+        width: 27
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84611ae03171c08b0800000000000000
+      internalID: -5184743700393028024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_46
+      rect:
+        serializedVersion: 2
+        x: 631
+        y: 110
+        width: 27
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ffdc7d7719dce210800000000000000
+      internalID: 1363703482099228660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_47
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 111
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21b02ee22345325f0800000000000000
+      internalID: -782689335720670446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_48
+      rect:
+        serializedVersion: 2
+        x: 732
+        y: 109
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06680d389cc38a3c0800000000000000
+      internalID: -4348158604028639648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_49
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 109
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fcb53010435644b0800000000000000
+      internalID: -5456582363897807625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_50
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 109
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3b8fba1a998b2c70800000000000000
+      internalID: 8947396379668351805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_51
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 111
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53e023d05a7a61b40800000000000000
+      internalID: 5410696329665056309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_52
+      rect:
+        serializedVersion: 2
+        x: 919
+        y: 111
+        width: 25
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cba4ad5a6ac121030800000000000000
+      internalID: 3463862565474028220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_53
+      rect:
+        serializedVersion: 2
+        x: 967
+        y: 110
+        width: 25
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df900241978105b70800000000000000
+      internalID: 8885628973109742077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_54
+      rect:
+        serializedVersion: 2
+        x: 1015
+        y: 110
+        width: 25
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f5a22def3ef65bc0800000000000000
+      internalID: -3794566085498198540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_55
+      rect:
+        serializedVersion: 2
+        x: 1071
+        y: 111
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b09a5a32fe6bc1b0800000000000000
+      internalID: -5635288522083888975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_56
+      rect:
+        serializedVersion: 2
+        x: 1107
+        y: 105
+        width: 33
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 641a31cd1da4b5490800000000000000
+      internalID: -7756523668014653114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_57
+      rect:
+        serializedVersion: 2
+        x: 1155
+        y: 111
+        width: 29
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c65c7626ec57e1ec0800000000000000
+      internalID: -3594305923320396436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_58
+      rect:
+        serializedVersion: 2
+        x: 1203
+        y: 111
+        width: 29
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15331fa7a1d290640800000000000000
+      internalID: 5046614449200378705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_59
+      rect:
+        serializedVersion: 2
+        x: 1263
+        y: 111
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba975f4e8430cd290800000000000000
+      internalID: -7864407237681907285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_60
+      rect:
+        serializedVersion: 2
+        x: 1311
+        y: 111
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 213116b864ff13b20800000000000000
+      internalID: 3112549495940911890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_61
+      rect:
+        serializedVersion: 2
+        x: 1352
+        y: 111
+        width: 27
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fdf987b0b52dff20800000000000000
+      internalID: 3457961529814154738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_62
+      rect:
+        serializedVersion: 2
+        x: 1395
+        y: 111
+        width: 32
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30561e86473a2f560800000000000000
+      internalID: 7346113662565836035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_63
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 111
+        width: 35
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6298f44c66671ce0800000000000000
+      internalID: -1434565341094571413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_64
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 63
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41e5750caf65bc1d0800000000000000
+      internalID: -3329471864541585900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_65
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 63
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 520c6469ad97f3da0800000000000000
+      internalID: -5962913401884196827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_66
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 63
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d6a599cadb2d1360800000000000000
+      internalID: 7141912802764367571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_67
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 63
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d5545ecffa58b660800000000000000
+      internalID: 7401766042308203987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_68
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 63
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cfc4b3e12906dd90800000000000000
+      internalID: -7073456123579936832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_69
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 63
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16880335ff5c89aa0800000000000000
+      internalID: -6153951190398760863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_70
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 63
+        width: 20
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6bc293d59fb45250800000000000000
+      internalID: 5932577259374431083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_71
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 58
+        width: 22
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd825205fb0445010800000000000000
+      internalID: 1176636593078085853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_72
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 60
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a02d9b5c783ccae20800000000000000
+      internalID: 3363278009644208650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_73
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 60
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 003249e448cad1b80800000000000000
+      internalID: -8422386043858967808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_74
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 63
+        width: 25
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ece2392a6a859a20800000000000000
+      internalID: 3068510909685230817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_75
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 62
+        width: 27
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a0eacf27f89ae580800000000000000
+      internalID: -8797050734688673628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_76
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 62
+        width: 27
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ad23770d60b9bd00800000000000000
+      internalID: 989015575507447202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_77
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 62
+        width: 27
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 637d703559c75da00800000000000000
+      internalID: 780667091203643190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_78
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 63
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efe912e878e9c8490800000000000000
+      internalID: -7742639354314383618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_79
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 61
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90cc2c9c1e26f4c80800000000000000
+      internalID: -8336335663347348471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_80
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 61
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b55939f7727a90990800000000000000
+      internalID: -7419215123030239909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_81
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 61
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ca579e151ed32100800000000000000
+      internalID: 82153400511716032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_82
+      rect:
+        serializedVersion: 2
+        x: 874
+        y: 63
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5c1100c63b227700800000000000000
+      internalID: 536538819760036957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_83
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 63
+        width: 25
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc7df6fcd393643a0800000000000000
+      internalID: -6681590059521550387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_84
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 62
+        width: 25
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdff9ccc17ff0bd40800000000000000
+      internalID: 5598255201053704159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_85
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 62
+        width: 25
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5aa2fa48a38a94d20800000000000000
+      internalID: 3263324374294276773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_86
+      rect:
+        serializedVersion: 2
+        x: 1068
+        y: 63
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d4eee5f415ab0ad0800000000000000
+      internalID: -2734910839253441326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_87
+      rect:
+        serializedVersion: 2
+        x: 1116
+        y: 57
+        width: 33
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8ae9b90ead472340800000000000000
+      internalID: 4838921734515714701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_88
+      rect:
+        serializedVersion: 2
+        x: 1168
+        y: 63
+        width: 29
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b386b530cfb2d45e0800000000000000
+      internalID: -1923833104429258693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_89
+      rect:
+        serializedVersion: 2
+        x: 1216
+        y: 63
+        width: 29
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dde43b0667ea5c240800000000000000
+      internalID: 4811443600366980829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_90
+      rect:
+        serializedVersion: 2
+        x: 1263
+        y: 63
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86268c85224dba590800000000000000
+      internalID: -7661797097057263000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_91
+      rect:
+        serializedVersion: 2
+        x: 1311
+        y: 63
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a7f2c134c8599600800000000000000
+      internalID: 475508835335993249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_92
+      rect:
+        serializedVersion: 2
+        x: 1357
+        y: 63
+        width: 27
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8d202a106bbfb400800000000000000
+      internalID: 342198118133017996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_93
+      rect:
+        serializedVersion: 2
+        x: 1405
+        y: 63
+        width: 32
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a50a6a407d9aae5f0800000000000000
+      internalID: -726581648905822118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_94
+      rect:
+        serializedVersion: 2
+        x: 1453
+        y: 63
+        width: 35
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aeb05fa9ab30e85c0800000000000000
+      internalID: -4211424501546284054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_95
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 15
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b9ae7990d8fe1570800000000000000
+      internalID: 8439456326550989235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_96
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 15
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 668852dc237b0d4d0800000000000000
+      internalID: -3111785913694975898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_97
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 15
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f41cd42ab2e11910800000000000000
+      internalID: 1806474214662477047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_98
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 15
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b121fa2b3c50cf630800000000000000
+      internalID: 3962048110253773339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_99
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 15
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c71d12d17ca00bb20800000000000000
+      internalID: 3148027989835501948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_100
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 15
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c75000f299be5570800000000000000
+      internalID: 8457401190991288265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_101
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 15
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8cd9729bc78ad6b0800000000000000
+      internalID: -5270751105478173557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_102
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 15
+        width: 22
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b6bd52abe4bba4c0800000000000000
+      internalID: -4275124497123789128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_103
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 15
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c83c1e8602866a60800000000000000
+      internalID: 7666958380310476995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_104
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 15
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 692ab3cdffd7073f0800000000000000
+      internalID: -905084987236441450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_105
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 15
+        width: 18
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd2f0d445552aecb0800000000000000
+      internalID: -4834010201871813923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_106
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 15
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dd69339aea4a1840800000000000000
+      internalID: 5195547491478105552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_107
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 15
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2a494d92ade5c0c0800000000000000
+      internalID: -4555974165336077781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_108
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 15
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d8c33a6d6f1ae780800000000000000
+      internalID: -8653069179245311784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_109
+      rect:
+        serializedVersion: 2
+        x: 687
+        y: 15
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c20d425ec02553720800000000000000
+      internalID: 2825254556582334508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_110
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 15
+        width: 18
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acbf3c5e689109240800000000000000
+      internalID: 4796361670320716746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_111
+      rect:
+        serializedVersion: 2
+        x: 783
+        y: 15
+        width: 18
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eebbf0b4da1c7a620800000000000000
+      internalID: 2785407844584766446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_112
+      rect:
+        serializedVersion: 2
+        x: 831
+        y: 15
+        width: 18
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 316e6a76f1a620bf0800000000000000
+      internalID: -359608337120696813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_113
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 15
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d5b38cb174a25530800000000000000
+      internalID: 3842314240501462480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_114
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 15
+        width: 18
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b05cc85d8a9ca860800000000000000
+      internalID: 7542573407809589430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_115
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 15
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3b0599bc9af8bd40800000000000000
+      internalID: 5600501687670606655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_116
+      rect:
+        serializedVersion: 2
+        x: 1023
+        y: 15
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a422327cc50a0e790800000000000000
+      internalID: -7502820658860842422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_117
+      rect:
+        serializedVersion: 2
+        x: 1071
+        y: 15
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a5491981d1d04000800000000000000
+      internalID: 18245096387986854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_118
+      rect:
+        serializedVersion: 2
+        x: 1114
+        y: 15
+        width: 25
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d0088ceedd838800800000000000000
+      internalID: 613489962843111633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_119
+      rect:
+        serializedVersion: 2
+        x: 1162
+        y: 15
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06a221fe2a365c9e0800000000000000
+      internalID: -1601764541013546400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_120
+      rect:
+        serializedVersion: 2
+        x: 1210
+        y: 15
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd65faba2f90d2bf0800000000000000
+      internalID: -347610658370529572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_121
+      rect:
+        serializedVersion: 2
+        x: 1263
+        y: 15
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c96ebb1f9896c7ca0800000000000000
+      internalID: -6017818960886765924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_122
+      rect:
+        serializedVersion: 2
+        x: 1309
+        y: 15
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6979726698309c6e0800000000000000
+      internalID: -1816917086008010858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_123
+      rect:
+        serializedVersion: 2
+        x: 1354
+        y: 15
+        width: 30
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c71a9bf7739a546d0800000000000000
+      internalID: -3006811120368770692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_124
+      rect:
+        serializedVersion: 2
+        x: 1402
+        y: 15
+        width: 35
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41770f1226d2ee410800000000000000
+      internalID: 1508192824715147028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_straw_125
+      rect:
+        serializedVersion: 2
+        x: 1450
+        y: 15
+        width: 38
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 933cb143905939bc0800000000000000
+      internalID: -3777511795672235207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      main_straw_0: 4542534228768234930
+      main_straw_1: 8036650277782641970
+      main_straw_10: -5456982324104676415
+      main_straw_100: 8457401190991288265
+      main_straw_101: -5270751105478173557
+      main_straw_102: -4275124497123789128
+      main_straw_103: 7666958380310476995
+      main_straw_104: -905084987236441450
+      main_straw_105: -4834010201871813923
+      main_straw_106: 5195547491478105552
+      main_straw_107: -4555974165336077781
+      main_straw_108: -8653069179245311784
+      main_straw_109: 2825254556582334508
+      main_straw_11: -8699000417861775834
+      main_straw_110: 4796361670320716746
+      main_straw_111: 2785407844584766446
+      main_straw_112: -359608337120696813
+      main_straw_113: 3842314240501462480
+      main_straw_114: 7542573407809589430
+      main_straw_115: 5600501687670606655
+      main_straw_116: -7502820658860842422
+      main_straw_117: 18245096387986854
+      main_straw_118: 613489962843111633
+      main_straw_119: -1601764541013546400
+      main_straw_12: -1174563598662356282
+      main_straw_120: -347610658370529572
+      main_straw_121: -6017818960886765924
+      main_straw_122: -1816917086008010858
+      main_straw_123: -3006811120368770692
+      main_straw_124: 1508192824715147028
+      main_straw_125: -3777511795672235207
+      main_straw_13: 930880391150428086
+      main_straw_14: -1291367203338596306
+      main_straw_15: -6682241652941825589
+      main_straw_16: 3149185930610306607
+      main_straw_17: 3858641845386115717
+      main_straw_18: 2934576693806366108
+      main_straw_19: 5821421810270950693
+      main_straw_2: 4013453496462158113
+      main_straw_20: -8396721658144886552
+      main_straw_21: 8230522216613353079
+      main_straw_22: 4004780276620892915
+      main_straw_23: 4386974504275512921
+      main_straw_24: 5496472874414218547
+      main_straw_25: -349419629225092599
+      main_straw_26: -4353440742987905099
+      main_straw_27: 3922025861837250089
+      main_straw_28: 2723288526324131287
+      main_straw_29: -4999605020054071858
+      main_straw_3: -3296505981478864580
+      main_straw_30: -7051274780696817434
+      main_straw_31: -3679218587738389713
+      main_straw_32: 9017003312662953253
+      main_straw_33: -3527693344864426756
+      main_straw_34: 4247866564921097582
+      main_straw_35: -5205706907368132717
+      main_straw_36: 2689473100431956523
+      main_straw_37: -5507098575443488951
+      main_straw_38: 7411175951200748036
+      main_straw_39: 960133396316605971
+      main_straw_4: -8574103244026647844
+      main_straw_40: 7666116797799622186
+      main_straw_41: 895561504353536380
+      main_straw_42: 1425839359378314472
+      main_straw_43: -8131262463793824968
+      main_straw_44: -1954960941233156013
+      main_straw_45: -5184743700393028024
+      main_straw_46: 1363703482099228660
+      main_straw_47: -782689335720670446
+      main_straw_48: -4348158604028639648
+      main_straw_49: -5456582363897807625
+      main_straw_5: 6890496648633108264
+      main_straw_50: 8947396379668351805
+      main_straw_51: 5410696329665056309
+      main_straw_52: 3463862565474028220
+      main_straw_53: 8885628973109742077
+      main_straw_54: -3794566085498198540
+      main_straw_55: -5635288522083888975
+      main_straw_56: -7756523668014653114
+      main_straw_57: -3594305923320396436
+      main_straw_58: 5046614449200378705
+      main_straw_59: -7864407237681907285
+      main_straw_6: 2943625073683024201
+      main_straw_60: 3112549495940911890
+      main_straw_61: 3457961529814154738
+      main_straw_62: 7346113662565836035
+      main_straw_63: -1434565341094571413
+      main_straw_64: -3329471864541585900
+      main_straw_65: -5962913401884196827
+      main_straw_66: 7141912802764367571
+      main_straw_67: 7401766042308203987
+      main_straw_68: -7073456123579936832
+      main_straw_69: -6153951190398760863
+      main_straw_7: -3315105454018541154
+      main_straw_70: 5932577259374431083
+      main_straw_71: 1176636593078085853
+      main_straw_72: 3363278009644208650
+      main_straw_73: -8422386043858967808
+      main_straw_74: 3068510909685230817
+      main_straw_75: -8797050734688673628
+      main_straw_76: 989015575507447202
+      main_straw_77: 780667091203643190
+      main_straw_78: -7742639354314383618
+      main_straw_79: -8336335663347348471
+      main_straw_8: -953815023489157070
+      main_straw_80: -7419215123030239909
+      main_straw_81: 82153400511716032
+      main_straw_82: 536538819760036957
+      main_straw_83: -6681590059521550387
+      main_straw_84: 5598255201053704159
+      main_straw_85: 3263324374294276773
+      main_straw_86: -2734910839253441326
+      main_straw_87: 4838921734515714701
+      main_straw_88: -1923833104429258693
+      main_straw_89: 4811443600366980829
+      main_straw_9: 5099116292758062129
+      main_straw_90: -7661797097057263000
+      main_straw_91: 475508835335993249
+      main_straw_92: 342198118133017996
+      main_straw_93: -726581648905822118
+      main_straw_94: -4211424501546284054
+      main_straw_95: 8439456326550989235
+      main_straw_96: -3111785913694975898
+      main_straw_97: 1806474214662477047
+      main_straw_98: 3962048110253773339
+      main_straw_99: 3148027989835501948
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
