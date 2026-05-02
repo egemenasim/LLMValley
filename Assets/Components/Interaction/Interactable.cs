@@ -74,7 +74,8 @@ public class Interactable : MonoBehaviour
         if (_spawnedButton != null && _buttonRect != null)
             UpdateButtonPosition();
 
-        if (_playerInRange && _spawnedButton != null && Input.GetKeyDown(KeyCode.E))
+        // Don't allow interaction while player is sleeping
+        if (_playerInRange && _spawnedButton != null && !Sleepable.IsPlayerSleeping && Input.GetKeyDown(KeyCode.E))
             interact_event();
     }
 
