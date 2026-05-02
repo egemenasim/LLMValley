@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using TMPro;
 
 namespace Systems.Calendar
 {
@@ -16,12 +17,17 @@ namespace Systems.Calendar
         [Header("Current State")]
         [SerializeField] private CalendarDate currentDate = new CalendarDate(1, Season.Spring, 1);
         [SerializeField] private DayOfWeek currentDayOfWeek = DayOfWeek.Monday;
+        [SerializeField] private int currentHour = 6; // 0-23 range
 
         [Header("Events")]
         public UnityEvent<CalendarDate> OnDayChanged;
         public UnityEvent<Season> OnSeasonChanged;
         public UnityEvent<int> OnYearChanged;
         public UnityEvent<List<CalendarEvent>> OnEventsTriggered;
+
+         [Header("Visuals")]
+         [SerializeField] private TextMeshProUGUI dayText;
+         [SerializeField] private TextMeshProUGUI hourText;
 
         private void Awake()
         {
@@ -40,6 +46,7 @@ namespace Systems.Calendar
         {
             // Trigger initial events for the first day
             CheckDailyEvents();
+            UpdateUITexts();
         }
 
         [ContextMenu("Advance Day")]
@@ -60,6 +67,7 @@ namespace Systems.Calendar
 
             OnDayChanged?.Invoke(currentDate);
             CheckDailyEvents();
+            UpdateUITexts();
             
             Debug.Log($"Advanced to: {currentDate} ({currentDayOfWeek})");
         }
@@ -109,6 +117,50 @@ namespace Systems.Calendar
 
         public CalendarDate GetCurrentDate() => currentDate;
         public DayOfWeek GetCurrentDayOfWeek() => currentDayOfWeek;
+        public int GetCurrentHour() => currentHour;
+
+        private void UpdateUITexts()
+        {
+            if (dayText != null)
+            {
+                dayText.text = $"{currentDayOfWeek}\nDay {currentDate.day} of {currentDate.season}";
+            }
+
+            if (hourText != null)
+            {
+                hourText.text = $"{currentHour:D2}:00";
+            }
+        }
+
+        [ContextMenu("Advance Hour")]
+        public void AdvanceHour()
+        {
+            currentHour = (currentHour + 1) % 24;
+            
+            if (currentHour == 0)
+            {
+                AdvanceDay();
+            }
+            else
+            {
+                UpdateUITexts();
+            }
+            
+            Debug.Log($"Advanced to: {currentHour:D2}:00");
+        }
+
+        public void SetHour(int hour)
+        {
+            if (hour >= 0 && hour < 24)
+            {
+                currentHour = hour;
+                UpdateUITexts();
+            }
+            else
+            {
+                Debug.LogWarning($"Invalid hour: {hour}. Must be between 0 and 23.");
+            }
+        }
 
         public void SetDate(int day, Season season, int year, DayOfWeek dayOfWeek)
         {
@@ -116,6 +168,7 @@ namespace Systems.Calendar
             currentDayOfWeek = dayOfWeek;
             OnDayChanged?.Invoke(currentDate);
             CheckDailyEvents();
+            UpdateUITexts();
         }
 
         #endregion
