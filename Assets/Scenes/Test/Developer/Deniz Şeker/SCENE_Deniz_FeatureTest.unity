@@ -1122,48 +1122,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3425709031551072426, guid: 93a63794eab921a43bd3fe07371d8b32, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 22.9674
-      objectReference: {fileID: 0}
-    - target: {fileID: 3425709031551072426, guid: 93a63794eab921a43bd3fe07371d8b32, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 161.9837
-      objectReference: {fileID: 0}
-    - target: {fileID: 4871193051080594318, guid: 93a63794eab921a43bd3fe07371d8b32, type: 3}
-      propertyPath: m_text
-      value: 'Tuesday
-
-        Day 0 of Spring'
-      objectReference: {fileID: 0}
-    - target: {fileID: 4871193051080594318, guid: 93a63794eab921a43bd3fe07371d8b32, type: 3}
-      propertyPath: m_fontSize
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 4871193051080594318, guid: 93a63794eab921a43bd3fe07371d8b32, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 4871193051080594318, guid: 93a63794eab921a43bd3fe07371d8b32, type: 3}
-      propertyPath: m_enableAutoSizing
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8184412928988803330, guid: 93a63794eab921a43bd3fe07371d8b32, type: 3}
-      propertyPath: m_fontSize
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 8184412928988803330, guid: 93a63794eab921a43bd3fe07371d8b32, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 8184412928988803330, guid: 93a63794eab921a43bd3fe07371d8b32, type: 3}
-      propertyPath: m_VerticalAlignment
-      value: 512
-      objectReference: {fileID: 0}
-    - target: {fileID: 8184412928988803330, guid: 93a63794eab921a43bd3fe07371d8b32, type: 3}
-      propertyPath: m_HorizontalAlignment
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 8754372789439094764, guid: 93a63794eab921a43bd3fe07371d8b32, type: 3}
       propertyPath: m_Name
       value: Calendar System

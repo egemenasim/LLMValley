@@ -123,7 +123,7 @@ namespace Systems.Calendar
         {
             if (dayText != null)
             {
-                dayText.text = $"{currentDayOfWeek}\n Day {currentDate.day} of {currentDate.season}";
+                dayText.text = $"{currentDayOfWeek}\nDay {currentDate.day} of {currentDate.season}";
             }
 
             if (hourText != null)
