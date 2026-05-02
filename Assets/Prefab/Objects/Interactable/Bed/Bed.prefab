@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6968fa0381d4324aa982be650d18f07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Sleepable
-  triggerCollider: {fileID: 0}
+  triggerCollider: {fileID: 4192976810376010362}
   interactButtonPrefab: {fileID: 6760711105736247104, guid: 20274b68223c22448b97b44d5b302a0f, type: 3}
   buttonWorldOffset: {x: 0, y: 1, z: 0}
   onPlayerEnteredArea:
