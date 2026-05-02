@@ -144,8 +144,8 @@ public class Interactable : MonoBehaviour
         // Fallback to any canvas if not found by tag
         if (_targetCanvas == null)
         {
-            _targetCanvas = FindObjectOfType<Canvas>();
-            Debug.Log("[Interactable] Canvas found with FindObjectOfType in scene for: " + gameObject.name, this);
+            _targetCanvas = FindFirstObjectByType<Canvas>();
+            Debug.Log("[Interactable] Canvas found with FindFirstObjectByType in scene for: " + gameObject.name, this);
         }
 
         if (_targetCanvas != null)

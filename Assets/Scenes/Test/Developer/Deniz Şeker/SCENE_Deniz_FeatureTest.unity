@@ -272,6 +272,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 526724449157698916, guid: 05b5020d03dd42f4cae1ecc8667c9f2f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4028274174609277836, guid: 05b5020d03dd42f4cae1ecc8667c9f2f, type: 3}
       propertyPath: m_LocalScale.x
       value: -265.69492
@@ -637,6 +641,7 @@ RectTransform:
   m_Children:
   - {fileID: 2070330952}
   - {fileID: 944225625}
+  - {fileID: 1992415172}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -722,6 +727,11 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.14299929, y: 0.07772553}
   m_EdgeRadius: 0
+--- !u!4 &1992415172 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 776395777465032641, guid: 93a63794eab921a43bd3fe07371d8b32, type: 3}
+  m_PrefabInstance: {fileID: 3071238194608938798}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2070330951
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1070,7 +1080,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1405135855}
     m_Modifications:
     - target: {fileID: 776395777465032641, guid: 93a63794eab921a43bd3fe07371d8b32, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1090,15 +1100,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 776395777465032641, guid: 93a63794eab921a43bd3fe07371d8b32, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 776395777465032641, guid: 93a63794eab921a43bd3fe07371d8b32, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 776395777465032641, guid: 93a63794eab921a43bd3fe07371d8b32, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 776395777465032641, guid: 93a63794eab921a43bd3fe07371d8b32, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1111,6 +1121,48 @@ PrefabInstance:
     - target: {fileID: 776395777465032641, guid: 93a63794eab921a43bd3fe07371d8b32, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3425709031551072426, guid: 93a63794eab921a43bd3fe07371d8b32, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 22.9674
+      objectReference: {fileID: 0}
+    - target: {fileID: 3425709031551072426, guid: 93a63794eab921a43bd3fe07371d8b32, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 161.9837
+      objectReference: {fileID: 0}
+    - target: {fileID: 4871193051080594318, guid: 93a63794eab921a43bd3fe07371d8b32, type: 3}
+      propertyPath: m_text
+      value: 'Tuesday
+
+        Day 0 of Spring'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4871193051080594318, guid: 93a63794eab921a43bd3fe07371d8b32, type: 3}
+      propertyPath: m_fontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4871193051080594318, guid: 93a63794eab921a43bd3fe07371d8b32, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4871193051080594318, guid: 93a63794eab921a43bd3fe07371d8b32, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8184412928988803330, guid: 93a63794eab921a43bd3fe07371d8b32, type: 3}
+      propertyPath: m_fontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8184412928988803330, guid: 93a63794eab921a43bd3fe07371d8b32, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8184412928988803330, guid: 93a63794eab921a43bd3fe07371d8b32, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 8184412928988803330, guid: 93a63794eab921a43bd3fe07371d8b32, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8754372789439094764, guid: 93a63794eab921a43bd3fe07371d8b32, type: 3}
       propertyPath: m_Name
@@ -1125,7 +1177,6 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 3071238194608938798}
   - {fileID: 73322884}
   - {fileID: 1203643332}
   - {fileID: 1237852580}

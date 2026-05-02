@@ -11,14 +11,6 @@ using System.Collections;
 public class Sleepable : Interactable
 {
     // ──────────────────────────────────────────────────────────
-    //  Inspector
-    // ──────────────────────────────────────────────────────────
-
-    [Header("Sleep Settings")]
-    [Tooltip("How many in-game hours sleeping will advance the clock.")]
-    [SerializeField] private int hoursToSleep = 8;
-
-    // ──────────────────────────────────────────────────────────
     //  Interaction
     // ──────────────────────────────────────────────────────────
 
