@@ -1,17 +1,19 @@
+using System.Collections.Generic;
 using UnityEngine;
-using LLMValley.Components.Animation;
 
 namespace LLMValley.Player
 {
     public class PlayerToolController : MonoBehaviour
     {
+        [Header("Test Selection")]
         [SerializeField] private ToolType selectedTool = ToolType.None;
 
-        private PlayerAnimationManager _animationManager;
+        private readonly Dictionary<ToolType, IToolAction> _toolActions = new();
+        //toola göre script değişecek bu şuanlık test sadece
 
         private void Awake()
         {
-            _animationManager = GetComponent<PlayerAnimationManager>();
+            RegisterToolActions();
         }
 
         private void Update()
@@ -25,15 +27,47 @@ namespace LLMValley.Player
             }
         }
 
+        private void RegisterToolActions()
+        {
+            _toolActions.Clear();
+
+            IToolAction[] actions = GetComponents<IToolAction>();
+
+            foreach (IToolAction action in actions)
+            {
+                if (action == null)
+                    continue;
+
+                if (_toolActions.ContainsKey(action.ToolType))
+                {
+                    Debug.LogWarning($"[PlayerToolController] Duplicate tool action found: {action.ToolType}");
+                    continue;
+                }
+
+                _toolActions.Add(action.ToolType, action);
+            }
+        }
+
         private void UseSelectedTool()
         {
             if (selectedTool == ToolType.None)
                 return;
 
-            if (_animationManager == null)
+            if (!_toolActions.TryGetValue(selectedTool, out IToolAction action))
+            {
+                Debug.LogWarning($"[PlayerToolController] No action found for selected tool: {selectedTool}");
+                return;
+            }
+
+            if (!action.CanUse())
                 return;
 
-            _animationManager.PlayToolAnimation(selectedTool);
+            action.Use();
+        }
+
+        public void SetSelectedTool(ToolType toolType)
+        {
+            selectedTool = toolType;
         }
     }
 }

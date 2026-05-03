@@ -19,7 +19,7 @@ namespace LLMValley.Editor.Items
         private const string SeedsFolder  = RootFolder + "Seeds/";
         private const string CropsFolder  = RootFolder + "Crops/";
         private const string FishFolder   = RootFolder + "Fish/";
-        private const string ToolsFolder  = RootFolder + "Tools/";
+
 
         // ─────────────────────────────────────────────────────────────────────────
         // Item definitions
@@ -90,7 +90,7 @@ namespace LLMValley.Editor.Items
             EnsureFolderExists(SeedsFolder);
             EnsureFolderExists(CropsFolder);
             EnsureFolderExists(FishFolder);
-            EnsureFolderExists(ToolsFolder);
+ 
 
             int created = 0;
             int skipped = 0;
@@ -98,7 +98,7 @@ namespace LLMValley.Editor.Items
             created += GenerateCategory(SeedDefs,  SeedsFolder, ItemType.Seed,  stackable: true,  ref skipped);
             created += GenerateCategory(CropDefs,  CropsFolder, ItemType.Crop,  stackable: true,  ref skipped);
             created += GenerateCategory(FishDefs,  FishFolder,  ItemType.Fish,  stackable: true,  ref skipped);
-            created += GenerateCategory(ToolDefs,  ToolsFolder, ItemType.Tool,  stackable: false, ref skipped);
+       
 
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();

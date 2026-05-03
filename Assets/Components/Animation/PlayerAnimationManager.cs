@@ -8,7 +8,7 @@ namespace LLMValley.Components.Animation
     {
         private Animator animator;
 
-        private Vector2 lastDirection = Vector2.down;
+        private Vector2 lastDirection = Vector2.down; //son yönü alması için 
 
         private static readonly int XInput = Animator.StringToHash("xInput");
         private static readonly int YInput = Animator.StringToHash("yInput");
@@ -32,7 +32,7 @@ namespace LLMValley.Components.Animation
 
             if (isMoving)
             {
-                lastDirection = direction.normalized;
+                lastDirection = direction.normalized; //harektte son yönü güncelleştir
             }
 
             animator.SetFloat(XInput, lastDirection.x);
