@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9dc30e2ec7995aa4fb40a3cda6741e16, type: 3}
-  m_Name: Wheat
+  m_Name: wheat
   m_EditorClassIdentifier: Assembly-CSharp::LLMValley.Items.ItemData
   itemName: Wheat
-  description: Freshly harvested wheat. Used in baking and brewing.
-  icon: {fileID: 0}
-  itemID: 2001
+  description: Golden wheat, essential for baking.
+  icon: {fileID: 6271399085124507442, guid: 67d9308182eba074fbe2bd552a3a66ed, type: 3}
+  itemID: 2005
   itemType: 1
-  baseValue: 15
+  baseValue: 10
   isStackable: 1
   maxStackSize: 99

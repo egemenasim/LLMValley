@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dc30e2ec7995aa4fb40a3cda6741e16, type: 3}
+  m_Name: goldfish
+  m_EditorClassIdentifier: Assembly-CSharp::LLMValley.Items.ItemData
+  itemName: Goldfish
+  description: A beautiful, shimmering goldfish.
+  icon: {fileID: 2866502940677049033, guid: 8cbe24c76f44c194ca78cbed0760f6c5, type: 3}
+  itemID: 3002
+  itemType: 3
+  baseValue: 100
+  isStackable: 1
+  maxStackSize: 99

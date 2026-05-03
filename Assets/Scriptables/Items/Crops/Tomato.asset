@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9dc30e2ec7995aa4fb40a3cda6741e16, type: 3}
-  m_Name: Tomato
+  m_Name: tomato
   m_EditorClassIdentifier: Assembly-CSharp::LLMValley.Items.ItemData
   itemName: Tomato
   description: A ripe, juicy tomato bursting with flavour.
-  icon: {fileID: 0}
+  icon: {fileID: -3962807554240710951, guid: 2f2168478e17fe44185bea25896b1d11, type: 3}
   itemID: 2004
   itemType: 1
-  baseValue: 35
+  baseValue: 25
   isStackable: 1
   maxStackSize: 99

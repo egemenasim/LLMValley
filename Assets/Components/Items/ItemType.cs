@@ -6,11 +6,13 @@ namespace LLMValley.Items
     /// </summary>
     public enum ItemType
     {
-        Seed,
-        Crop,
-        Fish,
-        Tool,
-        Currency,
-        Misc
+        Seed, //Plant animation
+        Crop, // Non animation
+        Hoe, // Hoeing animation
+        Fish, // Non animation
+        Rod, // Fishing animation
+        WaterCan, // Watering animation
+        Currency, // No animation
+        Misc // No animaion
     }
 }

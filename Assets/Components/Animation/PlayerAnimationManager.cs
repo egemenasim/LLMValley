@@ -1,3 +1,4 @@
+using LLMValley.Player;
 using UnityEngine;
 
 namespace LLMValley.Components.Animation
@@ -7,14 +8,21 @@ namespace LLMValley.Components.Animation
     {
         private Animator animator;
 
-        // Son bakılan yönü saklıyoruz
-        private Vector2 lastDirection = Vector2.down;
+        private Vector2 lastDirection = Vector2.down; //son yönü alması için 
+
+        private static readonly int XInput = Animator.StringToHash("xInput");
+        private static readonly int YInput = Animator.StringToHash("yInput");
+        private static readonly int IsMoving = Animator.StringToHash("isMoving");
+
+        private static readonly int WaterTrigger = Animator.StringToHash("waterTrigger");
+        private static readonly int HoeTrigger = Animator.StringToHash("hoeTrigger");
+        private static readonly int FishingTrigger = Animator.StringToHash("fishingTrigger");
+        private static readonly int PlantTrigger = Animator.StringToHash("plantTrigger");
 
         private void Awake()
         {
             animator = GetComponent<Animator>();
         }
-
 
         public void SetMovement(Vector2 direction)
         {
@@ -22,16 +30,36 @@ namespace LLMValley.Components.Animation
 
             bool isMoving = direction.sqrMagnitude > 0.01f;
 
-            // Eğer hareket varsa yönü güncelle
             if (isMoving)
             {
-                lastDirection = direction.normalized;
+                lastDirection = direction.normalized; //harektte son yönü güncelleştir
             }
 
-            // Animator parametrelerini set et
-            animator.SetFloat("xInput", lastDirection.x);
-            animator.SetFloat("yInput", lastDirection.y);
-            animator.SetBool("isMoving", isMoving);
+            animator.SetFloat(XInput, lastDirection.x);
+            animator.SetFloat(YInput, lastDirection.y);
+            animator.SetBool(IsMoving, isMoving);
+        }
+
+        public void PlayToolAnimation(ToolType toolType)
+        {
+            switch (toolType)
+            {
+                case ToolType.Water:
+                    animator.SetTrigger(WaterTrigger);
+                    break;
+
+                case ToolType.Hoe:
+                    animator.SetTrigger(HoeTrigger);
+                    break;
+
+                case ToolType.Fishing:
+                    animator.SetTrigger(FishingTrigger);
+                    break;
+
+                case ToolType.Plant:
+                    animator.SetTrigger(PlantTrigger);
+                    break;
+            }
         }
     }
 }
