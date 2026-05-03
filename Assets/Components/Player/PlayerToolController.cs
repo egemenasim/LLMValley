@@ -68,7 +68,7 @@ namespace LLMValley.Player
             selectedTool = itemType;
         }
 
-        public ToolType GetSelectedTool()
+        public ItemType GetSelectedTool()
         {
             return selectedTool;
         }

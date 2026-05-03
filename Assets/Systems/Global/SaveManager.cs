@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Newtonsoft.Json;
 using LLMValley.Player;
+using LLMValley.Items;
 using Systems.Calendar;
 
 namespace LLMValley.SaveSystem
@@ -29,7 +30,7 @@ namespace LLMValley.SaveSystem
             public CalendarDate calendarDate;
             public Systems.Calendar.DayOfWeek dayOfWeek;
             public int currentHour;
-            public ToolType selectedTool;
+            public ItemType selectedTool;
             public InventorySaveData inventory;
             public string lastSaveTime;
         }
