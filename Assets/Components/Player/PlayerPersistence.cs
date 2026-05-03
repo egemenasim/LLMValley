@@ -27,6 +27,7 @@ namespace LLMValley.Player
             DontDestroyOnLoad(gameObject);
 
             Debug.Log("[PlayerPersistence] Player will persist across scene transitions");
+            Debug.Log($"[PlayerPersistence] Player GameObject: {gameObject.name}, Tag: {gameObject.tag}");
         }
 
         private void OnDestroy()
@@ -34,6 +35,7 @@ namespace LLMValley.Player
             if (_instance == this)
             {
                 _instance = null;
+                Debug.Log("[PlayerPersistence] PlayerPersistence instance destroyed");
             }
         }
 
@@ -42,7 +44,7 @@ namespace LLMValley.Player
         /// </summary>
         private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
-            Debug.Log($"[PlayerPersistence] Scene loaded: {scene.name}, Player position: {transform.position}");
+            Debug.Log($"[PlayerPersistence] Scene loaded: {scene.name}, Player position: {transform.position}, Player active: {gameObject.activeInHierarchy}");
         }
 
         private void OnEnable()

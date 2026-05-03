@@ -86,6 +86,8 @@ namespace LLMValley.SaveSystem
             try
             {
                 string path = GetSaveFilePath();
+                Debug.Log($"[SaveManager] Loading game from: {path}");
+                
                 if (!File.Exists(path))
                 {
                     Debug.LogWarning("[SaveManager] No save file found. Starting new game.");
@@ -93,7 +95,10 @@ namespace LLMValley.SaveSystem
                 }
 
                 string json = File.ReadAllText(path);
+                Debug.Log($"[SaveManager] Read JSON data, length: {json.Length}");
+                
                 var saveData = JsonConvert.DeserializeObject<PlayerSaveData>(json);
+                Debug.Log($"[SaveManager] Deserialized save data: {saveData != null}");
 
                 if (saveData == null)
                 {
@@ -189,15 +194,24 @@ namespace LLMValley.SaveSystem
         /// <param name="skipPlayerPositioning">If true, skips setting player position/rotation</param>
         private static void ApplySaveData(PlayerSaveData saveData, bool skipPlayerPositioning = false)
         {
+            Debug.Log("[SaveManager] Applying save data...");
+            
             // Find player once for all operations
             var player = GameObject.FindGameObjectWithTag("Player");
+            Debug.Log($"[SaveManager] Player found: {player != null}");
 
             // Apply calendar data
             if (CalendarSystem.Instance != null)
             {
+                Debug.Log("[SaveManager] Applying calendar data...");
                 CalendarSystem.Instance.SetDate(saveData.calendarDate);
                 CalendarSystem.Instance.SetDayOfWeek(saveData.dayOfWeek);
                 CalendarSystem.Instance.SetHour(saveData.currentHour);
+                Debug.Log("[SaveManager] Calendar data applied");
+            }
+            else
+            {
+                Debug.LogWarning("[SaveManager] CalendarSystem.Instance is null");
             }
 
             // Apply player position and rotation (skip if requested)
@@ -230,6 +244,7 @@ namespace LLMValley.SaveSystem
                 var inventory = player.GetComponent<PlayerInventory>();
                 if (inventory != null && saveData.inventory != null)
                 {
+                    Debug.Log($"[SaveManager] Loading inventory with {saveData.inventory.items.Length} items...");
                     // Clear current inventory
                     inventory.ClearInventory();
 
@@ -246,8 +261,19 @@ namespace LLMValley.SaveSystem
                             Debug.LogWarning($"[SaveManager] Could not find item with ID: {itemData.itemId}");
                         }
                     }
+                    Debug.Log("[SaveManager] Inventory loaded");
+                }
+                else
+                {
+                    Debug.LogWarning("[SaveManager] Player inventory not found or no inventory data");
                 }
             }
+            else
+            {
+                Debug.LogWarning("[SaveManager] Player not found for inventory loading");
+            }
+            
+            Debug.Log("[SaveManager] Save data application complete");
         }
 
         /// <summary>
@@ -263,16 +289,28 @@ namespace LLMValley.SaveSystem
         /// </summary>
         private static LLMValley.Items.ItemData GetItemById(int itemId)
         {
-            // Find all ItemData assets in the project
-            var allItems = Resources.FindObjectsOfTypeAll<LLMValley.Items.ItemData>();
-            foreach (var item in allItems)
+            try
             {
-                if (item.itemID == itemId)
+                // Find all ItemData assets in the project
+                var allItems = Resources.FindObjectsOfTypeAll<LLMValley.Items.ItemData>();
+                Debug.Log($"[SaveManager] Found {allItems.Length} ItemData assets");
+                
+                foreach (var item in allItems)
                 {
-                    return item;
+                    if (item.itemID == itemId)
+                    {
+                        return item;
+                    }
                 }
+                
+                Debug.LogWarning($"[SaveManager] Item with ID {itemId} not found among {allItems.Length} items");
+                return null;
             }
-            return null;
+            catch (Exception e)
+            {
+                Debug.LogError($"[SaveManager] Error finding item {itemId}: {e.Message}");
+                return null;
+            }
         }
     }
 }
