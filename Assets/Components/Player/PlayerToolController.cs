@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using LLMValley.Items;
 using LLMValley.Components.Animation;
+using LLMValley.UI;
 
 namespace LLMValley.Player
 {
@@ -72,6 +73,8 @@ namespace LLMValley.Player
 
         private void UseSelectedTool()
         {
+            SyncSelectedToolFromUI();
+
             if (!IsSelectedToolInInventory())
             {
                 Debug.LogWarning($"[PlayerToolController] Selected tool not in inventory hotbar slot: {selectedTool}");
@@ -96,6 +99,17 @@ namespace LLMValley.Player
             }
 
             action.Use();
+        }
+
+        private void SyncSelectedToolFromUI()
+        {
+            InventoryUI ui = playerInventory?.InventoryUI;
+            if (ui == null)
+                return;
+
+            ItemStack selectedStack = ui.GetSelectedStack();
+            if (selectedStack != null && selectedStack.IsValid)
+                selectedTool = selectedStack.item.itemType;
         }
 
         private bool IsSelectedToolInInventory()
