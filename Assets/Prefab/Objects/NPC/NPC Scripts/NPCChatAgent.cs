@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
+using LLMValley.NPCShop;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -34,6 +35,7 @@ namespace LLMValley.NPCChat
         [SerializeField] private TMP_Text interactionPromptLabel;
         [SerializeField] private string interactionPromptText = "Press \"E\" to interact";
         [SerializeField] private NPCRelationshipStats relationshipStats;
+        [SerializeField] private NPCSellComponent sellComponent;
 
         [Header("Detection")]
         [SerializeField] private Collider interactionTrigger;
@@ -52,12 +54,14 @@ namespace LLMValley.NPCChat
         public string ChatAvailabilityMessage => CanSendMessages
             ? "Talk to the NPC."
             : relationshipStats.LockedStatusMessage;
+        public NPCSellComponent SellComponent => sellComponent;
 
         private void Awake()
         {
             interactionOrigin ??= transform;
             interactionTrigger ??= GetComponent<Collider>();
             relationshipStats ??= GetComponent<NPCRelationshipStats>();
+            sellComponent ??= GetComponent<NPCSellComponent>();
 
             if (interactionTrigger != null)
             {
@@ -98,6 +102,7 @@ namespace LLMValley.NPCChat
             }
 
             relationshipStats ??= GetComponent<NPCRelationshipStats>();
+            sellComponent ??= GetComponent<NPCSellComponent>();
 
             RefreshVisualFromPersona();
             RefreshPromptReferences();
