@@ -1,4 +1,5 @@
 using LLMValley.Player;
+using LLMValley.Items;
 using UnityEngine;
 
 namespace LLMValley.Components.Animation
@@ -40,23 +41,23 @@ namespace LLMValley.Components.Animation
             animator.SetBool(IsMoving, isMoving);
         }
 
-        public void PlayToolAnimation(ToolType toolType)
+        public void PlayToolAnimation(ItemType itemType)
         {
-            switch (toolType)
+            switch (itemType)
             {
-                case ToolType.Water:
+                case ItemType.WaterCan:
                     animator.SetTrigger(WaterTrigger);
                     break;
 
-                case ToolType.Hoe:
+                case ItemType.Hoe:
                     animator.SetTrigger(HoeTrigger);
                     break;
 
-                case ToolType.Fishing:
+                case ItemType.Rod:
                     animator.SetTrigger(FishingTrigger);
                     break;
 
-                case ToolType.Plant:
+                case ItemType.Seed:
                     animator.SetTrigger(PlantTrigger);
                     break;
             }

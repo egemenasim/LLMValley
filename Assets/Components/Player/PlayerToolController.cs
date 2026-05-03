@@ -1,14 +1,15 @@
 using System.Collections.Generic;
 using UnityEngine;
+using LLMValley.Items;
 
 namespace LLMValley.Player
 {
     public class PlayerToolController : MonoBehaviour
     {
         [Header("Test Selection")]
-        [SerializeField] private ToolType selectedTool = ToolType.None;
+        [SerializeField] private ItemType selectedTool = ItemType.Misc;
 
-        private readonly Dictionary<ToolType, IToolAction> _toolActions = new();
+        private readonly Dictionary<ItemType, IToolAction> _toolActions = new();
         //toola göre script değişecek bu şuanlık test sadece
 
         private void Awake()
@@ -38,21 +39,18 @@ namespace LLMValley.Player
                 if (action == null)
                     continue;
 
-                if (_toolActions.ContainsKey(action.ToolType))
+                if (_toolActions.ContainsKey(action.ItemType))
                 {
-                    Debug.LogWarning($"[PlayerToolController] Duplicate tool action found: {action.ToolType}");
+                    Debug.LogWarning($"[PlayerToolController] Duplicate tool action found: {action.ItemType}");
                     continue;
                 }
 
-                _toolActions.Add(action.ToolType, action);
+                _toolActions.Add(action.ItemType, action);
             }
         }
 
         private void UseSelectedTool()
         {
-            if (selectedTool == ToolType.None)
-                return;
-
             if (!_toolActions.TryGetValue(selectedTool, out IToolAction action))
             {
                 Debug.LogWarning($"[PlayerToolController] No action found for selected tool: {selectedTool}");
@@ -65,9 +63,9 @@ namespace LLMValley.Player
             action.Use();
         }
 
-        public void SetSelectedTool(ToolType toolType)
+        public void SetSelectedTool(ItemType itemType)
         {
-            selectedTool = toolType;
+            selectedTool = itemType;
         }
     }
 }
