@@ -1,12 +1,13 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System;
 
 /// <summary>
-/// Handles screen transitions (fade in/out) using a SpriteRenderer.
+/// Handles screen transitions (fade in/out) using a UI Image.
 /// Optimized with a manual easing function to simulate tweening without external libraries.
 /// </summary>
-[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(Image))]
 public class TransitionUI : MonoBehaviour
 {
     // ── Singleton ─────────────────────────────────────────────────────────
@@ -14,8 +15,8 @@ public class TransitionUI : MonoBehaviour
 
     // ── Inspector ─────────────────────────────────────────────────────────
     [Header("Settings")]
-    [Tooltip("The SpriteRenderer used for the fade overlay.")]
-    [SerializeField] private SpriteRenderer transitionSprite;
+    [Tooltip("The Image component used for the fade overlay.")]
+    [SerializeField] private Image transitionImage;
 
     [Tooltip("Default time taken to fade in or out.")]
     [SerializeField] private float defaultDuration = 1.0f;
@@ -38,8 +39,8 @@ public class TransitionUI : MonoBehaviour
         Instance = this;
         
         // Auto-assign if missing
-        if (transitionSprite == null)
-            transitionSprite = GetComponent<SpriteRenderer>();
+        if (transitionImage == null)
+            transitionImage = GetComponent<Image>();
     }
 
     private void Start()
@@ -87,13 +88,13 @@ public class TransitionUI : MonoBehaviour
 
     private IEnumerator FadeRoutine(float targetAlpha, float duration, Action onComplete)
     {
-        if (transitionSprite == null)
+        if (transitionImage == null)
         {
-            Debug.LogError("[TransitionUI] SpriteRenderer is missing!", this);
+            Debug.LogError("[TransitionUI] Image component is missing!", this);
             yield break;
         }
 
-        Color color = transitionSprite.color;
+        Color color = transitionImage.color;
         float startAlpha = color.a;
         float elapsed = 0f;
 
@@ -109,14 +110,14 @@ public class TransitionUI : MonoBehaviour
             float easedT = t * t * (3f - 2f * t);
             
             color.a = Mathf.Lerp(startAlpha, targetAlpha, easedT);
-            transitionSprite.color = color;
+            transitionImage.color = color;
             
             yield return null;
         }
 
         // Snap to final value
         color.a = targetAlpha;
-        transitionSprite.color = color;
+        transitionImage.color = color;
         _fadeCoroutine = null;
         
         onComplete?.Invoke();
