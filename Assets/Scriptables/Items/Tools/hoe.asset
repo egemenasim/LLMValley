@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9dc30e2ec7995aa4fb40a3cda6741e16, type: 3}
-  m_Name: corn
+  m_Name: hoe
   m_EditorClassIdentifier: Assembly-CSharp::LLMValley.Items.ItemData
-  itemName: Corn
-  description: A golden ear of corn, sweet and tender.
-  icon: {fileID: -6521346793507321066, guid: 29e7b698b0092cc418f7cdca749b77ed, type: 3}
-  itemID: 2002
-  itemType: 1
-  baseValue: 15
-  isStackable: 1
-  maxStackSize: 99
+  itemName: Hoe
+  description: A basic tool for tilling soil.
+  icon: {fileID: 8834441656716106029, guid: 4c5c02960973d80429718e828dbb7028, type: 3}
+  itemID: 4001
+  itemType: 2
+  baseValue: 50
+  isStackable: 0
+  maxStackSize: 1

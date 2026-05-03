@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9dc30e2ec7995aa4fb40a3cda6741e16, type: 3}
-  m_Name: Pumpkin
+  m_Name: pumpkin
   m_EditorClassIdentifier: Assembly-CSharp::LLMValley.Items.ItemData
   itemName: Pumpkin
-  description: A hefty pumpkin. Perfect for pies and lanterns.
-  icon: {fileID: 0}
-  itemID: 2006
+  description: A large, orange gourd perfect for pies.
+  icon: {fileID: 3801843947054940190, guid: dcfbfaa9ef7702747ae5ad0b6110b116, type: 3}
+  itemID: 2003
   itemType: 1
-  baseValue: 60
+  baseValue: 50
   isStackable: 1
   maxStackSize: 99

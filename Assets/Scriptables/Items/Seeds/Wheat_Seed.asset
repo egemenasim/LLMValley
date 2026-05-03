@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9dc30e2ec7995aa4fb40a3cda6741e16, type: 3}
-  m_Name: Wheat_Seed
+  m_Name: wheat_Seed
   m_EditorClassIdentifier: Assembly-CSharp::LLMValley.Items.ItemData
   itemName: Wheat Seed
-  description: A simple wheat seed. Hardy and reliable.
-  icon: {fileID: 0}
-  itemID: 1001
+  description: Plant this to grow Wheat.
+  icon: {fileID: 6271399085124507442, guid: 67d9308182eba074fbe2bd552a3a66ed, type: 3}
+  itemID: 1005
   itemType: 0
   baseValue: 5
   isStackable: 1

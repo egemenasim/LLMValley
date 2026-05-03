@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9dc30e2ec7995aa4fb40a3cda6741e16, type: 3}
-  m_Name: corn
+  m_Name: wood
   m_EditorClassIdentifier: Assembly-CSharp::LLMValley.Items.ItemData
-  itemName: Corn
-  description: A golden ear of corn, sweet and tender.
-  icon: {fileID: -6521346793507321066, guid: 29e7b698b0092cc418f7cdca749b77ed, type: 3}
-  itemID: 2002
-  itemType: 1
-  baseValue: 15
+  itemName: Wood
+  description: A basic resource for crafting and building.
+  icon: {fileID: 7440981132975211316, guid: 781bda55d3834d949a8fd2b923e99974, type: 3}
+  itemID: 6003
+  itemType: 7
+  baseValue: 2
   isStackable: 1
   maxStackSize: 99

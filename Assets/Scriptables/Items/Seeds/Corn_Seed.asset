@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9dc30e2ec7995aa4fb40a3cda6741e16, type: 3}
-  m_Name: Corn_Seed
+  m_Name: corn_Seed
   m_EditorClassIdentifier: Assembly-CSharp::LLMValley.Items.ItemData
   itemName: Corn Seed
-  description: A corn seed. Tall stalks bearing golden ears.
-  icon: {fileID: 0}
-  itemID: 1005
+  description: Plant this to grow Corn.
+  icon: {fileID: -6521346793507321066, guid: 29e7b698b0092cc418f7cdca749b77ed, type: 3}
+  itemID: 1002
   itemType: 0
-  baseValue: 15
+  baseValue: 7.5
   isStackable: 1
   maxStackSize: 99

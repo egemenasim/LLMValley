@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9dc30e2ec7995aa4fb40a3cda6741e16, type: 3}
-  m_Name: Tomato_Seed
+  m_Name: tomato_Seed
   m_EditorClassIdentifier: Assembly-CSharp::LLMValley.Items.ItemData
   itemName: Tomato Seed
-  description: A tomato seed. Produces a juicy, red fruit.
-  icon: {fileID: 0}
+  description: Plant this to grow Tomato.
+  icon: {fileID: -3962807554240710951, guid: 2f2168478e17fe44185bea25896b1d11, type: 3}
   itemID: 1004
   itemType: 0
-  baseValue: 12
+  baseValue: 12.5
   isStackable: 1
   maxStackSize: 99

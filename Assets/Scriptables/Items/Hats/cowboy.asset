@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9dc30e2ec7995aa4fb40a3cda6741e16, type: 3}
-  m_Name: corn
+  m_Name: cowboy
   m_EditorClassIdentifier: Assembly-CSharp::LLMValley.Items.ItemData
-  itemName: Corn
-  description: A golden ear of corn, sweet and tender.
-  icon: {fileID: -6521346793507321066, guid: 29e7b698b0092cc418f7cdca749b77ed, type: 3}
-  itemID: 2002
-  itemType: 1
-  baseValue: 15
-  isStackable: 1
-  maxStackSize: 99
+  itemName: Cowboy Hat
+  description: A classic wide-brimmed cowboy hat.
+  icon: {fileID: 5308448175360178355, guid: 606a381d7bcc0534c8b2eab89da8c0e3, type: 3}
+  itemID: 5003
+  itemType: 7
+  baseValue: 200
+  isStackable: 0
+  maxStackSize: 1

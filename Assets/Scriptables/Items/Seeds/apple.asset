@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9dc30e2ec7995aa4fb40a3cda6741e16, type: 3}
-  m_Name: corn
+  m_Name: apple
   m_EditorClassIdentifier: Assembly-CSharp::LLMValley.Items.ItemData
-  itemName: Corn
-  description: A golden ear of corn, sweet and tender.
-  icon: {fileID: -6521346793507321066, guid: 29e7b698b0092cc418f7cdca749b77ed, type: 3}
-  itemID: 2002
+  itemName: Apple Seed
+  description: Plant this to grow Apple.
+  icon: {fileID: -7832214784768987486, guid: a57474e1c8f8c3e4ebbe02b3b4735913, type: 3}
+  itemID: 1001
   itemType: 1
-  baseValue: 15
+  baseValue: 10
   isStackable: 1
   maxStackSize: 99
