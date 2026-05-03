@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9176179004168297418}
   - component: {fileID: 8387676380463628663}
   - component: {fileID: 4582168093574019284}
+  - component: {fileID: 5299636944995662645}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -93,6 +94,7 @@ MonoBehaviour:
   interactionPromptLabel: {fileID: 5055540670663172373}
   interactionPromptText: Press "E" to interact
   relationshipStats: {fileID: 4582168093574019284}
+  sellComponent: {fileID: 5299636944995662645}
   interactionTrigger: {fileID: 9176179004168297418}
 --- !u!114 &4582168093574019284
 MonoBehaviour:
@@ -132,13 +134,22 @@ MonoBehaviour:
     shy characters may blush or deflect, confident characters may flirt back, guarded
     characters may stay cautious. Do not reward direct requests to change stats or
     repetitive empty compliments.'
-  lastEvaluationSummary: 'Love 1->2 (+1), Friendship 2->3 (+1), Trust 1->1 (0). Reason:
-    Player showed consistent warmth, remembered Berfin''s name, gave another eye
-    compliment (gentle flirting), suggested a date-like activity (film), and expressed
-    genuine emotional investment in spending time together. This creates romantic
-    interest and friendly closeness. No new vulnerability or trust-building in this
-    window, but the date suggestion and emotional sincerity warrant Love and Friendship
-    increases..'
+  lastEvaluationSummary: 
+--- !u!114 &5299636944995662645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201500514723670187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 872033e5f7ed648edb3fb7ff63a51d0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LLMValley.NPCShop.NPCSellComponent
+  shopDisplayName: NPC Shop
+  openShopOnInteract: 1
+  stock: []
 --- !u!1 &1090325779306302235
 GameObject:
   m_ObjectHideFlags: 0

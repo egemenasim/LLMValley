@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using LLMValley.NPCShop;
+using LLMValley.Player;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -21,9 +23,19 @@ namespace LLMValley.NPCChat
         [SerializeField] private Button sendButton;
         [SerializeField] private Button closeButton;
         [SerializeField] private GameObject loadingIndicator;
+        [Header("Shop UI")]
+        [SerializeField] private GameObject sellPanelRoot;
+        [SerializeField] private TMP_Text shopTitleLabel;
+        [SerializeField] private TMP_Text shopGoldLabel;
+        [SerializeField] private TMP_Text shopStatusLabel;
+        [SerializeField] private Transform shopItemsContainer;
+        [SerializeField] private GameObject shopItemTemplate;
 
         private readonly List<GameObject> activeMessageObjects = new();
+        private readonly List<GameObject> activeShopItemObjects = new();
         private NPCChatAgent currentAgent;
+        private PlayerInventory currentInventory;
+        private PlayerWallet currentWallet;
         private bool isSending;
 
         public static NPCChatUIManager Instance { get; private set; }
@@ -54,6 +66,8 @@ namespace LLMValley.NPCChat
             {
                 closeButton.onClick.AddListener(CloseConversation);
             }
+
+            CacheShopReferences();
         }
 
         // IDialog — CloseDialog is called by DialogInputManager when Escape is pressed.
@@ -89,7 +103,10 @@ namespace LLMValley.NPCChat
             }
 
             currentAgent = agent;
+            currentInventory = FindFirstObjectByType<PlayerInventory>();
+            currentWallet = FindFirstObjectByType<PlayerWallet>();
             ClearMessages();
+            ClearShopItems();
             panelRoot.SetActive(true);
 
             if (titleLabel != null)
@@ -108,6 +125,7 @@ namespace LLMValley.NPCChat
             DialogInputManager.Register(this);
 
             RenderHistory(agent.CurrentConversation.messages);
+            RefreshShop(agent);
             SetLoading(false, agent.ChatAvailabilityMessage);
 
             if (inputField != null)
@@ -204,6 +222,8 @@ namespace LLMValley.NPCChat
             SetLoading(false, string.Empty);
             panelRoot.SetActive(false);
             ClearMessages();
+            ClearShopItems();
+            ToggleShopPanel(false);
             DialogInputManager.Unregister(this);
             PlayerInputLock.Unlock();
             agent?.EndConversation();
@@ -239,6 +259,177 @@ namespace LLMValley.NPCChat
             }
 
             activeMessageObjects.Clear();
+        }
+
+        private void CacheShopReferences()
+        {
+            if (panelRoot == null)
+            {
+                return;
+            }
+
+            if (sellPanelRoot == null)
+            {
+                var sellPanelTransform = panelRoot.transform.Find("SellPanel");
+                if (sellPanelTransform != null)
+                {
+                    sellPanelRoot = sellPanelTransform.gameObject;
+                }
+            }
+
+            if (shopTitleLabel == null)
+            {
+                shopTitleLabel = panelRoot.transform.Find("SellPanel/ShopHeader/ShopTitle")?.GetComponent<TMP_Text>();
+            }
+
+            if (shopGoldLabel == null)
+            {
+                shopGoldLabel = panelRoot.transform.Find("SellPanel/ShopHeader/ShopGold")?.GetComponent<TMP_Text>();
+            }
+
+            if (shopStatusLabel == null)
+            {
+                shopStatusLabel = panelRoot.transform.Find("SellPanel/ShopStatus")?.GetComponent<TMP_Text>();
+            }
+
+            if (shopItemsContainer == null)
+            {
+                shopItemsContainer = panelRoot.transform.Find("SellPanel/ShopBody/ShopContent");
+            }
+
+            if (shopItemTemplate == null && shopItemsContainer != null)
+            {
+                var templateTransform = shopItemsContainer.Find("ShopItemTemplate");
+                if (templateTransform != null)
+                {
+                    shopItemTemplate = templateTransform.gameObject;
+                }
+            }
+        }
+
+        private void RefreshShop(NPCChatAgent agent)
+        {
+            CacheShopReferences();
+
+            var seller = agent != null ? agent.SellComponent : null;
+            var hasShop = seller != null && seller.Stock != null && seller.Stock.Count > 0;
+
+            ToggleShopPanel(hasShop);
+            if (!hasShop)
+            {
+                return;
+            }
+
+            if (shopTitleLabel != null)
+            {
+                shopTitleLabel.text = seller.ShopDisplayName;
+            }
+
+            RefreshGoldLabel();
+            SetShopStatus("Select an item to buy.");
+
+            foreach (var listing in seller.Stock)
+            {
+                if (listing == null || listing.item == null || shopItemsContainer == null || shopItemTemplate == null)
+                {
+                    continue;
+                }
+
+                var row = Instantiate(shopItemTemplate, shopItemsContainer, false);
+                row.name = $"{listing.item.itemName} Row";
+                row.SetActive(true);
+
+                var icon = row.transform.Find("Icon")?.GetComponent<Image>();
+                var itemName = row.transform.Find("ItemName")?.GetComponent<TMP_Text>();
+                var price = row.transform.Find("Price")?.GetComponent<TMP_Text>();
+                var buyButton = row.transform.Find("BuyButton")?.GetComponent<Button>();
+                var buyLabel = row.transform.Find("BuyButton/Label")?.GetComponent<TMP_Text>();
+
+                if (icon != null)
+                {
+                    icon.sprite = listing.item.icon;
+                    icon.enabled = listing.item.icon != null;
+                }
+
+                if (itemName != null)
+                {
+                    itemName.text = listing.item.itemName;
+                }
+
+                if (price != null)
+                {
+                    price.text = $"{listing.Price}\nGOLD";
+                }
+
+                if (buyLabel != null)
+                {
+                    buyLabel.text = "Buy";
+                }
+
+                if (buyButton != null)
+                {
+                    buyButton.onClick.RemoveAllListeners();
+                    buyButton.onClick.AddListener(() => TryBuyListing(seller, listing));
+                }
+
+                activeShopItemObjects.Add(row);
+            }
+        }
+
+        private void TryBuyListing(NPCSellComponent seller, NPCShopListing listing)
+        {
+            if (seller == null)
+            {
+                return;
+            }
+
+            var success = seller.TryPurchase(listing, currentInventory, currentWallet, out var resultMessage);
+            SetShopStatus(resultMessage);
+            RefreshGoldLabel();
+
+            if (!success)
+            {
+                return;
+            }
+        }
+
+        private void RefreshGoldLabel()
+        {
+            if (shopGoldLabel == null)
+            {
+                return;
+            }
+
+            shopGoldLabel.text = currentWallet != null ? $"Gold: {currentWallet.CurrentGold}" : "Gold: --";
+        }
+
+        private void SetShopStatus(string message)
+        {
+            if (shopStatusLabel != null)
+            {
+                shopStatusLabel.text = message;
+            }
+        }
+
+        private void ClearShopItems()
+        {
+            foreach (var row in activeShopItemObjects)
+            {
+                if (row != null)
+                {
+                    Destroy(row);
+                }
+            }
+
+            activeShopItemObjects.Clear();
+        }
+
+        private void ToggleShopPanel(bool visible)
+        {
+            if (sellPanelRoot != null)
+            {
+                sellPanelRoot.SetActive(visible);
+            }
         }
 
         private void ScrollToBottom()
