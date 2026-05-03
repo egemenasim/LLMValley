@@ -47,6 +47,7 @@ namespace LLMValley.Components.Animation
             {
                 case ItemType.WaterCan:
                     animator.SetTrigger(WaterTrigger);
+                    Debug.Log("water can selected");
                     break;
 
                 case ItemType.Hoe:

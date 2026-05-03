@@ -128,6 +128,8 @@ namespace LLMValley.UI
 
             _selectedIndex = index;
 
+            Debug.Log($"[InventoryUI] Selected slot: {_selectedIndex}");
+
             // Select new
             if (_selectedIndex >= 0 && _selectedIndex < slots.Length)
                 slots[_selectedIndex]?.SetSelected(true);
