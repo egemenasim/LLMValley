@@ -119,6 +119,25 @@ namespace Systems.Calendar
         public DayOfWeek GetCurrentDayOfWeek() => currentDayOfWeek;
         public int GetCurrentHour() => currentHour;
 
+        public void SetDate(CalendarDate date)
+        {
+            currentDate = date;
+            UpdateUITexts();
+            CheckDailyEvents();
+        }
+
+        public void SetDayOfWeek(DayOfWeek day)
+        {
+            currentDayOfWeek = day;
+            UpdateUITexts();
+        }
+
+        public void SetHour(int hour)
+        {
+            currentHour = Mathf.Clamp(hour, 0, 23);
+            UpdateUITexts();
+        }
+
         private void UpdateUITexts()
         {
             if (dayText != null)
@@ -147,19 +166,6 @@ namespace Systems.Calendar
             }
             
             Debug.Log($"Advanced to: {currentHour:D2}:00");
-        }
-
-        public void SetHour(int hour)
-        {
-            if (hour >= 0 && hour < 24)
-            {
-                currentHour = hour;
-                UpdateUITexts();
-            }
-            else
-            {
-                Debug.LogWarning($"Invalid hour: {hour}. Must be between 0 and 23.");
-            }
         }
 
         public void SetDate(int day, Season season, int year, DayOfWeek dayOfWeek)

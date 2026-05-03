@@ -91,6 +91,19 @@ namespace LLMValley.Player
             RefreshUI();
         }
 
+        /// <summary>Adds an item to the inventory (used for loading saves).</summary>
+        public void AddItem(ItemData item, int quantity)
+        {
+            CollectItem(item, quantity);
+        }
+
+        /// <summary>Clears all items from the inventory (used for loading saves).</summary>
+        public void ClearInventory()
+        {
+            _items.Clear();
+            RefreshUI();
+        }
+
         // ─── Private ──────────────────────────────────────────────────────────────
 
         private void RefreshUI()
