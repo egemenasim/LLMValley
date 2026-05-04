@@ -146,6 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59be5b2af38b7b34ba4febcf27ee3d96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LLMValley.Components.Animation.PlayerAnimationManager
+  playerMove: {fileID: 0}
 --- !u!114 &7852385126532774857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,6 +160,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LLMValley.Player.PlayerToolController
   selectedTool: 0
+  animationManager: {fileID: 0}
+  playerInventory: {fileID: 0}
 --- !u!50 &1795336092784259020
 Rigidbody2D:
   serializedVersion: 5
