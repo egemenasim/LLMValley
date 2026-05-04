@@ -37,6 +37,7 @@ public class TransitionUI : MonoBehaviour
             return;
         }
         Instance = this;
+        DontDestroyOnLoad(gameObject);
         
         // Auto-assign if missing
         if (transitionImage == null)

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using LLMValley.Items;
 using LLMValley.UI;
+using UnityEngine.SceneManagement;
 
 namespace LLMValley.Player
 {
@@ -13,6 +14,7 @@ namespace LLMValley.Player
     /// </summary>
     public class PlayerInventory : MonoBehaviour, IItemCollector
     {
+        public static PlayerInventory Instance { get; private set; }
         // ─── Inspector ────────────────────────────────────────────────────────────
 
         [Header("Inventory")]
@@ -47,8 +49,32 @@ namespace LLMValley.Player
         }
 
         // ─── Unity Lifecycle ──────────────────────────────────────────────────────
+        
+        private void Awake()
+        {
+            if (Instance != null && Instance != this)
+            {
+                return;
+            }
+            Instance = this;
+        }
+
+        private void OnEnable()
+        {
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
+
+        private void OnDisable()
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+        }
 
         private void Start()
+        {
+            RefreshUI();
+        }
+
+        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
             RefreshUI();
         }
@@ -182,7 +208,19 @@ namespace LLMValley.Player
 
         private void RefreshUI()
         {
-            inventoryUI?.Refresh(_items);
+            if (inventoryUI == null)
+            {
+                inventoryUI = Object.FindAnyObjectByType<InventoryUI>(FindObjectsInactive.Include);
+                if (inventoryUI != null)
+                {
+                    Debug.Log($"[PlayerInventory] Dynamically found InventoryUI in scene: {SceneManager.GetActiveScene().name}");
+                }
+            }
+
+            if (inventoryUI != null)
+            {
+                inventoryUI.Refresh(_items);
+            }
         }
     }
 }

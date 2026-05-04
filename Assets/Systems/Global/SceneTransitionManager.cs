@@ -182,8 +182,8 @@ namespace LLMValley.SceneManagement
 
                     if (spawnPoint != null && player != null)
                     {
-                        Debug.Log($"[SceneTransitionManager] Moving player to {spawnPoint.transform.position}");
-                        player.transform.position = spawnPoint.transform.position;
+                        Debug.Log($"[SceneTransitionManager] Moving player to {spawnPoint.transform.position} (forcing Z=0)");
+                        player.transform.position = new Vector3(spawnPoint.transform.position.x, spawnPoint.transform.position.y, 0f);
                         player.transform.rotation = spawnPoint.transform.rotation;
                         Debug.Log($"[SceneTransitionManager] Player successfully positioned at spawn point");
                     }
