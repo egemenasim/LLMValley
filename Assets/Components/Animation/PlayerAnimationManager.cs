@@ -10,6 +10,7 @@ namespace LLMValley.Components.Animation
         private Animator animator;
 
         private Vector2 lastDirection = Vector2.down; //son yönü alması için 
+        [SerializeField] private PlayerMove playerMove;
 
         private static readonly int XInput = Animator.StringToHash("xInput");
         private static readonly int YInput = Animator.StringToHash("yInput");
@@ -17,12 +18,15 @@ namespace LLMValley.Components.Animation
 
         private static readonly int WaterTrigger = Animator.StringToHash("waterTrigger");
         private static readonly int HoeTrigger = Animator.StringToHash("hoeTrigger");
-        private static readonly int FishingTrigger = Animator.StringToHash("fishingTrigger");
+        private static readonly int IsFishing = Animator.StringToHash("isFishing");
         private static readonly int PlantTrigger = Animator.StringToHash("plantTrigger");
-
+        private bool isFishingActive = false;
         private void Awake()
         {
             animator = GetComponent<Animator>();
+
+            if (playerMove == null)
+                playerMove = GetComponent<PlayerMove>();
         }
 
         public void SetMovement(Vector2 direction)
@@ -41,12 +45,30 @@ namespace LLMValley.Components.Animation
             animator.SetBool(IsMoving, isMoving);
         }
 
+        public void ToggleFishing()
+        {
+            isFishingActive = !isFishingActive;
+
+            animator.SetBool(IsFishing, isFishingActive);
+
+            if (playerMove != null)
+                playerMove.SetMoveState(!isFishingActive);
+
+            if (isFishingActive)
+            {
+                animator.SetBool(IsMoving, false);
+                animator.SetFloat(XInput, lastDirection.x);
+                animator.SetFloat(YInput, lastDirection.y);
+            }
+        }
+
         public void PlayToolAnimation(ItemType itemType)
         {
             switch (itemType)
             {
                 case ItemType.WaterCan:
                     animator.SetTrigger(WaterTrigger);
+                    Debug.Log("water can selected");
                     break;
 
                 case ItemType.Hoe:
@@ -54,7 +76,7 @@ namespace LLMValley.Components.Animation
                     break;
 
                 case ItemType.Rod:
-                    animator.SetTrigger(FishingTrigger);
+                    ToggleFishing();
                     break;
 
                 case ItemType.Seed:

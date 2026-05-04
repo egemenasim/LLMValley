@@ -29,6 +29,23 @@ namespace LLMValley.Player
 
         public IReadOnlyList<ItemStack> Items => _items;
 
+        public InventoryUI InventoryUI => inventoryUI;
+
+        public bool HasItemType(ItemType itemType)
+        {
+            for (int i = 0; i < _items.Count; i++)
+            {
+                ItemStack stack = _items[i];
+                if (stack == null || !stack.IsValid)
+                    continue;
+
+                if (stack.item.itemType == itemType)
+                    return true;
+            }
+
+            return false;
+        }
+
         // ─── Unity Lifecycle ──────────────────────────────────────────────────────
 
         private void Start()
