@@ -20,7 +20,7 @@ namespace LLMValley.SaveSystem
         private const string CurrentHourKey = "CurrentHour";
         private const string PlayerCoinsKey = "PlayerCoins";
         private const string InventoryKey = "Inventory";
-        private const string SelectedToolKey = "SelectedTool";
+        private const string SelectedHotbarIndexKey = "SelectedHotbarIndex";
         private const string PlayerPositionKey = "PlayerPosition";
         private const string PlayerRotationKey = "PlayerRotation";
         private const string CurrentSceneKey = "CurrentScene";
@@ -39,7 +39,7 @@ namespace LLMValley.SaveSystem
             public Systems.Calendar.DayOfWeek dayOfWeek;
             public int currentHour;
             public int playerCoins;
-            public ItemType selectedTool;
+            public int selectedHotbarIndex;
             public InventorySaveData inventory;
             public string lastSaveTime;
         }
@@ -80,8 +80,8 @@ namespace LLMValley.SaveSystem
                 // Save inventory
                 PlayerPrefs.SetString(InventoryKey, JsonConvert.SerializeObject(saveData.inventory));
                 
-                // Save selected tool
-                PlayerPrefs.SetInt(SelectedToolKey, (int)saveData.selectedTool);
+                // Save selected hotbar slot index
+                PlayerPrefs.SetInt(SelectedHotbarIndexKey, saveData.selectedHotbarIndex);
                 
                 // Save player position
                 if (saveData.playerPosition != null && saveData.playerPosition.Length >= 3)
@@ -157,10 +157,10 @@ namespace LLMValley.SaveSystem
                     saveData.inventory = JsonConvert.DeserializeObject<InventorySaveData>(PlayerPrefs.GetString(InventoryKey));
                 }
                 
-                // Load selected tool
-                if (PlayerPrefs.HasKey(SelectedToolKey))
+                // Load selected hotbar slot index
+                if (PlayerPrefs.HasKey(SelectedHotbarIndexKey))
                 {
-                    saveData.selectedTool = (ItemType)PlayerPrefs.GetInt(SelectedToolKey);
+                    saveData.selectedHotbarIndex = PlayerPrefs.GetInt(SelectedHotbarIndexKey);
                 }
                 
                 // Load player position
@@ -254,17 +254,12 @@ namespace LLMValley.SaveSystem
                 saveData.playerCoins = wallet.CurrentGold;
             }
 
-            // Get player tool selection
-            var toolController = player?.GetComponent<PlayerToolController>();
-            if (toolController != null)
-            {
-                saveData.selectedTool = toolController.GetSelectedTool();
-            }
-
             // Get inventory data
             var inventory = player?.GetComponent<PlayerInventory>();
             if (inventory != null)
             {
+                saveData.selectedHotbarIndex = inventory.InventoryUI != null ? inventory.InventoryUI.SelectedIndex : -1;
+
                 saveData.inventory = new InventorySaveData
                 {
                     items = new InventorySaveData.InventoryItemData[inventory.Items.Count]
@@ -336,16 +331,6 @@ namespace LLMValley.SaveSystem
                 }
             }
 
-            // Apply tool selection
-            if (player != null)
-            {
-                var toolController = player.GetComponent<PlayerToolController>();
-                if (toolController != null)
-                {
-                    toolController.SetSelectedTool(saveData.selectedTool);
-                }
-            }
-
             // Apply inventory data
             if (player != null)
             {
@@ -368,6 +353,11 @@ namespace LLMValley.SaveSystem
                         {
                             Debug.LogWarning($"[SaveManager] Could not find item with ID: {itemData.itemId}");
                         }
+                    }
+
+                    if (inventory.InventoryUI != null)
+                    {
+                        inventory.InventoryUI.SelectSavedSlot(saveData.selectedHotbarIndex);
                     }
                     Debug.Log("[SaveManager] Inventory loaded");
                 }
