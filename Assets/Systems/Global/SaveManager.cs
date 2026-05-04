@@ -1,5 +1,4 @@
 using System;
-using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Newtonsoft.Json;
@@ -12,11 +11,20 @@ namespace LLMValley.SaveSystem
     /// <summary>
     /// Manages saving and loading of player data across scene transitions.
     /// Handles inventory, calendar state, player position, and other persistent data.
+    /// Uses PlayerPrefs for storage.
     /// </summary>
     public static class SaveManager
     {
-        private const string SaveFileName = "player_save.json";
-        private const string SaveFolderName = "GameSaves";
+        private const string CalendarDateKey = "CalendarDate";
+        private const string DayOfWeekKey = "DayOfWeek";
+        private const string CurrentHourKey = "CurrentHour";
+        private const string PlayerCoinsKey = "PlayerCoins";
+        private const string InventoryKey = "Inventory";
+        private const string SelectedToolKey = "SelectedTool";
+        private const string PlayerPositionKey = "PlayerPosition";
+        private const string PlayerRotationKey = "PlayerRotation";
+        private const string CurrentSceneKey = "CurrentScene";
+        private const string LastSaveTimeKey = "LastSaveTime";
 
         /// <summary>
         /// Data structure for all savable player information
@@ -30,6 +38,7 @@ namespace LLMValley.SaveSystem
             public CalendarDate calendarDate;
             public Systems.Calendar.DayOfWeek dayOfWeek;
             public int currentHour;
+            public int playerCoins;
             public ItemType selectedTool;
             public InventorySaveData inventory;
             public string lastSaveTime;
@@ -52,25 +61,51 @@ namespace LLMValley.SaveSystem
         }
 
         /// <summary>
-        /// Saves the current player state to disk
+        /// Saves the current player state to PlayerPrefs
         /// </summary>
         public static void SaveGame()
         {
             try
             {
                 var saveData = CollectSaveData();
-                string json = JsonConvert.SerializeObject(saveData, Formatting.Indented);
-                string path = GetSaveFilePath();
-
-                // Ensure directory exists
-                string directory = Path.GetDirectoryName(path);
-                if (!Directory.Exists(directory))
+                
+                // Save calendar data
+                PlayerPrefs.SetString(CalendarDateKey, JsonConvert.SerializeObject(saveData.calendarDate));
+                PlayerPrefs.SetInt(DayOfWeekKey, (int)saveData.dayOfWeek);
+                PlayerPrefs.SetInt(CurrentHourKey, saveData.currentHour);
+                
+                // Save player coins
+                PlayerPrefs.SetInt(PlayerCoinsKey, saveData.playerCoins);
+                
+                // Save inventory
+                PlayerPrefs.SetString(InventoryKey, JsonConvert.SerializeObject(saveData.inventory));
+                
+                // Save selected tool
+                PlayerPrefs.SetInt(SelectedToolKey, (int)saveData.selectedTool);
+                
+                // Save player position
+                if (saveData.playerPosition != null && saveData.playerPosition.Length >= 3)
                 {
-                    Directory.CreateDirectory(directory);
+                    PlayerPrefs.SetFloat(PlayerPositionKey + "X", saveData.playerPosition[0]);
+                    PlayerPrefs.SetFloat(PlayerPositionKey + "Y", saveData.playerPosition[1]);
+                    PlayerPrefs.SetFloat(PlayerPositionKey + "Z", saveData.playerPosition[2]);
                 }
-
-                File.WriteAllText(path, json);
-                Debug.Log($"[SaveManager] Game saved successfully to: {path}");
+                
+                // Save player rotation
+                if (saveData.playerRotation != null && saveData.playerRotation.Length >= 4)
+                {
+                    PlayerPrefs.SetFloat(PlayerRotationKey + "X", saveData.playerRotation[0]);
+                    PlayerPrefs.SetFloat(PlayerRotationKey + "Y", saveData.playerRotation[1]);
+                    PlayerPrefs.SetFloat(PlayerRotationKey + "Z", saveData.playerRotation[2]);
+                    PlayerPrefs.SetFloat(PlayerRotationKey + "W", saveData.playerRotation[3]);
+                }
+                
+                // Save scene and time
+                PlayerPrefs.SetString(CurrentSceneKey, saveData.currentSceneName);
+                PlayerPrefs.SetString(LastSaveTimeKey, saveData.lastSaveTime);
+                
+                PlayerPrefs.Save();
+                Debug.Log("[SaveManager] Game saved successfully to PlayerPrefs");
             }
             catch (Exception e)
             {
@@ -79,36 +114,90 @@ namespace LLMValley.SaveSystem
         }
 
         /// <summary>
-        /// Loads player state from disk and applies it
+        /// Loads player state from PlayerPrefs and applies it
         /// </summary>
         /// <param name="skipPlayerPositioning">If true, skips setting player position/rotation (useful for scene transitions)</param>
         public static bool LoadGame(bool skipPlayerPositioning = false)
         {
             try
             {
-                string path = GetSaveFilePath();
-                Debug.Log($"[SaveManager] Loading game from: {path}");
+                Debug.Log("[SaveManager] Loading game from PlayerPrefs");
                 
-                if (!File.Exists(path))
+                if (!SaveExists())
                 {
-                    Debug.LogWarning("[SaveManager] No save file found. Starting new game.");
+                    Debug.LogWarning("[SaveManager] No save data found in PlayerPrefs. Starting new game.");
                     return false;
                 }
 
-                string json = File.ReadAllText(path);
-                Debug.Log($"[SaveManager] Read JSON data, length: {json.Length}");
+                var saveData = new PlayerSaveData();
                 
-                var saveData = JsonConvert.DeserializeObject<PlayerSaveData>(json);
-                Debug.Log($"[SaveManager] Deserialized save data: {saveData != null}");
-
-                if (saveData == null)
+                // Load calendar data
+                if (PlayerPrefs.HasKey(CalendarDateKey))
                 {
-                    Debug.LogError("[SaveManager] Save data is corrupted or empty.");
-                    return false;
+                    saveData.calendarDate = JsonConvert.DeserializeObject<CalendarDate>(PlayerPrefs.GetString(CalendarDateKey));
+                }
+                if (PlayerPrefs.HasKey(DayOfWeekKey))
+                {
+                    saveData.dayOfWeek = (Systems.Calendar.DayOfWeek)PlayerPrefs.GetInt(DayOfWeekKey);
+                }
+                if (PlayerPrefs.HasKey(CurrentHourKey))
+                {
+                    saveData.currentHour = PlayerPrefs.GetInt(CurrentHourKey);
+                }
+                
+                // Load player coins
+                if (PlayerPrefs.HasKey(PlayerCoinsKey))
+                {
+                    saveData.playerCoins = PlayerPrefs.GetInt(PlayerCoinsKey);
+                }
+                
+                // Load inventory
+                if (PlayerPrefs.HasKey(InventoryKey))
+                {
+                    saveData.inventory = JsonConvert.DeserializeObject<InventorySaveData>(PlayerPrefs.GetString(InventoryKey));
+                }
+                
+                // Load selected tool
+                if (PlayerPrefs.HasKey(SelectedToolKey))
+                {
+                    saveData.selectedTool = (ItemType)PlayerPrefs.GetInt(SelectedToolKey);
+                }
+                
+                // Load player position
+                if (PlayerPrefs.HasKey(PlayerPositionKey + "X"))
+                {
+                    saveData.playerPosition = new float[]
+                    {
+                        PlayerPrefs.GetFloat(PlayerPositionKey + "X"),
+                        PlayerPrefs.GetFloat(PlayerPositionKey + "Y"),
+                        PlayerPrefs.GetFloat(PlayerPositionKey + "Z")
+                    };
+                }
+                
+                // Load player rotation
+                if (PlayerPrefs.HasKey(PlayerRotationKey + "X"))
+                {
+                    saveData.playerRotation = new float[]
+                    {
+                        PlayerPrefs.GetFloat(PlayerRotationKey + "X"),
+                        PlayerPrefs.GetFloat(PlayerRotationKey + "Y"),
+                        PlayerPrefs.GetFloat(PlayerRotationKey + "Z"),
+                        PlayerPrefs.GetFloat(PlayerRotationKey + "W")
+                    };
+                }
+                
+                // Load scene and time
+                if (PlayerPrefs.HasKey(CurrentSceneKey))
+                {
+                    saveData.currentSceneName = PlayerPrefs.GetString(CurrentSceneKey);
+                }
+                if (PlayerPrefs.HasKey(LastSaveTimeKey))
+                {
+                    saveData.lastSaveTime = PlayerPrefs.GetString(LastSaveTimeKey);
                 }
 
                 ApplySaveData(saveData, skipPlayerPositioning);
-                Debug.Log($"[SaveManager] Game loaded successfully from: {path}");
+                Debug.Log("[SaveManager] Game loaded successfully from PlayerPrefs");
                 return true;
             }
             catch (Exception e)
@@ -119,11 +208,11 @@ namespace LLMValley.SaveSystem
         }
 
         /// <summary>
-        /// Checks if a save file exists
+        /// Checks if save data exists in PlayerPrefs
         /// </summary>
         public static bool SaveExists()
         {
-            return File.Exists(GetSaveFilePath());
+            return PlayerPrefs.HasKey(CalendarDateKey) || PlayerPrefs.HasKey(PlayerCoinsKey) || PlayerPrefs.HasKey(InventoryKey);
         }
 
         /// <summary>
@@ -156,6 +245,13 @@ namespace LLMValley.SaveSystem
                 saveData.calendarDate = CalendarSystem.Instance.GetCurrentDate();
                 saveData.dayOfWeek = CalendarSystem.Instance.GetCurrentDayOfWeek();
                 saveData.currentHour = CalendarSystem.Instance.GetCurrentHour();
+            }
+
+            // Get player coin amount
+            var wallet = player?.GetComponent<PlayerWallet>();
+            if (wallet != null)
+            {
+                saveData.playerCoins = wallet.CurrentGold;
             }
 
             // Get player tool selection
@@ -213,6 +309,17 @@ namespace LLMValley.SaveSystem
             else
             {
                 Debug.LogWarning("[SaveManager] CalendarSystem.Instance is null");
+            }
+
+            // Apply player coin amount
+            if (player != null)
+            {
+                var wallet = player.GetComponent<PlayerWallet>();
+                if (wallet != null)
+                {
+                    wallet.SetGold(saveData.playerCoins);
+                    Debug.Log($"[SaveManager] Player coins set to: {saveData.playerCoins}");
+                }
             }
 
             // Apply player position and rotation (skip if requested)
@@ -278,14 +385,6 @@ namespace LLMValley.SaveSystem
         }
 
         /// <summary>
-        /// Gets the full path to the save file
-        /// </summary>
-        private static string GetSaveFilePath()
-        {
-            return Path.Combine(Application.persistentDataPath, SaveFolderName, SaveFileName);
-        }
-
-        /// <summary>
         /// Finds an ItemData by its ID at runtime
         /// </summary>
         private static LLMValley.Items.ItemData GetItemById(int itemId)
@@ -294,7 +393,17 @@ namespace LLMValley.SaveSystem
             {
                 // Find all ItemData assets in the project
                 var allItems = Resources.FindObjectsOfTypeAll<LLMValley.Items.ItemData>();
-                Debug.Log($"[SaveManager] Found {allItems.Length} ItemData assets");
+                
+                // Fallback to Resources.LoadAll if no items are currently in memory
+                if (allItems == null || allItems.Length == 0)
+                {
+                    allItems = Resources.LoadAll<LLMValley.Items.ItemData>("");
+                    Debug.Log($"[SaveManager] Found {allItems.Length} ItemData assets via Resources.LoadAll");
+                }
+                else
+                {
+                    Debug.Log($"[SaveManager] Found {allItems.Length} ItemData assets in memory");
+                }
                 
                 foreach (var item in allItems)
                 {

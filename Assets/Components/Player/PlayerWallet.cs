@@ -14,6 +14,11 @@ namespace LLMValley.Player
 
         public int CurrentGold => currentGold;
 
+        public void SetGold(int amount)
+        {
+            currentGold = Mathf.Max(0, amount);
+        }
+
         private void Awake()
         {
             if (currentGold <= 0)

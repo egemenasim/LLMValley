@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using LLMValley.SaveSystem;
 
 namespace LLMValley.Player
 {
@@ -41,10 +42,23 @@ namespace LLMValley.Player
 
         /// <summary>
         /// Called when a new scene is loaded to ensure player is properly positioned
+        /// and save data is loaded
         /// </summary>
         private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
             Debug.Log($"[PlayerPersistence] Scene loaded: {scene.name}, Player position: {transform.position}, Player active: {gameObject.activeInHierarchy}");
+            
+            // Load save data on every scene load
+            if (SaveManager.SaveExists())
+            {
+                Debug.Log("[PlayerPersistence] Loading save data...");
+                SaveManager.LoadGame(skipPlayerPositioning: true); // Skip positioning since scene transition manager handles it
+                Debug.Log("[PlayerPersistence] Save data loaded successfully");
+            }
+            else
+            {
+                Debug.Log("[PlayerPersistence] No save data found, starting fresh");
+            }
         }
 
         private void OnEnable()
