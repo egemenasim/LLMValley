@@ -148,6 +148,46 @@ namespace LLMValley.Player
             RefreshUI();
         }
 
+        /// <summary>
+        /// Removes the requested quantity of a specific item from the inventory.
+        /// Returns false if the player does not have enough of that item.
+        /// </summary>
+        public bool TryRemoveItem(ItemData item, int quantity = 1)
+        {
+            if (item == null || quantity <= 0)
+            {
+                return false;
+            }
+
+            var remaining = quantity;
+            for (var index = _items.Count - 1; index >= 0; index--)
+            {
+                var stack = _items[index];
+                if (stack.item != item)
+                {
+                    continue;
+                }
+
+                var amountToRemove = Mathf.Min(stack.quantity, remaining);
+                stack.quantity -= amountToRemove;
+                remaining -= amountToRemove;
+
+                if (stack.quantity <= 0)
+                {
+                    _items.RemoveAt(index);
+                }
+
+                if (remaining <= 0)
+                {
+                    RefreshUI();
+                    return true;
+                }
+            }
+
+            RefreshUI();
+            return false;
+        }
+
         // ─── Private ──────────────────────────────────────────────────────────────
 
         private void RefreshUI()

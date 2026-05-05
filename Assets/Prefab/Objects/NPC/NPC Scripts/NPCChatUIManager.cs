@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using LLMValley.NPCShop;
 using LLMValley.Player;
+using LLMValley.Items;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -312,21 +313,29 @@ namespace LLMValley.NPCChat
             CacheShopReferences();
 
             var seller = agent != null ? agent.SellComponent : null;
-            var hasShop = seller != null && seller.Stock != null && seller.Stock.Count > 0;
+            var merchant = agent != null ? agent.MerchantComponent : null;
+            var hasMerchant = merchant != null;
+            var hasShop = !hasMerchant && seller != null && seller.Stock != null && seller.Stock.Count > 0;
 
-            ToggleShopPanel(hasShop);
-            if (!hasShop)
+            ToggleShopPanel(hasMerchant || hasShop);
+            if (!hasMerchant && !hasShop)
             {
                 return;
             }
 
             if (shopTitleLabel != null)
             {
-                shopTitleLabel.text = seller.ShopDisplayName;
+                shopTitleLabel.text = hasMerchant ? merchant.MerchantDisplayName : seller.ShopDisplayName;
             }
 
             RefreshGoldLabel();
-            SetShopStatus("Select an item to buy.");
+            SetShopStatus(hasMerchant ? "Select an inventory item to sell." : "Select an item to buy.");
+
+            if (hasMerchant)
+            {
+                RefreshMerchant(merchant);
+                return;
+            }
 
             foreach (var listing in seller.Stock)
             {
@@ -376,6 +385,66 @@ namespace LLMValley.NPCChat
             }
         }
 
+        private void RefreshMerchant(NPCMerchantComponent merchant)
+        {
+            if (merchant == null || currentInventory == null)
+            {
+                return;
+            }
+
+            foreach (var stack in currentInventory.Items)
+            {
+                if (stack == null || !stack.IsValid || !merchant.CanSell(stack.item) || shopItemsContainer == null || shopItemTemplate == null)
+                {
+                    continue;
+                }
+
+                var row = Instantiate(shopItemTemplate, shopItemsContainer, false);
+                row.name = $"{stack.item.itemName} Merchant Row";
+                row.SetActive(true);
+
+                var icon = row.transform.Find("Icon")?.GetComponent<Image>();
+                var itemName = row.transform.Find("ItemName")?.GetComponent<TMP_Text>();
+                var price = row.transform.Find("Price")?.GetComponent<TMP_Text>();
+                var button = row.transform.Find("BuyButton")?.GetComponent<Button>();
+                var buttonLabel = row.transform.Find("BuyButton/Label")?.GetComponent<TMP_Text>();
+
+                if (icon != null)
+                {
+                    icon.sprite = stack.item.icon;
+                    icon.enabled = stack.item.icon != null;
+                }
+
+                if (itemName != null)
+                {
+                    itemName.text = stack.quantity > 1 ? $"{stack.item.itemName} x{stack.quantity}" : stack.item.itemName;
+                }
+
+                if (price != null)
+                {
+                    price.text = $"{merchant.GetSellPrice(stack.item)}\nGOLD";
+                }
+
+                if (buttonLabel != null)
+                {
+                    buttonLabel.text = "Sell";
+                }
+
+                if (button != null)
+                {
+                    button.onClick.RemoveAllListeners();
+                    button.onClick.AddListener(() => TrySellListing(merchant, stack.item));
+                }
+
+                activeShopItemObjects.Add(row);
+            }
+
+            if (activeShopItemObjects.Count == 0)
+            {
+                SetShopStatus("You have no sellable items for this merchant.");
+            }
+        }
+
         private void TryBuyListing(NPCSellComponent seller, NPCShopListing listing)
         {
             if (seller == null)
@@ -391,6 +460,43 @@ namespace LLMValley.NPCChat
             {
                 return;
             }
+        }
+
+        private void TrySellListing(NPCMerchantComponent merchant, ItemData item)
+        {
+            if (merchant == null || currentInventory == null || item == null)
+            {
+                return;
+            }
+
+            ItemStack matchingStack = null;
+            foreach (var stack in currentInventory.Items)
+            {
+                if (stack != null && stack.item == item && stack.quantity > 0)
+                {
+                    matchingStack = stack;
+                    break;
+                }
+            }
+
+            if (matchingStack == null)
+            {
+                SetShopStatus($"You do not have any {item.itemName} left.");
+                RefreshMerchant(merchant);
+                return;
+            }
+
+            var success = merchant.TrySell(matchingStack, currentInventory, currentWallet, out var resultMessage);
+            SetShopStatus(resultMessage);
+            RefreshGoldLabel();
+
+            if (!success)
+            {
+                return;
+            }
+
+            ClearShopItems();
+            RefreshMerchant(merchant);
         }
 
         private void RefreshGoldLabel()
