@@ -33,7 +33,7 @@ namespace LLMValley.UI
         [SerializeField] private TextMeshProUGUI quantityText;
 
         [Tooltip("Image used as a selection highlight / border.")]
-        [SerializeField] private Image selectionHighlight;
+        [SerializeField] public Image selectionHighlight;
 
         // ─── Events ───────────────────────────────────────────────────────────────
 

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using LLMValley.Items;
 using LLMValley.UI;
+using UnityEngine.SceneManagement;
 
 namespace LLMValley.Player
 {
@@ -13,6 +14,7 @@ namespace LLMValley.Player
     /// </summary>
     public class PlayerInventory : MonoBehaviour, IItemCollector
     {
+        public static PlayerInventory Instance { get; private set; }
         // ─── Inspector ────────────────────────────────────────────────────────────
 
         [Header("Inventory")]
@@ -29,9 +31,50 @@ namespace LLMValley.Player
 
         public IReadOnlyList<ItemStack> Items => _items;
 
+        public InventoryUI InventoryUI => inventoryUI;
+
+        public bool HasItemType(ItemType itemType)
+        {
+            for (int i = 0; i < _items.Count; i++)
+            {
+                ItemStack stack = _items[i];
+                if (stack == null || !stack.IsValid)
+                    continue;
+
+                if (stack.item.itemType == itemType)
+                    return true;
+            }
+
+            return false;
+        }
+
         // ─── Unity Lifecycle ──────────────────────────────────────────────────────
+        
+        private void Awake()
+        {
+            if (Instance != null && Instance != this)
+            {
+                return;
+            }
+            Instance = this;
+        }
+
+        private void OnEnable()
+        {
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
+
+        private void OnDisable()
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+        }
 
         private void Start()
+        {
+            RefreshUI();
+        }
+
+        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
             RefreshUI();
         }
@@ -148,51 +191,36 @@ namespace LLMValley.Player
             RefreshUI();
         }
 
-        /// <summary>
-        /// Removes the requested quantity of a specific item from the inventory.
-        /// Returns false if the player does not have enough of that item.
-        /// </summary>
-        public bool TryRemoveItem(ItemData item, int quantity = 1)
+        /// <summary>Adds an item to the inventory (used for loading saves).</summary>
+        public void AddItem(ItemData item, int quantity)
         {
-            if (item == null || quantity <= 0)
-            {
-                return false;
-            }
+            CollectItem(item, quantity);
+        }
 
-            var remaining = quantity;
-            for (var index = _items.Count - 1; index >= 0; index--)
-            {
-                var stack = _items[index];
-                if (stack.item != item)
-                {
-                    continue;
-                }
-
-                var amountToRemove = Mathf.Min(stack.quantity, remaining);
-                stack.quantity -= amountToRemove;
-                remaining -= amountToRemove;
-
-                if (stack.quantity <= 0)
-                {
-                    _items.RemoveAt(index);
-                }
-
-                if (remaining <= 0)
-                {
-                    RefreshUI();
-                    return true;
-                }
-            }
-
+        /// <summary>Clears all items from the inventory (used for loading saves).</summary>
+        public void ClearInventory()
+        {
+            _items.Clear();
             RefreshUI();
-            return false;
         }
 
         // ─── Private ──────────────────────────────────────────────────────────────
 
         private void RefreshUI()
         {
-            inventoryUI?.Refresh(_items);
+            if (inventoryUI == null)
+            {
+                inventoryUI = Object.FindAnyObjectByType<InventoryUI>(FindObjectsInactive.Include);
+                if (inventoryUI != null)
+                {
+                    Debug.Log($"[PlayerInventory] Dynamically found InventoryUI in scene: {SceneManager.GetActiveScene().name}");
+                }
+            }
+
+            if (inventoryUI != null)
+            {
+                inventoryUI.Refresh(_items);
+            }
         }
     }
 }

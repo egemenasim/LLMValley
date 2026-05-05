@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 1795336092784259020}
   - component: {fileID: 3023918657071870911}
   - component: {fileID: 167923032324354834}
+  - component: {fileID: 3527903411998836087}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -145,6 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59be5b2af38b7b34ba4febcf27ee3d96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LLMValley.Components.Animation.PlayerAnimationManager
+  playerMove: {fileID: 0}
 --- !u!114 &7852385126532774857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,6 +160,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LLMValley.Player.PlayerToolController
   selectedTool: 0
+  animationManager: {fileID: 0}
+  playerInventory: {fileID: 0}
 --- !u!50 &1795336092784259020
 Rigidbody2D:
   serializedVersion: 5
@@ -245,3 +249,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LLMValley.Player.PlayerInventory
   slotCount: 10
   inventoryUI: {fileID: 0}
+--- !u!114 &3527903411998836087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423409442739029937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c66f63f428740784a8c4437754a859ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LLMValley.Player.PlayerPersistence

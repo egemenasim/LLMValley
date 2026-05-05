@@ -1,8 +1,10 @@
+using LLMValley.Items;
+
 namespace LLMValley.Player
 {
     public interface IToolAction
     {
-        ToolType ToolType { get; }
+        ItemType ItemType { get; }
         bool CanUse();
         void Use();
     }

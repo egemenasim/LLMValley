@@ -8,6 +8,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: "Assets/Scenes/Test/Developer/Deniz \u015Eeker/SCENE_Deniz_FeatureTest.unity"
+    guid: 8a8f6b55f8471b84aaebdcfef5e6ab88
+  - enabled: 1
+    path: Assets/Scenes/Test/Developer/Yusuf Sadi Pesen/SadoranTest.unity
+    guid: 2cdc2f38671cb7044988c31404d5f73e
+  - enabled: 1
+    path: "Assets/Scenes/Test/Developer/Deniz \u015Eeker/SCENE_Deniz_DoorTest.unity"
+    guid: 40e97c8584582c54890476eba08f8c7a
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
