@@ -8,21 +8,21 @@ namespace LLMValley.Player
 {
     public class PlayerToolController : MonoBehaviour
     {
-        [Header("Test Selection")]
-        [SerializeField] private ItemType selectedTool = ItemType.Misc;
-
         [Header("Animation")]
         [SerializeField] private PlayerAnimationManager animationManager;
 
-        [Header("Inventory Gate")]
+        [Header("Inventory")]
         [SerializeField] private PlayerInventory playerInventory;
 
         private readonly Dictionary<ItemType, IToolAction> _toolActions = new();
-        //toola göre script değişecek bu şuanlık test sadece
 
         private void Awake()
         {
             RegisterToolActions();
+
+            // Fallback registrations so core tool ItemTypes are treated as usable
+            // even if no IToolAction components are configured in the scene.
+            RegisterFallbackToolActions();
 
             if (animationManager == null)
             {
@@ -45,20 +45,20 @@ namespace LLMValley.Player
                 return;
 
             if (Input.GetMouseButtonDown(0))
-            {
-                UseSelectedTool();
-            }
+                UseSelectedInventoryItem();
         }
 
         private void RegisterToolActions()
         {
             _toolActions.Clear();
 
-            IToolAction[] actions = GetComponents<IToolAction>();
-
-            foreach (IToolAction action in actions)
+            var behaviours = GetComponentsInChildren<MonoBehaviour>(true);
+            foreach (var behaviour in behaviours)
             {
-                if (action == null)
+                if (behaviour == null)
+                    continue;
+
+                if (behaviour is not IToolAction action)
                     continue;
 
                 if (_toolActions.ContainsKey(action.ItemType))
@@ -71,72 +71,82 @@ namespace LLMValley.Player
             }
         }
 
-        private void UseSelectedTool()
+        private void RegisterFallbackToolActions()
         {
-            SyncSelectedToolFromUI();
+            RegisterFallback(ItemType.Hoe);
+            RegisterFallback(ItemType.WaterCan);
+            RegisterFallback(ItemType.Rod);
+            RegisterFallback(ItemType.Seed);
+        }
 
-            if (!IsSelectedToolInInventory())
+        private void RegisterFallback(ItemType itemType)
+        {
+            if (_toolActions.ContainsKey(itemType))
+                return;
+
+            _toolActions.Add(itemType, new FallbackToolAction(itemType));
+        }
+
+        private sealed class FallbackToolAction : IToolAction
+        {
+            public ItemType ItemType { get; }
+
+            public FallbackToolAction(ItemType itemType)
             {
-                Debug.LogWarning($"[PlayerToolController] Selected tool not in inventory hotbar slot: {selectedTool}");
+                ItemType = itemType;
+            }
+
+            public bool CanUse() => true;
+
+            public void Use()
+            {
+            }
+        }
+
+        private void UseSelectedInventoryItem()
+        {
+            ItemStack selectedStack = GetSelectedStack();
+
+            if (selectedStack == null || !selectedStack.IsValid)
+            {
+                Debug.LogWarning("[PlayerToolController] No valid item selected.");
                 return;
             }
 
-            if (animationManager != null)
-                animationManager.PlayToolAnimation(selectedTool);
-            else
-                Debug.LogWarning($"[PlayerToolController] No PlayerAnimationManager found for tool animation: {selectedTool}");
+            ItemData selectedItem = selectedStack.item;
+            ItemType selectedItemType = selectedItem.itemType;
 
-            if (!_toolActions.TryGetValue(selectedTool, out IToolAction action))
+            if (!_toolActions.TryGetValue(selectedItemType, out IToolAction action))
             {
-                Debug.LogWarning($"[PlayerToolController] No action found for selected tool: {selectedTool}");
+                Debug.LogWarning($"[PlayerToolController] Selected item is not usable as a tool: {selectedItem.itemName} (ItemType: {selectedItemType})");
                 return;
             }
 
             if (!action.CanUse())
             {
-                Debug.LogWarning($"[PlayerToolController] Tool use blocked by CanUse(): {selectedTool}");
+                Debug.LogWarning($"[PlayerToolController] Tool use blocked by CanUse(): {selectedItemType}");
                 return;
             }
+
+            if (animationManager != null)
+                animationManager.PlayToolAnimation(selectedItemType);
+            else
+                Debug.LogWarning($"[PlayerToolController] No PlayerAnimationManager found for: {selectedItemType}");
 
             action.Use();
         }
 
-        private void SyncSelectedToolFromUI()
-        {
-            InventoryUI ui = playerInventory?.InventoryUI;
-            if (ui == null)
-                return;
-
-            ItemStack selectedStack = ui.GetSelectedStack();
-            if (selectedStack != null && selectedStack.IsValid)
-                selectedTool = selectedStack.item.itemType;
-        }
-
-        private bool IsSelectedToolInInventory()
+        private ItemStack GetSelectedStack()
         {
             if (playerInventory == null)
-                return false;
+                return null;
 
-            // Prefer hotbar selection (number keys / UI click) when available.
-            if (playerInventory.InventoryUI != null)
-            {
-                ItemStack selectedStack = playerInventory.InventoryUI.GetSelectedStack();
-                if (selectedStack != null && selectedStack.IsValid)
-                    return selectedStack.item.itemType == selectedTool;
-            }
+            InventoryUI ui = playerInventory.InventoryUI;
+            if (ui == null)
+                return null;
 
-            // Fallback: allow tool use if the item exists anywhere in inventory.
-            return playerInventory.HasItemType(selectedTool);
+            return ui.GetSelectedStack();
         }
 
-        public void SetSelectedTool(ItemType itemType)
-        {
-            selectedTool = itemType;
-        }
-
-        public ItemType GetSelectedTool()
-        {
-            return selectedTool;
-        }
     }
 }

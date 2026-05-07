@@ -96,6 +96,8 @@ namespace LLMValley.UI
 
         // ─── Public API ───────────────────────────────────────────────────────────
 
+        public int SelectedIndex => _selectedIndex;
+
         /// <summary>
         /// Refreshes all slot visuals from the provided item list.
         /// Slots beyond the list length are cleared.
@@ -117,6 +119,14 @@ namespace LLMValley.UI
 
             // Refresh tooltip in case the selected slot's item changed.
             RefreshTooltip();
+        }
+
+        public void SelectSavedSlot(int index)
+        {
+            if (index < 0 || index >= SlotCount)
+                return;
+
+            SelectSlot(index);
         }
 
         /// <summary>Selects the slot at <paramref name="index"/> and highlights it.</summary>
