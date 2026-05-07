@@ -10,6 +10,8 @@ namespace LLMValley.Components.Animation
         private Animator animator;
 
         private Vector2 lastDirection = Vector2.down; //son yönü alması için 
+        public Vector2 FacingDirection => lastDirection;
+        
         [SerializeField] private PlayerMove playerMove;
 
         private static readonly int XInput = Animator.StringToHash("xInput");
