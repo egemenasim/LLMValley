@@ -37,6 +37,9 @@ namespace LLMValley.UI
 
         // ─── Events ───────────────────────────────────────────────────────────────
 
+        [Header("State")]
+        private bool _isSelected;
+
         [Header("Events")]
 
         /// <summary>
@@ -79,7 +82,7 @@ namespace LLMValley.UI
             {
                 itemIconImage.sprite  = item.icon;
                 itemIconImage.enabled = item.icon != null;
-                itemIconImage.color   = Color.white;
+                itemIconImage.color   = _isSelected ? Color.yellow : Color.white;
             }
 
             // Quantity — only show when stackable and more than 1 unit
@@ -115,8 +118,13 @@ namespace LLMValley.UI
         /// <param name="selected">True to show the highlight; false to hide it.</param>
         public void SetSelected(bool selected)
         {
+            _isSelected = selected;
+
+            if (itemIconImage != null)
+                itemIconImage.color = _isSelected ? Color.yellow : Color.white;
+
             if (selectionHighlight != null)
-                selectionHighlight.enabled = selected;
+                selectionHighlight.enabled = false;
         }
 
         // ─── IPointerClickHandler ─────────────────────────────────────────────────
