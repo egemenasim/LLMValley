@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class Plantable : MonoBehaviour
 {
+    private bool _isHarvested = false;
     [Header("Plant Data")]
     [SerializeField] private ItemData plantData;
     [SerializeField] private SpriteRenderer spriteRenderer;
@@ -22,6 +23,8 @@ public abstract class Plantable : MonoBehaviour
     public int CurrentLevel => _currentLevel;
     public bool IsWateredToday => _isWateredToday;
     public ItemData PlantData => plantData;
+
+    public bool IsFullyGrown => plantData != null && _currentLevel >= _maxLevel;
 
     public void Initialize(ItemData data, SpriteRenderer renderer = null)
     {
@@ -176,5 +179,53 @@ public abstract class Plantable : MonoBehaviour
 
         int index = Mathf.Clamp(_currentLevel, 0, plantData.growthSprites.Length - 1);
         spriteRenderer.sprite = plantData.growthSprites[index];
+    }
+
+    protected bool TryHarvest()
+    {
+        if (_isHarvested)
+        {
+            return false;
+        }
+
+        if (!IsFullyGrown)
+        {
+            return false;
+        }
+
+        if (plantData == null || plantData.outputCrop == null)
+        {
+            Debug.LogWarning($"[Plantable] Cannot harvest '{name}': outputCrop not set on ItemData '{plantData?.itemName}'.");
+            return false;
+        }
+
+        _isHarvested = true;
+
+        GameObject pickupGo = new GameObject($"Collectible_{plantData.outputCrop.itemName}");
+        pickupGo.transform.position = transform.position;
+
+        var sr = pickupGo.AddComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+        {
+            sr.sortingLayerID = spriteRenderer.sortingLayerID;
+            sr.sortingOrder = spriteRenderer.sortingOrder;
+        }
+
+        var pickup = pickupGo.AddComponent<CollectibleItem>();
+        pickup.itemData = plantData.outputCrop;
+        pickup.quantity = 1;
+
+        var collider = pickupGo.AddComponent<CircleCollider2D>();
+        collider.isTrigger = true;
+
+        // Prevent FarmableArea from holding a destroyed reference.
+        var area = GetComponentInParent<FarmableArea>();
+        if (area != null)
+        {
+            area.RemovePlant(this);
+        }
+
+        Destroy(gameObject);
+        return true;
     }
 }

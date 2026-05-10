@@ -96,6 +96,22 @@ public class FarmableArea : MonoBehaviour
         return true;
     }
 
+    public bool RemovePlant(Plantable plant)
+    {
+        if (plant == null)
+        {
+            return false;
+        }
+
+        if (currentPlant != plant)
+        {
+            return false;
+        }
+
+        currentPlant = null;
+        return true;
+    }
+
     public void Clear()
     {
         if (currentPlant != null)

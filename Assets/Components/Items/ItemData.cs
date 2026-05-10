@@ -65,5 +65,9 @@ namespace LLMValley.Items
         [Tooltip("Total days required to reach max growth level.")]
         [Min(0)]
         public int totalGrowthDays;
+
+        [Header("Plant Output")]
+        [Tooltip("If this is a seed, which crop ItemData should be produced when fully grown? (For crops, leave null)")]
+        public ItemData outputCrop;
     }
 }
