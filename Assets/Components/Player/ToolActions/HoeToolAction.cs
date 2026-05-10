@@ -13,7 +13,10 @@ namespace LLMValley.Player
             if (controller == null)
                 return false;
 
-            return controller.TryGetTargetFarmableArea(out _);
+            if (!controller.TryGetTargetFarmableArea(out var area) || area == null)
+                return false;
+
+            return area.IsPlayerInRange();
         }
 
         public void Use()

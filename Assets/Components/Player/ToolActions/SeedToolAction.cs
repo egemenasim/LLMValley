@@ -16,6 +16,9 @@ namespace LLMValley.Player
             if (!controller.TryGetTargetFarmableArea(out var area) || area == null)
                 return false;
 
+            if (!area.IsPlayerInRange())
+                return false;
+
             if (area.HasPlant)
                 return false;
 
