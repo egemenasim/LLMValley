@@ -7,10 +7,25 @@ namespace LLMValley.Player
     {
         public ItemType ItemType => ItemType.Hoe;
 
-        public bool CanUse() => true;
+        public bool CanUse()
+        {
+            var controller = GetComponentInParent<PlayerToolController>();
+            if (controller == null)
+                return false;
+
+            return controller.TryGetTargetFarmableArea(out _);
+        }
 
         public void Use()
         {
+            var controller = GetComponentInParent<PlayerToolController>();
+            if (controller == null)
+                return;
+
+            if (!controller.TryGetTargetFarmableArea(out var area) || area == null)
+                return;
+
+            area.Till();
         }
     }
 }

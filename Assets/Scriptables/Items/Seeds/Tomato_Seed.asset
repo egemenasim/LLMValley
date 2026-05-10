@@ -14,9 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LLMValley.Items.ItemData
   itemName: Tomato Seed
   description: Plant this to grow Tomato.
-  icon: {fileID: -3962807554240710951, guid: 2f2168478e17fe44185bea25896b1d11, type: 3}
+  icon: {fileID: 3706471016571915744, guid: 5996d22f3d7c4f44ea8e4175a17f278b, type: 3}
   itemID: 1004
   itemType: 0
   baseValue: 12.5
   isStackable: 1
   maxStackSize: 99
+  maxGrowthLevel: 4
+  minGrowthLevel: 0
+  growthSprites:
+  - {fileID: -3962807554240710951, guid: 37b6c8d9ab2eff6408fc3b41133a7a06, type: 3}
+  - {fileID: 6958885263435235732, guid: 37b6c8d9ab2eff6408fc3b41133a7a06, type: 3}
+  - {fileID: 5759767783725158912, guid: 37b6c8d9ab2eff6408fc3b41133a7a06, type: 3}
+  - {fileID: 3771087122062061247, guid: 37b6c8d9ab2eff6408fc3b41133a7a06, type: 3}
+  totalGrowthDays: 4
