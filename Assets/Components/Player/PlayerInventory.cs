@@ -197,6 +197,42 @@ namespace LLMValley.Player
             CollectItem(item, quantity);
         }
 
+        /// <summary>Attempts to remove the requested quantity of a specific item from the inventory.</summary>
+        public bool TryRemoveItem(ItemData item, int quantity = 1)
+        {
+            if (item == null || quantity <= 0)
+            {
+                return false;
+            }
+
+            var remaining = quantity;
+            for (var index = _items.Count - 1; index >= 0 && remaining > 0; index--)
+            {
+                var stack = _items[index];
+                if (stack == null || stack.item != item || stack.quantity <= 0)
+                {
+                    continue;
+                }
+
+                var removedAmount = Mathf.Min(stack.quantity, remaining);
+                stack.quantity -= removedAmount;
+                remaining -= removedAmount;
+
+                if (stack.quantity <= 0)
+                {
+                    _items.RemoveAt(index);
+                }
+            }
+
+            if (remaining > 0)
+            {
+                return false;
+            }
+
+            RefreshUI();
+            return true;
+        }
+
         /// <summary>Clears all items from the inventory (used for loading saves).</summary>
         public void ClearInventory()
         {

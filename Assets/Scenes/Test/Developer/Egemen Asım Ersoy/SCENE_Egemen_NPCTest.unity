@@ -168,6 +168,7 @@ MonoBehaviour:
   interactionPromptText: Press "E" to interact
   relationshipStats: {fileID: 268250435}
   sellComponent: {fileID: 0}
+  merchantComponent: {fileID: 0}
   interactionTrigger: {fileID: 268250432}
 --- !u!23 &268250431
 MeshRenderer:
@@ -469,6 +470,16 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4582168093574019284, guid: df9195175c968448299291d8ae018ace, type: 3}
+      propertyPath: lastEvaluationSummary
+      value: 'Love 1->2 (+1), Friendship 2->3 (+1), Trust 1->1 (0). Reason: Player
+        showed consistent warmth, remembered Berfin''s name, gave another eye compliment
+        (gentle flirting), suggested a date-like activity (film), and expressed genuine
+        emotional investment in spending time together. This creates romantic interest
+        and friendly closeness. No new vulnerability or trust-building in this window,
+        but the date suggestion and emotional sincerity warrant Love and Friendship
+        increases..'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4582168093574019284, guid: df9195175c968448299291d8ae018ace, type: 3}
       propertyPath: lockChatWhenAnyStatIncreases
       value: 0
       objectReference: {fileID: 0}
@@ -556,6 +567,111 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 3d8df63c0eae7441eabf602fe321e53c, type: 3}
+    - target: {fileID: 8891751537449783335, guid: df9195175c968448299291d8ae018ace, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8891751537449783335, guid: df9195175c968448299291d8ae018ace, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: df9195175c968448299291d8ae018ace, type: 3}
+--- !u!1001 &551777374
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 201500514723670187, guid: df9195175c968448299291d8ae018ace, type: 3}
+      propertyPath: m_Name
+      value: NPC Merchant
+      objectReference: {fileID: 0}
+    - target: {fileID: 201500514723670187, guid: df9195175c968448299291d8ae018ace, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4582168093574019284, guid: df9195175c968448299291d8ae018ace, type: 3}
+      propertyPath: lastEvaluationSummary
+      value: No relationship evaluation yet.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4582168093574019284, guid: df9195175c968448299291d8ae018ace, type: 3}
+      propertyPath: lockChatWhenAnyStatIncreases
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5299636944995662645, guid: df9195175c968448299291d8ae018ace, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7317427569477369520, guid: df9195175c968448299291d8ae018ace, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 7317427569477369520, guid: df9195175c968448299291d8ae018ace, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 7317427569477369520, guid: df9195175c968448299291d8ae018ace, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7317427569477369520, guid: df9195175c968448299291d8ae018ace, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7317427569477369520, guid: df9195175c968448299291d8ae018ace, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7317427569477369520, guid: df9195175c968448299291d8ae018ace, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7317427569477369520, guid: df9195175c968448299291d8ae018ace, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7317427569477369520, guid: df9195175c968448299291d8ae018ace, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7317427569477369520, guid: df9195175c968448299291d8ae018ace, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7317427569477369520, guid: df9195175c968448299291d8ae018ace, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8387676380463628663, guid: df9195175c968448299291d8ae018ace, type: 3}
+      propertyPath: persona
+      value: 
+      objectReference: {fileID: 11400000, guid: 0d673f0fe880f47638dd41d2ec1aa220, type: 2}
+    - target: {fileID: 8387676380463628663, guid: df9195175c968448299291d8ae018ace, type: 3}
+      propertyPath: conversationSaveId
+      value: sample-blacksmith
+      objectReference: {fileID: 0}
+    - target: {fileID: 8437144842533063949, guid: df9195175c968448299291d8ae018ace, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8437144842533063949, guid: df9195175c968448299291d8ae018ace, type: 3}
+      propertyPath: merchantDisplayName
+      value: Village Merchant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8437144842533063949, guid: df9195175c968448299291d8ae018ace, type: 3}
+      propertyPath: sellPriceMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8891751537449783335, guid: df9195175c968448299291d8ae018ace, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 860e2c40da10b472eb99c558acaaf66b, type: 3}
     - target: {fileID: 8891751537449783335, guid: df9195175c968448299291d8ae018ace, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -1248,3 +1364,4 @@ SceneRoots:
   - {fileID: 2241483829989958197}
   - {fileID: 451777374}
   - {fileID: 949164459}
+  - {fileID: 551777374}

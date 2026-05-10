@@ -55,8 +55,8 @@ namespace LLMValley.NPCChat
         public string ChatAvailabilityMessage => CanSendMessages
             ? "Talk to the NPC."
             : relationshipStats.LockedStatusMessage;
-        public NPCSellComponent SellComponent => sellComponent;
-        public NPCMerchantComponent MerchantComponent => merchantComponent;
+        public NPCSellComponent SellComponent => sellComponent != null && sellComponent.isActiveAndEnabled ? sellComponent : null;
+        public NPCMerchantComponent MerchantComponent => merchantComponent != null && merchantComponent.isActiveAndEnabled ? merchantComponent : null;
 
         private void Awake()
         {
