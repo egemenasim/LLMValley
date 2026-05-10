@@ -1557,6 +1557,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4050498687377616759, guid: 0c7106f1c9c7fce44957c60a70c80ab0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7399533318584292489, guid: 9782278c514ce6940a1919e67804d3f2, type: 3}
     - target: {fileID: 5421916817384687923, guid: 0c7106f1c9c7fce44957c60a70c80ab0, type: 3}
       propertyPath: m_Name
       value: FarmTile
@@ -1565,6 +1569,18 @@ PrefabInstance:
       propertyPath: plantPrefab
       value: 
       objectReference: {fileID: 3067485717378940216, guid: 60f631a89df43be40b3674fae98457cf, type: 3}
+    - target: {fileID: 7136609581072364309, guid: 0c7106f1c9c7fce44957c60a70c80ab0, type: 3}
+      propertyPath: normalSprite
+      value: 
+      objectReference: {fileID: 7399533318584292489, guid: 9782278c514ce6940a1919e67804d3f2, type: 3}
+    - target: {fileID: 7136609581072364309, guid: 0c7106f1c9c7fce44957c60a70c80ab0, type: 3}
+      propertyPath: tilledSprite
+      value: 
+      objectReference: {fileID: 1405499788, guid: 9782278c514ce6940a1919e67804d3f2, type: 3}
+    - target: {fileID: 7136609581072364309, guid: 0c7106f1c9c7fce44957c60a70c80ab0, type: 3}
+      propertyPath: wateredSprite
+      value: 
+      objectReference: {fileID: 498003600, guid: 9782278c514ce6940a1919e67804d3f2, type: 3}
     - target: {fileID: 7136609581072364309, guid: 0c7106f1c9c7fce44957c60a70c80ab0, type: 3}
       propertyPath: interactRadius
       value: 1.15
