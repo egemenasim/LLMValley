@@ -106,6 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FarmableArea
   currentPlant: {fileID: 0}
+  basePlantPrefab: {fileID: 3067485717378940216, guid: 60f631a89df43be40b3674fae98457cf, type: 3}
   isTilled: 0
 --- !u!61 &8640610016031565191
 BoxCollider2D:

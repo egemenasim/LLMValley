@@ -4,6 +4,7 @@ using UnityEngine.Playables;
 public class FarmableArea : MonoBehaviour
 {
     [SerializeField] private Plantable currentPlant;
+    [SerializeField] private Plantable basePlantPrefab;
 
     [Header("Soil")]
     [SerializeField] private bool isTilled;
@@ -57,21 +58,25 @@ public class FarmableArea : MonoBehaviour
             return false;
         }
 
-        var go = new GameObject("Plant");
-        go.transform.SetParent(transform, worldPositionStays: false);
-        go.transform.position = transform.position;
+        if (basePlantPrefab == null)
+        {
+            Debug.LogError($"[FarmableArea] No basePlantPrefab assigned on area '{name}'. Cannot plant.");
+            return false;
+        }
 
-        var sr = go.AddComponent<SpriteRenderer>();
+        currentPlant = Instantiate(basePlantPrefab, transform.position, Quaternion.identity, transform);
+        currentPlant.transform.localScale = basePlantPrefab.transform.localScale;
+
+        var sr = currentPlant.GetComponent<SpriteRenderer>();
 
         // Try to render above the tile/ground sprite.
         var tileRenderer = GetComponent<SpriteRenderer>();
-        if (tileRenderer != null)
+        if (tileRenderer != null && sr != null)
         {
             sr.sortingLayerID = tileRenderer.sortingLayerID;
             sr.sortingOrder = tileRenderer.sortingOrder + 1;
         }
 
-        currentPlant = go.AddComponent<BasicPlant>();
         currentPlant.Initialize(plantData, sr);
 
         Debug.Log($"[FarmableArea] Planted ItemData '{plantData.itemName}' on area '{name}'.");
