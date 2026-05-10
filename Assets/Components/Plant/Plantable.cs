@@ -16,9 +16,7 @@ public abstract class Plantable : MonoBehaviour
     [SerializeField] private int _minLevel;
     [SerializeField] private int _maxLevel;
     [SerializeField] private bool _isWateredToday;
-    [SerializeField] private int _daysSinceLevel;
-    [SerializeField] private int _baseDaysPerLevel;
-    [SerializeField] private int _extraDaysForLastLevel;
+    [SerializeField] [UnityEngine.Serialization.FormerlySerializedAs("_daysSinceLevel")] private int _daysGrown;
 
     public int CurrentLevel => _currentLevel;
     public bool IsWateredToday => _isWateredToday;
@@ -72,8 +70,7 @@ public abstract class Plantable : MonoBehaviour
     public void ResetPlant()
     {
         _currentLevel = _minLevel;
-        _daysSinceLevel = 0;
-        CalculateGrowthDays();
+        _daysGrown = 0;
         _isWateredToday = false;
         UpdateVisuals();
     }
@@ -85,8 +82,27 @@ public abstract class Plantable : MonoBehaviour
             return;
         }
 
-        _currentLevel = Mathf.Clamp(_currentLevel + amount, _minLevel, _maxLevel);
-        UpdateVisuals();
+        if (plantData != null && _maxLevel > _minLevel)
+        {
+            int daysForIntermediate = plantData.totalGrowthDays;
+            int intermediateLevels = _maxLevel - _minLevel;
+            
+            if (daysForIntermediate > 0 && intermediateLevels > 0)
+            {
+                float daysPerLevel = (float)daysForIntermediate / intermediateLevels;
+                _daysGrown += Mathf.CeilToInt(daysPerLevel * amount);
+            }
+            else
+            {
+                _daysGrown += amount;
+            }
+            UpdateLevelBasedOnDaysGrown();
+        }
+        else
+        {
+            _currentLevel = Mathf.Clamp(_currentLevel + amount, _minLevel, _maxLevel);
+            UpdateVisuals();
+        }
     }
 
     private void HandleDayChanged(CalendarDate _)
@@ -106,21 +122,40 @@ public abstract class Plantable : MonoBehaviour
             return;
         }
 
-        int requiredDays = _baseDaysPerLevel;
-        if (IsLastGrowthLevel())
-        {
-            requiredDays += _extraDaysForLastLevel;
-        }
+        _daysGrown++;
+        UpdateLevelBasedOnDaysGrown();
+    }
 
-        _daysSinceLevel++;
-        if (requiredDays > 0 && _daysSinceLevel < requiredDays)
+    private void UpdateLevelBasedOnDaysGrown()
+    {
+        if (plantData == null) return;
+
+        int intermediateLevels = _maxLevel - _minLevel;
+        if (intermediateLevels <= 0)
         {
+            _currentLevel = _maxLevel;
+            UpdateVisuals();
             return;
         }
 
-        _daysSinceLevel = 0;
+        int targetGrowthDays = plantData.totalGrowthDays;
+        int daysForIntermediate = targetGrowthDays;
 
-        IncreaseLevel(1);
+        if (_daysGrown >= daysForIntermediate)
+        {
+            _currentLevel = _maxLevel;
+        }
+        else if (daysForIntermediate > 0)
+        {
+            float progress = (float)_daysGrown / daysForIntermediate;
+            _currentLevel = _minLevel + Mathf.FloorToInt(progress * intermediateLevels);
+        }
+        else
+        {
+            _currentLevel = _maxLevel;
+        }
+
+        UpdateVisuals();
     }
 
     private void ApplyPlantData()
@@ -132,32 +167,6 @@ public abstract class Plantable : MonoBehaviour
 
         _minLevel = Mathf.Max(0, plantData.minGrowthLevel);
         _maxLevel = Mathf.Max(_minLevel, plantData.maxGrowthLevel);
-        CalculateGrowthDays();
-    }
-
-    private void CalculateGrowthDays()
-    {
-        _baseDaysPerLevel = 0;
-        _extraDaysForLastLevel = 0;
-
-        if (plantData == null)
-        {
-            return;
-        }
-
-        int levelCount = Mathf.Max(1, _maxLevel - _minLevel);
-        if (plantData.totalGrowthDays <= 0)
-        {
-            return;
-        }
-
-        _baseDaysPerLevel = plantData.totalGrowthDays / levelCount;
-        _extraDaysForLastLevel = plantData.totalGrowthDays % levelCount;
-    }
-
-    private bool IsLastGrowthLevel()
-    {
-        return _currentLevel >= _maxLevel - 1;
     }
 
     protected virtual void UpdateVisuals()
@@ -177,8 +186,35 @@ public abstract class Plantable : MonoBehaviour
             return;
         }
 
-        int index = Mathf.Clamp(_currentLevel, 0, plantData.growthSprites.Length - 1);
-        spriteRenderer.sprite = plantData.growthSprites[index];
+        // Final toplanabilir seviyeye ulaştıysa kesinlikle en son sprite'ı kullan.
+        if (IsFullyGrown)
+        {
+            spriteRenderer.sprite = plantData.growthSprites[plantData.growthSprites.Length - 1];
+            return;
+        }
+
+        // Ara seviyeler için son sprite hariç diğerlerini orantısal olarak paylaştır.
+        int availableIntermediateSprites = plantData.growthSprites.Length - 1;
+        if (availableIntermediateSprites <= 0)
+        {
+            spriteRenderer.sprite = plantData.growthSprites[0];
+            return;
+        }
+
+        int intermediateLevels = _maxLevel - _minLevel;
+        if (intermediateLevels <= 0)
+        {
+            spriteRenderer.sprite = plantData.growthSprites[0];
+            return;
+        }
+
+        float levelProgress = (float)(_currentLevel - _minLevel) / intermediateLevels;
+        int spriteIndex = Mathf.FloorToInt(levelProgress * availableIntermediateSprites);
+        
+        // Güvenlik amaçlı sınırlandırma (asla son sprite'a ulaşmasın)
+        spriteIndex = Mathf.Clamp(spriteIndex, 0, availableIntermediateSprites - 1);
+        
+        spriteRenderer.sprite = plantData.growthSprites[spriteIndex];
     }
 
     protected bool TryHarvest()
