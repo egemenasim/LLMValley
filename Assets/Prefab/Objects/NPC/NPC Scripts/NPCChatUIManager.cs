@@ -367,7 +367,7 @@ namespace LLMValley.NPCChat
 
                 if (price != null)
                 {
-                    price.text = $"{listing.Price}\nGOLD";
+                    price.text = $"{seller.GetPurchasePrice(listing)}\nGOLD";
                 }
 
                 if (buyLabel != null)

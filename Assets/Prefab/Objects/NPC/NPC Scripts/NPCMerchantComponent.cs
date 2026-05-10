@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using LLMValley.Items;
+using LLMValley.NPCChat;
 using LLMValley.Player;
 using UnityEngine;
 
@@ -32,7 +33,20 @@ namespace LLMValley.NPCShop
                 return 0;
             }
 
-            return Mathf.Max(0, Mathf.RoundToInt(item.baseValue * sellPriceMultiplier));
+            var friendshipBonus = GetFriendshipPriceModifier();
+            return Mathf.Max(0, Mathf.RoundToInt(item.baseValue * sellPriceMultiplier * (1f + friendshipBonus)));
+        }
+
+        private float GetFriendshipPriceModifier()
+        {
+            var relationshipStats = GetComponent<NPCRelationshipStats>();
+            if (relationshipStats == null)
+            {
+                return 0f;
+            }
+
+            var friendshipTiers = Mathf.Clamp(relationshipStats.Friendship / 20, 0, 5);
+            return friendshipTiers * 0.05f;
         }
 
         public bool TrySell(ItemStack stack, PlayerInventory inventory, PlayerWallet wallet, out string resultMessage)

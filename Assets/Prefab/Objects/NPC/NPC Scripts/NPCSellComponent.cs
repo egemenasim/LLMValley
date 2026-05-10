@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using LLMValley.Items;
+using LLMValley.NPCChat;
 using LLMValley.Player;
 using UnityEngine;
 
@@ -10,18 +11,11 @@ namespace LLMValley.NPCShop
     public class NPCShopListing
     {
         public ItemData item;
-        [Min(1)] public int quantity = 1;
-        [Min(-1)] public int priceOverride = -1;
 
         public int Price
         {
             get
             {
-                if (priceOverride >= 0)
-                {
-                    return priceOverride;
-                }
-
                 return item == null ? 0 : Mathf.Max(0, Mathf.RoundToInt(item.baseValue));
             }
         }
@@ -41,6 +35,30 @@ namespace LLMValley.NPCShop
         public string ShopDisplayName => string.IsNullOrWhiteSpace(shopDisplayName) ? gameObject.name : shopDisplayName;
         public bool OpenShopOnInteract => openShopOnInteract;
         public IReadOnlyList<NPCShopListing> Stock => stock;
+
+        public int GetPurchasePrice(NPCShopListing listing)
+        {
+            if (listing == null || listing.item == null)
+            {
+                return 0;
+            }
+
+            var basePrice = Mathf.Max(0, listing.item.baseValue);
+            var friendshipDiscount = GetFriendshipPriceModifier();
+            return Mathf.Max(0, Mathf.RoundToInt(basePrice * (1f - friendshipDiscount)));
+        }
+
+        private float GetFriendshipPriceModifier()
+        {
+            var relationshipStats = GetComponent<NPCRelationshipStats>();
+            if (relationshipStats == null)
+            {
+                return 0f;
+            }
+
+            var friendshipTiers = Mathf.Clamp(relationshipStats.Friendship / 20, 0, 5);
+            return friendshipTiers * 0.05f;
+        }
 
         public bool TryPurchase(
             NPCShopListing listing,
@@ -68,21 +86,27 @@ namespace LLMValley.NPCShop
                 return false;
             }
 
-            if (!inventory.CanCollect(listing.item, listing.quantity))
+            if (!inventory.CanCollect(listing.item, 1))
             {
                 resultMessage = "Inventory is full.";
                 return false;
             }
 
-            var price = Mathf.Max(0, listing.Price);
+            var price = GetPurchasePrice(listing);
             if (!wallet.TrySpend(price))
             {
                 resultMessage = "Not enough gold.";
                 return false;
             }
 
-            inventory.TryCollectItem(listing.item, listing.quantity);
-            resultMessage = $"Bought {listing.quantity}x {listing.item.itemName} for {price} gold.";
+            if (!inventory.TryCollectItem(listing.item, 1))
+            {
+                wallet.AddGold(price);
+                resultMessage = "Inventory is full.";
+                return false;
+            }
+
+            resultMessage = $"Bought 1x {listing.item.itemName} for {price} gold.";
             return true;
         }
     }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using LLMValley.SaveSystem;
 
 namespace LLMValley.Player
 {
@@ -17,6 +18,7 @@ namespace LLMValley.Player
         public void SetGold(int amount)
         {
             currentGold = Mathf.Max(0, amount);
+            SaveWalletChange();
         }
 
         private void Awake()
@@ -35,6 +37,7 @@ namespace LLMValley.Player
             }
 
             currentGold += amount;
+            SaveWalletChange();
         }
 
         public bool TrySpend(int amount)
@@ -50,7 +53,18 @@ namespace LLMValley.Player
             }
 
             currentGold -= amount;
+            SaveWalletChange();
             return true;
+        }
+
+        private void SaveWalletChange()
+        {
+            if (SaveManager.IsApplyingSaveData)
+            {
+                return;
+            }
+
+            SaveManager.SaveGame();
         }
     }
 }

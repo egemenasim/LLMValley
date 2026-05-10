@@ -47,6 +47,8 @@ namespace LLMValley.NPCChat
         private InputAction interactionAction;
 
         public NPCConversationData CurrentConversation => conversation;
+        public NPCPersona Persona => persona;
+        public SpriteRenderer WorldSpriteRenderer => worldSpriteRenderer;
         public string PersonaDisplayName => persona != null ? persona.DisplayName : name;
         public Sprite PersonaPortrait => persona != null ? persona.Portrait : null;
         public string ConversationSaveId => ResolveConversationSaveId();
@@ -108,9 +110,24 @@ namespace LLMValley.NPCChat
             sellComponent ??= GetComponent<NPCSellComponent>();
             merchantComponent ??= GetComponent<NPCMerchantComponent>();
 
-            RefreshVisualFromPersona();
+            RequestVisualRefresh();
             RefreshPromptReferences();
             ApplyInteractionPromptText();
+        }
+
+        private void RequestVisualRefresh()
+        {
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.delayCall += () =>
+            {
+                if (this != null)
+                {
+                    RefreshVisualFromPersona();
+                }
+            };
+#else
+            RefreshVisualFromPersona();
+#endif
         }
 
         private void Update()
