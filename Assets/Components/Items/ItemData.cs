@@ -47,5 +47,27 @@ namespace LLMValley.Items
         [Tooltip("Maximum units per inventory slot. Only relevant when isStackable is true.")]
         [Min(1)]
         public int maxStackSize = 99;
+
+        // ─── Plant (Optional) ────────────────────────────────────────────────────
+        [Header("Plant (Optional)")]
+
+        [Tooltip("Maximum growth level for this plant. Leave 0 for non-plant items.")]
+        [Min(0)]
+        public int maxGrowthLevel;
+
+        [Tooltip("Minimum growth level for this plant.")]
+        [Min(0)]
+        public int minGrowthLevel;
+
+        [Tooltip("Sprite to use for each growth level (index = level).")]
+        public Sprite[] growthSprites;
+
+        [Tooltip("Total days required to reach max growth level.")]
+        [Min(0)]
+        public int totalGrowthDays;
+
+        [Header("Plant Output")]
+        [Tooltip("If this is a seed, which crop ItemData should be produced when fully grown? (For crops, leave null)")]
+        public ItemData outputCrop;
     }
 }
