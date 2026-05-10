@@ -79,7 +79,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 229888051023864517, guid: c48074176ef87ff4d8db433550718230, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -139,7 +139,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FarmableArea
   currentPlant: {fileID: 0}
   basePlantPrefab: {fileID: 3067485717378940216, guid: 60f631a89df43be40b3674fae98457cf, type: 3}
+  normalSprite: {fileID: 0}
+  tilledSprite: {fileID: 0}
+  wateredSprite: {fileID: 0}
   isTilled: 0
+  isWatered: 0
   interactRadius: 2
 --- !u!61 &8640610016031565191
 BoxCollider2D:
