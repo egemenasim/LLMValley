@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using LLMValley.Items;
+using LLMValley.SaveSystem;
 using LLMValley.UI;
 using UnityEngine.SceneManagement;
 
@@ -118,6 +119,7 @@ namespace LLMValley.Player
                 Debug.LogWarning($"[PlayerInventory] Inventory full — could not add {quantity}x {item.itemName}.");
 
             RefreshUI();
+            SaveInventoryChange();
         }
 
         /// <summary>
@@ -189,6 +191,7 @@ namespace LLMValley.Player
                 _items.RemoveAt(slotIndex);
 
             RefreshUI();
+            SaveInventoryChange();
         }
 
         /// <summary>Adds an item to the inventory (used for loading saves).</summary>
@@ -230,6 +233,7 @@ namespace LLMValley.Player
             }
 
             RefreshUI();
+            SaveInventoryChange();
             return true;
         }
 
@@ -238,6 +242,7 @@ namespace LLMValley.Player
         {
             _items.Clear();
             RefreshUI();
+            SaveInventoryChange();
         }
 
         // ─── Private ──────────────────────────────────────────────────────────────
@@ -257,6 +262,16 @@ namespace LLMValley.Player
             {
                 inventoryUI.Refresh(_items);
             }
+        }
+
+        private void SaveInventoryChange()
+        {
+            if (SaveManager.IsApplyingSaveData)
+            {
+                return;
+            }
+
+            SaveManager.SaveGame();
         }
     }
 }
