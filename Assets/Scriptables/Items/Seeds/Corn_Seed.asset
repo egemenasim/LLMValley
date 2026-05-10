@@ -14,9 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LLMValley.Items.ItemData
   itemName: Corn Seed
   description: Plant this to grow Corn.
-  icon: {fileID: -6521346793507321066, guid: 29e7b698b0092cc418f7cdca749b77ed, type: 3}
+  icon: {fileID: 4279661659218614667, guid: c48074176ef87ff4d8db433550718230, type: 3}
   itemID: 1002
   itemType: 0
   baseValue: 7.5
   isStackable: 1
   maxStackSize: 99
+  maxGrowthLevel: 4
+  minGrowthLevel: 0
+  growthSprites:
+  - {fileID: -6521346793507321066, guid: 457e5bb4572d37b48887eb2af38c5b00, type: 3}
+  - {fileID: 6866430405859213858, guid: 457e5bb4572d37b48887eb2af38c5b00, type: 3}
+  - {fileID: 1336589516839896950, guid: 457e5bb4572d37b48887eb2af38c5b00, type: 3}
+  - {fileID: 1610858701, guid: 457e5bb4572d37b48887eb2af38c5b00, type: 3}
+  totalGrowthDays: 10
+  outputCrop: {fileID: 11400000, guid: 20f15d7a2534aa149bc808e0d55f63e1, type: 2}

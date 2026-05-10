@@ -72,7 +72,8 @@ public class FarmableArea : MonoBehaviour
             return false;
         }
 
-        currentPlant = Instantiate(Plant, transform.position, Quaternion.identity, transform);
+        Vector3 spawnPosition = transform.position + new Vector3(0f, 0.8f, 0f);
+        currentPlant = Instantiate(Plant, spawnPosition, Quaternion.identity, transform);
         // Prefab'ın scale'ını koru
         if (Plant != null)
         {
@@ -101,7 +102,8 @@ public class FarmableArea : MonoBehaviour
             return false;
         }
 
-        currentPlant = Instantiate(basePlantPrefab, transform.position, Quaternion.identity, transform);
+        Vector3 spawnPosition = transform.position + new Vector3(0f, 0.8f, 0f);
+        currentPlant = Instantiate(basePlantPrefab, spawnPosition, Quaternion.identity, transform);
         currentPlant.transform.localScale = basePlantPrefab.transform.localScale;
 
         var sr = currentPlant.GetComponent<SpriteRenderer>();

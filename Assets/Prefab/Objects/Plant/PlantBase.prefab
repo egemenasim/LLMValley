@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1555571147749046348}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -110,9 +110,7 @@ MonoBehaviour:
   _minLevel: 0
   _maxLevel: 0
   _isWateredToday: 0
-  _daysSinceLevel: 0
-  _baseDaysPerLevel: 0
-  _extraDaysForLastLevel: 0
+  _daysGrown: 0
   harvestRadius: 1.25
   harvestPromptOffset: {x: 0.1, y: 0.15, z: 0}
   harvestPromptPrefab: {fileID: 7749871493230907835, guid: feedd78e014ba6c4f9b477c0341d95ea, type: 3}

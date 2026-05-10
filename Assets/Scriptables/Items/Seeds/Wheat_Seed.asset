@@ -14,9 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LLMValley.Items.ItemData
   itemName: Wheat Seed
   description: Plant this to grow Wheat.
-  icon: {fileID: 6271399085124507442, guid: 67d9308182eba074fbe2bd552a3a66ed, type: 3}
+  icon: {fileID: 4206968556728965966, guid: 5996d22f3d7c4f44ea8e4175a17f278b, type: 3}
   itemID: 1005
   itemType: 0
   baseValue: 5
   isStackable: 1
   maxStackSize: 99
+  maxGrowthLevel: 4
+  minGrowthLevel: 0
+  growthSprites:
+  - {fileID: 6271399085124507442, guid: 0c3487fb716c47542b223776f68f4692, type: 3}
+  - {fileID: 1448365020325538898, guid: 0c3487fb716c47542b223776f68f4692, type: 3}
+  - {fileID: 2443155288773114253, guid: 0c3487fb716c47542b223776f68f4692, type: 3}
+  - {fileID: -6735494865091326307, guid: 0c3487fb716c47542b223776f68f4692, type: 3}
+  totalGrowthDays: 4
+  outputCrop: {fileID: 11400000, guid: 6787354ec21d15d4ea9fb169ca34b85e, type: 2}
