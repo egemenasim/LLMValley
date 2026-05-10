@@ -347,7 +347,8 @@ MonoBehaviour:
   openShopOnInteract: 1
   stock:
   - item: {fileID: 11400000, guid: 41a3ccdd71bfd524f9b6f1585b2b328a, type: 2}
-  - item: {fileID: 11400000, guid: a68a359bfc1307c41b794610a22970d1, type: 2}
+  - item: {fileID: 11400000, guid: 11960d472736de64abcaa167460bb7ba, type: 2}
+  - item: {fileID: 11400000, guid: 88f8de392098b4047a501fed397082bd, type: 2}
 --- !u!114 &5630515187136435557
 MonoBehaviour:
   m_ObjectHideFlags: 0

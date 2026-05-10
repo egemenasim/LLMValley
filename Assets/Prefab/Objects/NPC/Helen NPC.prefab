@@ -448,7 +448,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LLMValley.NPCShop.NPCSellComponent
   shopDisplayName: NPC Shop
   openShopOnInteract: 1
-  stock: []
+  stock:
+  - item: {fileID: 11400000, guid: 0ff977aa2d4f9974a994870a4c0ac340, type: 2}
+  - item: {fileID: 11400000, guid: fb3e0d07275f1d140b5091b4bcdfd5e1, type: 2}
+  - item: {fileID: 11400000, guid: 47493baabd18ca848a6e047b1f3f4690, type: 2}
+  - item: {fileID: 11400000, guid: 1ce92ad627bba0a4a8ed834d0b071b66, type: 2}
+  - item: {fileID: 11400000, guid: 608efafe34f341d49bbd49a4acd0e105, type: 2}
 --- !u!114 &5472038360894178481
 MonoBehaviour:
   m_ObjectHideFlags: 0
