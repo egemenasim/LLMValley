@@ -17,6 +17,12 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/Scenes/Test/Developer/Deniz \u015Eeker/SCENE_Deniz_DoorTest.unity"
     guid: 40e97c8584582c54890476eba08f8c7a
+  - enabled: 1
+    path: Assets/Scenes/Test/Developer/Yusuf Sadi Pesen/SCENE_Sadi_FarmTest.unity
+    guid: 61fae025330bce94d99c824d2f0a6c7d
+  - enabled: 1
+    path: Assets/Scenes/Test/Developer/Yusuf Sadi Pesen/SCENE_Sadi_TownTest.unity
+    guid: a58f5886ccc912246ac1961a002b7e8d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
