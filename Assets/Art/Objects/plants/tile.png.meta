@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: 37b6c8d9ab2eff6408fc3b41133a7a06
+guid: 9782278c514ce6940a1919e67804d3f2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3962807554240710951
-    second: tomato_0
-  - first:
-      213: 6958885263435235732
-    second: tomato_1
-  - first:
-      213: 5759767783725158912
-    second: tomato_2
-  - first:
-      213: 3771087122062061247
-    second: tomato_3
+      213: 7399533318584292489
+    second: tile_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -122,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tomato_0
+      name: tile_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 32
+        width: 12
+        height: 12
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,74 +128,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9d67f3876874109c0800000000000000
-      internalID: -3962807554240710951
+      spriteID: 98452ed495c60b660800000000000000
+      internalID: 7399533318584292489
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tomato_1
+      name: tile_1
       rect:
         serializedVersion: 2
-        x: 16
+        x: 12
         y: 0
-        width: 16
-        height: 32
+        width: 12
+        height: 12
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 49102cff64de29060800000000000000
-      internalID: 6958885263435235732
+      spriteID: 5736c5a5ffb663745b9b5c92ba808ca3
+      internalID: 1405499788
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tomato_2
+      name: tile_2
       rect:
         serializedVersion: 2
-        x: 32
+        x: 24
         y: 0
-        width: 16
-        height: 32
+        width: 12
+        height: 12
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 0025da1684eceef40800000000000000
-      internalID: 5759767783725158912
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tomato_3
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 0
-        width: 16
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fbe2f87e1c7955430800000000000000
-      internalID: 3771087122062061247
+      spriteID: f8aac753383994f43809084b7ffd3d32
+      internalID: 498003600
       vertices: []
       indices: 
       edges: []
@@ -213,7 +182,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 170f2347f75803145b9b682d32b60dd8
+    spriteID: 509d2e9df47356845b51be06a43f6157
     internalID: 0
     vertices: []
     indices: 
@@ -223,12 +192,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":16.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":12.0,"y":12.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      tomato_0: -3962807554240710951
-      tomato_1: 6958885263435235732
-      tomato_2: 5759767783725158912
-      tomato_3: 3771087122062061247
+      tile_0: 7399533318584292489
+      tile_1: 1405499788
+      tile_2: 498003600
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

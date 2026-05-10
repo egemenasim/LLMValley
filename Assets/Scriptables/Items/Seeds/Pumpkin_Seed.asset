@@ -14,9 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LLMValley.Items.ItemData
   itemName: Pumpkin Seed
   description: Plant this to grow Pumpkin.
-  icon: {fileID: 3801843947054940190, guid: dcfbfaa9ef7702747ae5ad0b6110b116, type: 3}
+  icon: {fileID: -3997458045078500580, guid: c48074176ef87ff4d8db433550718230, type: 3}
   itemID: 1003
   itemType: 0
   baseValue: 25
   isStackable: 1
   maxStackSize: 99
+  maxGrowthLevel: 4
+  minGrowthLevel: 0
+  growthSprites:
+  - {fileID: 3801843947054940190, guid: b0a56a347a68db447a06d80b51135d0e, type: 3}
+  - {fileID: -6655579283965948428, guid: b0a56a347a68db447a06d80b51135d0e, type: 3}
+  - {fileID: -6609195513140498240, guid: b0a56a347a68db447a06d80b51135d0e, type: 3}
+  - {fileID: -2073217333, guid: b0a56a347a68db447a06d80b51135d0e, type: 3}
+  totalGrowthDays: 10
+  outputCrop: {fileID: 11400000, guid: 9ec1e60114f06b94983940381510fdeb, type: 2}

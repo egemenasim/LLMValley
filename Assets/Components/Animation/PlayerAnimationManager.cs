@@ -1,5 +1,6 @@
 using LLMValley.Player;
 using LLMValley.Items;
+using System.Linq;
 using UnityEngine;
 
 namespace LLMValley.Components.Animation
@@ -26,6 +27,22 @@ namespace LLMValley.Components.Animation
         private void Awake()
         {
             animator = GetComponent<Animator>();
+
+            // If this GameObject has an Animator but no controller assigned,
+            // it is very likely the real character Animator lives on a child.
+            if (animator == null || animator.runtimeAnimatorController == null)
+            {
+                var animators = GetComponentsInChildren<Animator>(true);
+                for (int i = 0; i < animators.Length; i++)
+                {
+                    var candidate = animators[i];
+                    if (candidate != null && candidate.runtimeAnimatorController != null)
+                    {
+                        animator = candidate;
+                        break;
+                    }
+                }
+            }
 
             if (playerMove == null)
                 playerMove = GetComponent<PlayerMove>();
@@ -66,6 +83,15 @@ namespace LLMValley.Components.Animation
 
         public void PlayToolAnimation(ItemType itemType)
         {
+            if (animator == null)
+            {
+                Debug.LogWarning("[PlayerAnimationManager] Animator reference is null.");
+                return;
+            }
+
+            var controllerName = animator.runtimeAnimatorController != null ? animator.runtimeAnimatorController.name : "(no controller)";
+            Debug.Log($"[PlayerAnimationManager] PlayToolAnimation -> {itemType} | AnimatorGO: {animator.gameObject.name} | Controller: {controllerName}");
+
             switch (itemType)
             {
                 case ItemType.WaterCan:
@@ -82,6 +108,10 @@ namespace LLMValley.Components.Animation
                     break;
 
                 case ItemType.Seed:
+                    if (!animator.parameters.Any(p => p.type == AnimatorControllerParameterType.Trigger && p.nameHash == PlantTrigger))
+                    {
+                        Debug.LogWarning("[PlayerAnimationManager] plantTrigger not found on Animator. Check parameter name matches exactly: 'plantTrigger'");
+                    }
                     animator.SetTrigger(PlantTrigger);
                     break;
             }
