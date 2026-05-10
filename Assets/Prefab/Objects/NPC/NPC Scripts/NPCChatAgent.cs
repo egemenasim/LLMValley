@@ -36,6 +36,7 @@ namespace LLMValley.NPCChat
         [SerializeField] private string interactionPromptText = "Press \"E\" to interact";
         [SerializeField] private NPCRelationshipStats relationshipStats;
         [SerializeField] private NPCSellComponent sellComponent;
+        [SerializeField] private NPCMerchantComponent merchantComponent;
 
         [Header("Detection")]
         [SerializeField] private Collider interactionTrigger;
@@ -54,7 +55,8 @@ namespace LLMValley.NPCChat
         public string ChatAvailabilityMessage => CanSendMessages
             ? "Talk to the NPC."
             : relationshipStats.LockedStatusMessage;
-        public NPCSellComponent SellComponent => sellComponent;
+        public NPCSellComponent SellComponent => sellComponent != null && sellComponent.isActiveAndEnabled ? sellComponent : null;
+        public NPCMerchantComponent MerchantComponent => merchantComponent != null && merchantComponent.isActiveAndEnabled ? merchantComponent : null;
 
         private void Awake()
         {
@@ -62,6 +64,7 @@ namespace LLMValley.NPCChat
             interactionTrigger ??= GetComponent<Collider>();
             relationshipStats ??= GetComponent<NPCRelationshipStats>();
             sellComponent ??= GetComponent<NPCSellComponent>();
+            merchantComponent ??= GetComponent<NPCMerchantComponent>();
 
             if (interactionTrigger != null)
             {
@@ -103,6 +106,7 @@ namespace LLMValley.NPCChat
 
             relationshipStats ??= GetComponent<NPCRelationshipStats>();
             sellComponent ??= GetComponent<NPCSellComponent>();
+            merchantComponent ??= GetComponent<NPCMerchantComponent>();
 
             RefreshVisualFromPersona();
             RefreshPromptReferences();
