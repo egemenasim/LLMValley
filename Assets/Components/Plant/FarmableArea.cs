@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class FarmableArea : MonoBehaviour
 {
@@ -22,9 +23,9 @@ public class FarmableArea : MonoBehaviour
         return true;
     }
 
-    public bool CanPlant(Plantable plantPrefab)
+    public bool CanPlant(Plantable Plant)
     {
-        return plantPrefab != null && currentPlant == null && isTilled;
+        return Plant != null && currentPlant == null && isTilled;
     }
 
     public bool CanPlant(LLMValley.Items.ItemData plantData)
@@ -32,18 +33,18 @@ public class FarmableArea : MonoBehaviour
         return plantData != null && currentPlant == null && isTilled;
     }
 
-    public bool Plant(Plantable plantPrefab)
+    public bool Plant(Plantable Plant)
     {
-        if (!CanPlant(plantPrefab))
+        if (!CanPlant(Plant))
         {
             return false;
         }
 
-        currentPlant = Instantiate(plantPrefab, transform.position, Quaternion.identity, transform);
+        currentPlant = Instantiate(Plant, transform.position, Quaternion.identity, transform);
         // Prefab'ın scale'ını koru
-        if (plantPrefab != null)
+        if (Plant != null)
         {
-            currentPlant.transform.localScale = plantPrefab.transform.localScale;
+            currentPlant.transform.localScale = Plant.transform.localScale;
         }
         return true;
     }
