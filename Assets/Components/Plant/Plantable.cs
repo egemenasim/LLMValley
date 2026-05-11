@@ -8,8 +8,9 @@ public abstract class Plantable : MonoBehaviour
     [Header("Plant Data")]
     [SerializeField] private ItemData plantData;
     [SerializeField] private SpriteRenderer spriteRenderer;
-
-    private bool _warnedMissingSprites;
+    
+    [Header("Harvesting")]
+    [SerializeField] private CollectibleItem collectiblePrefab;
 
     [Header("State")]
     [SerializeField] private int _currentLevel;
@@ -46,7 +47,7 @@ public abstract class Plantable : MonoBehaviour
         ResetPlant();
     }
 
-    protected virtual void OnEnable()
+    protected virtual void Start()
     {
         if (CalendarSystem.Instance != null)
         {
@@ -54,7 +55,7 @@ public abstract class Plantable : MonoBehaviour
         }
     }
 
-    protected virtual void OnDisable()
+    protected virtual void OnDestroy()
     {
         if (CalendarSystem.Instance != null)
         {
@@ -178,11 +179,6 @@ public abstract class Plantable : MonoBehaviour
 
         if (plantData.growthSprites == null || plantData.growthSprites.Length == 0)
         {
-            if (!_warnedMissingSprites)
-            {
-                _warnedMissingSprites = true;
-                Debug.LogWarning($"[Plantable] No growthSprites configured on ItemData '{plantData.itemName}' (id: {plantData.itemID}). Plant will be invisible.");
-            }
             return;
         }
 
@@ -231,28 +227,55 @@ public abstract class Plantable : MonoBehaviour
 
         if (plantData == null || plantData.outputCrop == null)
         {
-            Debug.LogWarning($"[Plantable] Cannot harvest '{name}': outputCrop not set on ItemData '{plantData?.itemName}'.");
             return false;
         }
 
         _isHarvested = true;
 
-        GameObject pickupGo = new GameObject($"Collectible_{plantData.outputCrop.itemName}");
-        pickupGo.transform.position = transform.position;
-
-        var sr = pickupGo.AddComponent<SpriteRenderer>();
-        if (spriteRenderer != null)
+        if (collectiblePrefab != null)
         {
-            sr.sortingLayerID = spriteRenderer.sortingLayerID;
-            sr.sortingOrder = spriteRenderer.sortingOrder;
+
+            var pickup = Instantiate(collectiblePrefab, transform.position, Quaternion.identity);
+            pickup.name = $"Collectible_{plantData.outputCrop.itemName}";
+            pickup.itemData = plantData.outputCrop;
+            pickup.quantity = 1;
+            
+            var sr = pickup.GetComponent<SpriteRenderer>();
+            if (sr != null && plantData.outputCrop.icon != null)
+            {
+                sr.sprite = plantData.outputCrop.icon;
+            }
+            if (sr != null && spriteRenderer != null)
+            {
+                sr.sortingLayerID = spriteRenderer.sortingLayerID;
+                sr.sortingOrder = spriteRenderer.sortingOrder;
+            }
         }
+        else
+        {
 
-        var pickup = pickupGo.AddComponent<CollectibleItem>();
-        pickup.itemData = plantData.outputCrop;
-        pickup.quantity = 1;
+            GameObject pickupGo = new GameObject($"Collectible_{plantData.outputCrop.itemName}");
+            pickupGo.transform.position = transform.position;
 
-        var collider = pickupGo.AddComponent<CircleCollider2D>();
-        collider.isTrigger = true;
+            var sr = pickupGo.AddComponent<SpriteRenderer>();
+            if (spriteRenderer != null)
+            {
+                sr.sortingLayerID = spriteRenderer.sortingLayerID;
+                sr.sortingOrder = spriteRenderer.sortingOrder;
+            }
+            
+            if (plantData.outputCrop.icon != null)
+            {
+                sr.sprite = plantData.outputCrop.icon;
+            }
+
+            var pickup = pickupGo.AddComponent<CollectibleItem>();
+            pickup.itemData = plantData.outputCrop;
+            pickup.quantity = 1;
+
+            var collider = pickupGo.AddComponent<CircleCollider2D>();
+            collider.isTrigger = true;
+        }
 
         // Prevent FarmableArea from holding a destroyed reference.
         var area = GetComponentInParent<FarmableArea>();
