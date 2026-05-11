@@ -13,6 +13,7 @@ namespace LLMValley.Items
         Rod, // Fishing animation
         WaterCan, // Watering animation
         Currency, // No animation
-        Misc // No animaion
+        Misc, // No animaion
+        Key, // No animation, but used for unlocking doors/gates
     }
 }
