@@ -1,13 +1,22 @@
 using UnityEngine;
 using UnityEngine.Playables;
+using Systems.Calendar;
 
 public class FarmableArea : MonoBehaviour
 {
     [SerializeField] private Plantable currentPlant;
     [SerializeField] private Plantable basePlantPrefab;
 
+    [Header("Visuals")]
+    [SerializeField] private Sprite normalSprite;
+    [SerializeField] private Sprite tilledSprite;
+    [SerializeField] private Sprite wateredSprite;
+
+    private SpriteRenderer _spriteRenderer;
+
     [Header("Soil")]
     [SerializeField] private bool isTilled;
+    [SerializeField] private bool isWatered;
 
     [Header("Interaction")]
     [SerializeField] private float interactRadius = 2.0f;
@@ -17,6 +26,56 @@ public class FarmableArea : MonoBehaviour
     public Plantable CurrentPlant => currentPlant;
 
     public bool IsTilled => isTilled;
+    public bool IsWatered => isWatered;
+
+    private void Awake()
+    {
+        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        UpdateVisuals();
+    }
+
+    private void UpdateVisuals()
+    {
+        if (_spriteRenderer == null) return;
+
+        if (isWatered && isTilled && wateredSprite != null)
+        {
+            _spriteRenderer.sprite = wateredSprite;
+        }
+        else if (isTilled && tilledSprite != null)
+        {
+            _spriteRenderer.sprite = tilledSprite;
+        }
+        else if (!isTilled && normalSprite != null)
+        {
+            _spriteRenderer.sprite = normalSprite;
+        }
+    }
+
+    private void OnEnable()
+    {
+        if (CalendarSystem.Instance != null)
+        {
+            CalendarSystem.Instance.OnDayChanged.AddListener(HandleDayChanged);
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (CalendarSystem.Instance != null)
+        {
+            CalendarSystem.Instance.OnDayChanged.RemoveListener(HandleDayChanged);
+        }
+    }
+
+    private void HandleDayChanged(CalendarDate _)
+    {
+        if (isWatered)
+        {
+            isWatered = false;
+            UpdateVisuals();
+        }
+    }
 
     public bool IsPlayerInRange()
     {
@@ -45,6 +104,7 @@ public class FarmableArea : MonoBehaviour
             return false;
 
         isTilled = true;
+        UpdateVisuals();
         Debug.Log($"[FarmableArea] Tilled area '{name}'.");
         return true;
     }
@@ -79,6 +139,12 @@ public class FarmableArea : MonoBehaviour
         {
             currentPlant.transform.localScale = Plant.transform.localScale;
         }
+
+        if (isWatered)
+        {
+            currentPlant.Water();
+        }
+
         return true;
     }
 
@@ -106,17 +172,21 @@ public class FarmableArea : MonoBehaviour
         currentPlant = Instantiate(basePlantPrefab, spawnPosition, Quaternion.identity, transform);
         currentPlant.transform.localScale = basePlantPrefab.transform.localScale;
 
-        var sr = currentPlant.GetComponent<SpriteRenderer>();
+        var sr = currentPlant.GetComponentInChildren<SpriteRenderer>();
 
         // Try to render above the tile/ground sprite.
-        var tileRenderer = GetComponent<SpriteRenderer>();
-        if (tileRenderer != null && sr != null)
+        if (_spriteRenderer != null && sr != null)
         {
-            sr.sortingLayerID = tileRenderer.sortingLayerID;
-            sr.sortingOrder = tileRenderer.sortingOrder + 1;
+            sr.sortingLayerID = _spriteRenderer.sortingLayerID;
+            sr.sortingOrder = _spriteRenderer.sortingOrder + 1;
         }
 
         currentPlant.Initialize(plantData, sr);
+
+        if (isWatered)
+        {
+            currentPlant.Water();
+        }
 
         Debug.Log($"[FarmableArea] Planted ItemData '{plantData.itemName}' on area '{name}'.");
         return true;
@@ -130,14 +200,23 @@ public class FarmableArea : MonoBehaviour
             return false;
         }
 
-        if (currentPlant == null)
+        if (!isTilled)
         {
-            Debug.LogWarning($"[FarmableArea] Water() failed: no plant on area '{name}'.");
+            Debug.LogWarning($"[FarmableArea] Water() failed: area '{name}' is not tilled.");
             return false;
         }
 
-        currentPlant.Water();
-        Debug.Log($"[FarmableArea] Watered plant '{currentPlant.name}' on area '{name}'.");
+        if (isWatered) return false;
+
+        isWatered = true;
+        UpdateVisuals();
+
+        if (currentPlant != null)
+        {
+            currentPlant.Water();
+        }
+        
+        Debug.Log($"[FarmableArea] Watered area '{name}'.");
         return true;
     }
 
@@ -166,5 +245,7 @@ public class FarmableArea : MonoBehaviour
         }
 
         isTilled = false;
+        isWatered = false;
+        UpdateVisuals();
     }
 }
