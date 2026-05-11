@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Systems.Calendar;
+using LLMValley.Player;
 using UnityEngine;
 
 public sealed class PlantDateTest : MonoBehaviour
@@ -23,6 +24,19 @@ public sealed class PlantDateTest : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.J))
         {
             AdvanceConfiguredDays();
+        }
+
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            if (PlayerInventory.Instance != null)
+            {
+                PlayerInventory.Instance.ClearInventory();
+                Debug.Log("[PlantDateTest] Inventory cleared.");
+            }
+            else
+            {
+                Debug.LogWarning("[PlantDateTest] PlayerInventory.Instance is null. Cannot clear inventory.");
+            }
         }
     }
 
