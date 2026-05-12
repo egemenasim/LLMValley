@@ -1120,6 +1120,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec564e6da4a904b409e23588ad49406f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LLMValley.UI.InventoryUI
+--- !u!1001 &1202127699
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2841894417993823981, guid: 7ee6e1752a04624459b03a057a12f224, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.2006083
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841894417993823981, guid: 7ee6e1752a04624459b03a057a12f224, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.8254724
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841894417993823981, guid: 7ee6e1752a04624459b03a057a12f224, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841894417993823981, guid: 7ee6e1752a04624459b03a057a12f224, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841894417993823981, guid: 7ee6e1752a04624459b03a057a12f224, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841894417993823981, guid: 7ee6e1752a04624459b03a057a12f224, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841894417993823981, guid: 7ee6e1752a04624459b03a057a12f224, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841894417993823981, guid: 7ee6e1752a04624459b03a057a12f224, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841894417993823981, guid: 7ee6e1752a04624459b03a057a12f224, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841894417993823981, guid: 7ee6e1752a04624459b03a057a12f224, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3406383693489271566, guid: 7ee6e1752a04624459b03a057a12f224, type: 3}
+      propertyPath: m_Name
+      value: Bed
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7ee6e1752a04624459b03a057a12f224, type: 3}
 --- !u!1 &1268001269
 GameObject:
   m_ObjectHideFlags: 0
@@ -1561,6 +1618,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 7399533318584292489, guid: 9782278c514ce6940a1919e67804d3f2, type: 3}
+    - target: {fileID: 4050498687377616759, guid: 0c7106f1c9c7fce44957c60a70c80ab0, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5421916817384687923, guid: 0c7106f1c9c7fce44957c60a70c80ab0, type: 3}
       propertyPath: m_Name
       value: FarmTile
@@ -1576,11 +1637,11 @@ PrefabInstance:
     - target: {fileID: 7136609581072364309, guid: 0c7106f1c9c7fce44957c60a70c80ab0, type: 3}
       propertyPath: tilledSprite
       value: 
-      objectReference: {fileID: 1405499788, guid: 9782278c514ce6940a1919e67804d3f2, type: 3}
+      objectReference: {fileID: 1321362185, guid: 9782278c514ce6940a1919e67804d3f2, type: 3}
     - target: {fileID: 7136609581072364309, guid: 0c7106f1c9c7fce44957c60a70c80ab0, type: 3}
       propertyPath: wateredSprite
       value: 
-      objectReference: {fileID: 498003600, guid: 9782278c514ce6940a1919e67804d3f2, type: 3}
+      objectReference: {fileID: 1182331824, guid: 9782278c514ce6940a1919e67804d3f2, type: 3}
     - target: {fileID: 7136609581072364309, guid: 0c7106f1c9c7fce44957c60a70c80ab0, type: 3}
       propertyPath: interactRadius
       value: 1.15
@@ -1866,15 +1927,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1453655592103418736, guid: 25506a2e719d5d34abbd4635ef7eceae, type: 3}
       propertyPath: m_LocalScale.x
-      value: 7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1453655592103418736, guid: 25506a2e719d5d34abbd4635ef7eceae, type: 3}
       propertyPath: m_LocalScale.y
-      value: 7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1453655592103418736, guid: 25506a2e719d5d34abbd4635ef7eceae, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.7
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1453655592103418736, guid: 25506a2e719d5d34abbd4635ef7eceae, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1947,3 +2008,4 @@ SceneRoots:
   - {fileID: 652109704}
   - {fileID: 1588501909}
   - {fileID: 7766568811419707659}
+  - {fileID: 1202127699}

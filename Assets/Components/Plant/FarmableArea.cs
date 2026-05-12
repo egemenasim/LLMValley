@@ -52,7 +52,7 @@ public class FarmableArea : MonoBehaviour
         }
     }
 
-    private void OnEnable()
+    private void Start()
     {
         if (CalendarSystem.Instance != null)
         {
@@ -60,7 +60,7 @@ public class FarmableArea : MonoBehaviour
         }
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         if (CalendarSystem.Instance != null)
         {
@@ -96,7 +96,7 @@ public class FarmableArea : MonoBehaviour
     {
         if (!IsPlayerInRange())
         {
-            Debug.Log($"[FarmableArea] Player is too far to till '{name}'.");
+
             return false;
         }
 
@@ -105,7 +105,7 @@ public class FarmableArea : MonoBehaviour
 
         isTilled = true;
         UpdateVisuals();
-        Debug.Log($"[FarmableArea] Tilled area '{name}'.");
+
         return true;
     }
 
@@ -123,7 +123,7 @@ public class FarmableArea : MonoBehaviour
     {
         if (!IsPlayerInRange())
         {
-            Debug.Log($"[FarmableArea] Player is too far to plant on '{name}'.");
+
             return false;
         }
 
@@ -152,13 +152,13 @@ public class FarmableArea : MonoBehaviour
     {
         if (!IsPlayerInRange())
         {
-            Debug.Log($"[FarmableArea] Player is too far to plant on '{name}'.");
+
             return false;
         }
 
         if (!CanPlant(plantData))
         {
-            Debug.LogWarning($"[FarmableArea] Plant(ItemData) blocked on area '{name}'. HasPlant: {HasPlant}, IsTilled: {isTilled}, PlantData null: {plantData == null}");
+
             return false;
         }
 
@@ -188,7 +188,7 @@ public class FarmableArea : MonoBehaviour
             currentPlant.Water();
         }
 
-        Debug.Log($"[FarmableArea] Planted ItemData '{plantData.itemName}' on area '{name}'.");
+
         return true;
     }
 
@@ -196,13 +196,13 @@ public class FarmableArea : MonoBehaviour
     {
         if (!IsPlayerInRange())
         {
-            Debug.Log($"[FarmableArea] Player is too far to water '{name}'.");
+
             return false;
         }
 
         if (!isTilled)
         {
-            Debug.LogWarning($"[FarmableArea] Water() failed: area '{name}' is not tilled.");
+
             return false;
         }
 
@@ -216,7 +216,7 @@ public class FarmableArea : MonoBehaviour
             currentPlant.Water();
         }
         
-        Debug.Log($"[FarmableArea] Watered area '{name}'.");
+
         return true;
     }
 

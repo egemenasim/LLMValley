@@ -13,7 +13,7 @@ namespace LLMValley.Player
     /// stores the inventory data as a List of ItemStacks, and keeps
     /// InventoryUI in sync after every change.
     /// </summary>
-    public class PlayerInventory : MonoBehaviour, IItemCollector
+    public class PlayerInventory : MonoBehaviour, IItemCollector, IInventoryKeyProvider
     {
         public static PlayerInventory Instance { get; private set; }
         // ─── Inspector ────────────────────────────────────────────────────────────
@@ -44,6 +44,54 @@ namespace LLMValley.Player
 
                 if (stack.item.itemType == itemType)
                     return true;
+            }
+
+            return false;
+        }
+
+        public bool HasKey(string keyId)
+        {
+            if (string.IsNullOrWhiteSpace(keyId))
+            {
+                return false;
+            }
+
+            for (int i = 0; i < _items.Count; i++)
+            {
+                var stack = _items[i];
+                if (stack == null || !stack.IsValid)
+                {
+                    continue;
+                }
+
+                if (stack.item is LLMValley.Items.KeyItemData keyItem && keyItem.keyId == keyId)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public bool HasItemById(string itemId)
+        {
+            if (string.IsNullOrWhiteSpace(itemId))
+            {
+                return false;
+            }
+
+            for (int i = 0; i < _items.Count; i++)
+            {
+                var stack = _items[i];
+                if (stack == null || !stack.IsValid)
+                {
+                    continue;
+                }
+
+                if (stack.item.name == itemId || stack.item.itemID.ToString() == itemId)
+                {
+                    return true;
+                }
             }
 
             return false;

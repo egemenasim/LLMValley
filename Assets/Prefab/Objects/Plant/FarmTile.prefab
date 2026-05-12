@@ -139,9 +139,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FarmableArea
   currentPlant: {fileID: 0}
   basePlantPrefab: {fileID: 3067485717378940216, guid: 60f631a89df43be40b3674fae98457cf, type: 3}
-  normalSprite: {fileID: 0}
-  tilledSprite: {fileID: 0}
-  wateredSprite: {fileID: 0}
+  areaIndex: -1
+  currentState: 0
+  normalSprite: {fileID: 7399533318584292489, guid: 9782278c514ce6940a1919e67804d3f2, type: 3}
+  tilledSprite: {fileID: 1321362185, guid: 9782278c514ce6940a1919e67804d3f2, type: 3}
+  wateredSprite: {fileID: 1182331824, guid: 9782278c514ce6940a1919e67804d3f2, type: 3}
   isTilled: 0
   isWatered: 0
   interactRadius: 2

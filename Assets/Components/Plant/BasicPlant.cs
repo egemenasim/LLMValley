@@ -8,7 +8,7 @@ using UnityEngine;
 public sealed class BasicPlant : Plantable
 {
     [SerializeField] private float harvestRadius = 1.25f;
-    [SerializeField] private Vector3 harvestPromptOffset = new Vector3(0.1f, 0.15f, 0f);
+    [SerializeField] private Vector3 harvestPromptOffset = new(0.1f, 0.15f, 0f);
     [Header("UI Prefab")]
     [SerializeField] private GameObject harvestPromptPrefab;
 

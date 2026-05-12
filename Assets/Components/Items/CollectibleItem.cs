@@ -63,6 +63,7 @@ namespace LLMValley.Items
 
         private void Start()
         {
+            ApplyIcon();
             StartCoroutine(BobRoutine());
 
             // Cache the player transform once so Update doesn't call
