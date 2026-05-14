@@ -197,6 +197,17 @@ namespace LLMValley.Player
                 Debug.LogWarning($"[PlayerToolController] No PlayerAnimationManager found for: {selectedItemType}");
 
             action.Use();
+
+            // Handle durability
+            if (selectedItem.hasDurability && !selectedItem.isIndestructible)
+            {
+                selectedStack.currentDurability--;
+                if (selectedStack.currentDurability <= 0)
+                {
+                    Debug.Log($"[PlayerToolController] Tool broke: {selectedItem.itemName}");
+                    ConsumeSelectedStackItem(1);
+                }
+            }
         }
 
         public ItemStack GetSelectedStack() => GetSelectedStackInternal();

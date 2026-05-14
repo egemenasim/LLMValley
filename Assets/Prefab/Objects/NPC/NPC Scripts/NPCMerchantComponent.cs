@@ -49,7 +49,7 @@ namespace LLMValley.NPCShop
             return friendshipTiers * 0.05f;
         }
 
-        public bool TrySell(ItemStack stack, PlayerInventory inventory, PlayerWallet wallet, out string resultMessage)
+        public virtual bool TrySell(ItemStack stack, PlayerInventory inventory, PlayerWallet wallet, out string resultMessage)
         {
             resultMessage = string.Empty;
 

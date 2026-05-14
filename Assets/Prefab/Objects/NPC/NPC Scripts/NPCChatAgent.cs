@@ -70,11 +70,11 @@ namespace LLMValley.NPCChat
 
         private void Awake()
         {
-            interactionOrigin ??= transform;
-            interactionTrigger ??= GetComponent<Collider>();
-            relationshipStats ??= GetComponent<NPCRelationshipStats>();
-            sellComponent ??= GetComponent<NPCSellComponent>();
-            merchantComponent ??= GetComponent<NPCMerchantComponent>();
+            if (interactionOrigin == null) interactionOrigin = transform;
+            if (interactionTrigger == null) interactionTrigger = GetComponent<Collider>();
+            if (relationshipStats == null) relationshipStats = GetComponent<NPCRelationshipStats>();
+            if (sellComponent == null) sellComponent = GetComponent<NPCSellComponent>();
+            if (merchantComponent == null) merchantComponent = GetComponent<NPCMerchantComponent>();
 
             if (interactionTrigger != null)
             {
@@ -101,8 +101,8 @@ namespace LLMValley.NPCChat
 
         private void OnValidate()
         {
-            interactionOrigin ??= transform;
-            interactionTrigger ??= GetComponent<Collider>();
+            if (interactionOrigin == null) interactionOrigin = transform;
+            if (interactionTrigger == null) interactionTrigger = GetComponent<Collider>();
 
             if (persona != null && !string.IsNullOrWhiteSpace(persona.NpcId))
             {
@@ -114,9 +114,9 @@ namespace LLMValley.NPCChat
                 worldSpriteRenderer = GetComponentInChildren<SpriteRenderer>();
             }
 
-            relationshipStats ??= GetComponent<NPCRelationshipStats>();
-            sellComponent ??= GetComponent<NPCSellComponent>();
-            merchantComponent ??= GetComponent<NPCMerchantComponent>();
+            if (relationshipStats == null) relationshipStats = GetComponent<NPCRelationshipStats>();
+            if (sellComponent == null) sellComponent = GetComponent<NPCSellComponent>();
+            if (merchantComponent == null) merchantComponent = GetComponent<NPCMerchantComponent>();
 
             RequestVisualRefresh();
             RefreshPromptReferences();
@@ -255,8 +255,8 @@ namespace LLMValley.NPCChat
 
         public void ResetRelationshipProgress()
         {
-            relationshipStats ??= GetComponent<NPCRelationshipStats>();
-            conversation ??= NPCConversationStore.Load(ResolveConversationSaveId(), selectedModelId);
+            if (relationshipStats == null) relationshipStats = GetComponent<NPCRelationshipStats>();
+            if (conversation == null) conversation = NPCConversationStore.Load(ResolveConversationSaveId(), selectedModelId);
 
             relationshipStats?.ResetStats();
 
@@ -272,7 +272,7 @@ namespace LLMValley.NPCChat
 
         public bool LoadRelationshipProgress()
         {
-            relationshipStats ??= GetComponent<NPCRelationshipStats>();
+            if (relationshipStats == null) relationshipStats = GetComponent<NPCRelationshipStats>();
             if (relationshipStats == null)
             {
                 return false;
@@ -285,8 +285,8 @@ namespace LLMValley.NPCChat
 
         public void SaveRelationshipProgress()
         {
-            relationshipStats ??= GetComponent<NPCRelationshipStats>();
-            conversation ??= NPCConversationStore.Load(ResolveConversationSaveId(), selectedModelId);
+            if (relationshipStats == null) relationshipStats = GetComponent<NPCRelationshipStats>();
+            if (conversation == null) conversation = NPCConversationStore.Load(ResolveConversationSaveId(), selectedModelId);
             relationshipStats?.SaveToConversation(conversation);
             NPCConversationStore.Save(conversation);
         }
@@ -366,7 +366,7 @@ namespace LLMValley.NPCChat
                 return;
             }
 
-            conversation ??= NPCConversationStore.Load(ResolveConversationSaveId(), selectedModelId);
+            if (conversation == null) conversation = NPCConversationStore.Load(ResolveConversationSaveId(), selectedModelId);
             relationshipStats?.LoadFromConversation(conversation);
 
             var userMessage = new NPCChatMessage("user", text);
@@ -473,7 +473,7 @@ namespace LLMValley.NPCChat
                 return;
             }
 
-            relationshipStats ??= GetComponent<NPCRelationshipStats>();
+            if (relationshipStats == null) relationshipStats = GetComponent<NPCRelationshipStats>();
             if (relationshipStats != null)
             {
                 relationshipStats.ApplyEvaluation(evaluation);
