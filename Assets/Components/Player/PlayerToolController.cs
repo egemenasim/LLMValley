@@ -15,6 +15,7 @@ namespace LLMValley.Player
         [SerializeField] private PlayerInventory playerInventory;
 
         private readonly Dictionary<ItemType, IToolAction> _toolActions = new();
+        private float _discardHoldTime = 0f;
 
         private void Awake()
         {
@@ -66,7 +67,43 @@ namespace LLMValley.Player
                 return;
 
             if (Input.GetMouseButtonDown(0))
-                UseSelectedInventoryItem();
+            {
+                if (UnityEngine.EventSystems.EventSystem.current == null || !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+                {
+                    UseSelectedInventoryItem();
+                }
+            }
+
+            HandleDiscardInput();
+        }
+
+        private void HandleDiscardInput()
+        {
+            ItemStack stack = GetSelectedStackInternal();
+            if (stack == null || !stack.IsValid)
+            {
+                _discardHoldTime = 0f;
+                return;
+            }
+
+            if (Input.GetKey(KeyCode.Z))
+            {
+                // If it's negative, it means we recently discarded and are waiting for the user to release the key.
+                if (_discardHoldTime >= 0f)
+                {
+                    _discardHoldTime += Time.deltaTime;
+                    if (_discardHoldTime >= 1.5f)
+                    {
+                        Debug.Log($"[PlayerToolController] Discarding {stack.quantity}x {stack.item.itemName}");
+                        ConsumeSelectedStackItem(stack.quantity);
+                        _discardHoldTime = -100f; 
+                    }
+                }
+            }
+            else
+            {
+                _discardHoldTime = 0f;
+            }
         }
 
         private void RegisterToolActions()

@@ -137,6 +137,11 @@ namespace LLMValley.UI
             Button btn = GetComponent<Button>();
             if (btn != null)
             {
+                // Disable UI navigation to prevent WASD from moving button focus
+                Navigation nav = btn.navigation;
+                nav.mode = Navigation.Mode.None;
+                btn.navigation = nav;
+
                 btn.onClick.AddListener(() => OnSlotClicked?.Invoke(SlotIndex));
             }
         }
