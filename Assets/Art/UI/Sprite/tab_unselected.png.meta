@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7536751b2ebd82e42b6fe15e8b15a85a
+guid: 6002922841fd5a7468b3081266a553e4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2760483428450779491
-    second: generic-rpg-ui-inventario_0
+      213: 5164143572359070637
+    second: tab_unselected_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: generic-rpg-ui-inventario_0
+      name: tab_unselected_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 92
-        height: 77
+        width: 16
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d9eb6de82fac0b9d0800000000000000
-      internalID: -2760483428450779491
+      spriteID: da3449fd739baa740800000000000000
+      internalID: 5164143572359070637
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      generic-rpg-ui-inventario_0: -2760483428450779491
+      tab_unselected_0: 5164143572359070637
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

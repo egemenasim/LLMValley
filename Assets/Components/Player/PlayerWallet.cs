@@ -15,9 +15,13 @@ namespace LLMValley.Player
 
         public int CurrentGold => currentGold;
 
+        [Header("Events")]
+        public UnityEngine.Events.UnityEvent<int> OnGoldChanged = new UnityEngine.Events.UnityEvent<int>();
+
         public void SetGold(int amount)
         {
             currentGold = Mathf.Max(0, amount);
+            OnGoldChanged?.Invoke(currentGold);
             SaveWalletChange();
         }
 
@@ -29,6 +33,11 @@ namespace LLMValley.Player
             }
         }
 
+        private void Start()
+        {
+            OnGoldChanged?.Invoke(currentGold);
+        }
+
         public void AddGold(int amount)
         {
             if (amount <= 0)
@@ -37,6 +46,7 @@ namespace LLMValley.Player
             }
 
             currentGold += amount;
+            OnGoldChanged?.Invoke(currentGold);
             SaveWalletChange();
         }
 
@@ -53,6 +63,7 @@ namespace LLMValley.Player
             }
 
             currentGold -= amount;
+            OnGoldChanged?.Invoke(currentGold);
             SaveWalletChange();
             return true;
         }
