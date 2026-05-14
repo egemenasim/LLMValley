@@ -26,6 +26,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Test/Developer/Yusuf Sadi Pesen/SCENE_Sadi_HouseInside.unity
     guid: 5a7aa46c430df06448aee7ba924d9817
+  - enabled: 1
+    path: "Assets/Scenes/Test/Developer/Reyhan Sena \xC7imen/SCENEReyhan_HouseInside.unity"
+    guid: 4584e3e4ef82e1542b42f635e8dc613a
+  - enabled: 1
+    path: "Assets/Scenes/Test/Developer/Reyhan Sena \xC7imen/SCENE_Rey_FarmTest.unity"
+    guid: 6424c5e91d811ea45ae2f563d368c9a4
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
