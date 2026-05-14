@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9dc30e2ec7995aa4fb40a3cda6741e16, type: 3}
-  m_Name: water
+  m_Name: Golden_FishingRod
   m_EditorClassIdentifier: Assembly-CSharp::LLMValley.Items.ItemData
-  itemName: Watering Can
-  description: Essential for keeping your crops hydrated.
-  icon: {fileID: 1212236800271682782, guid: 71c87f228ee2bf648aa31249a335eb6d, type: 3}
-  itemID: 4004
-  itemType: 5
-  baseValue: 50
+  itemName: Golden Fishing Rod
+  description: 
+  icon: {fileID: -4732462668122622448, guid: 4ae4366da208db643a358ee5306482fb, type: 3}
+  itemID: 4003
+  itemType: 2
+  baseValue: 500
   isStackable: 0
-  maxStackSize: 1
-  hasDurability: 1
-  maxDurability: 50
-  isIndestructible: 0
+  maxStackSize: 99
+  hasDurability: 0
+  maxDurability: 100
+  isIndestructible: 1
   maxGrowthLevel: 0
   minGrowthLevel: 0
   growthSprites: []
