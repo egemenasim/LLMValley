@@ -1,10 +1,12 @@
+using System;
 using UnityEngine;
 using LLMValley.Items;
 
-public class FarmTileData : MonoBehaviour
+[Serializable]
+public class FarmTileData
 {
     public int levelData;
     public ItemData plantItemData;
     public bool isTilled;
-    public bool iswatered;
+    public bool isWatered;
 }
