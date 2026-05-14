@@ -358,9 +358,10 @@ namespace LLMValley.NPCChat
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(apiKey))
+            var effectiveApiKey = GetEffectiveApiKey();
+            if (string.IsNullOrWhiteSpace(effectiveApiKey))
             {
-                uiManager.ShowError("OpenRouter API key is empty on this NPC.");
+                uiManager.ShowError("OpenRouter API key is empty. Add one from the main menu.");
                 return;
             }
 
@@ -390,7 +391,7 @@ namespace LLMValley.NPCChat
             requestInFlight = true;
 
             NPCOpenRouterClient.GetOrCreate().SendChatCompletion(
-                apiKey,
+                effectiveApiKey,
                 selectedModelId,
                 BuildChatSystemPrompt(),
                 conversation.messages,
@@ -438,7 +439,7 @@ namespace LLMValley.NPCChat
             {
                 uiManager.SetLoading(true, "Relationship is settling...");
                 NPCOpenRouterClient.GetOrCreate().SendChatCompletion(
-                    apiKey,
+                    GetEffectiveApiKey(),
                     selectedModelId,
                     BuildRelationshipEvaluationPrompt(),
                     GetMessagesForPendingRelationshipEvaluation(),
@@ -666,6 +667,11 @@ namespace LLMValley.NPCChat
             }
 
             return gameObject.name;
+        }
+
+        private string GetEffectiveApiKey()
+        {
+            return OpenRouterApiKeyStore.HasApiKey ? OpenRouterApiKeyStore.ApiKey : apiKey;
         }
 
         private void LogDebug(string message)

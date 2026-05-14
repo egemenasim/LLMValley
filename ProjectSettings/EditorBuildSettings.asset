@@ -6,20 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Menu/MainMenu.unity
+    guid: 65931a98095524fcc9c958dbffa03f00
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: "Assets/Scenes/Test/Developer/Deniz \u015Eeker/SCENE_Deniz_FeatureTest.unity"
+    path: "Assets/Scenes/Test/Developer/Deniz S\u0327eker/SCENE_Deniz_FeatureTest.unity"
     guid: 8a8f6b55f8471b84aaebdcfef5e6ab88
   - enabled: 1
     path: Assets/Scenes/Test/Developer/Yusuf Sadi Pesen/SadoranTest.unity
     guid: 2cdc2f38671cb7044988c31404d5f73e
   - enabled: 1
-    path: "Assets/Scenes/Test/Developer/Deniz \u015Eeker/SCENE_Deniz_DoorTest.unity"
+    path: "Assets/Scenes/Test/Developer/Deniz S\u0327eker/SCENE_Deniz_DoorTest.unity"
     guid: 40e97c8584582c54890476eba08f8c7a
-  - enabled: 1
-    path: Assets/Scenes/Test/Developer/Yusuf Sadi Pesen/SCENE_Sadi_FarmTest.unity
-    guid: 61fae025330bce94d99c824d2f0a6c7d
   - enabled: 1
     path: Assets/Scenes/Test/Developer/Yusuf Sadi Pesen/SCENE_Sadi_TownTest.unity
     guid: a58f5886ccc912246ac1961a002b7e8d
@@ -27,11 +27,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Test/Developer/Yusuf Sadi Pesen/SCENE_Sadi_HouseInside.unity
     guid: 5a7aa46c430df06448aee7ba924d9817
   - enabled: 1
-    path: "Assets/Scenes/Test/Developer/Reyhan Sena \xC7imen/SCENEReyhan_HouseInside.unity"
+    path: "Assets/Scenes/Test/Developer/Reyhan Sena C\u0327imen/SCENEReyhan_HouseInside.unity"
     guid: 4584e3e4ef82e1542b42f635e8dc613a
   - enabled: 1
-    path: "Assets/Scenes/Test/Developer/Reyhan Sena \xC7imen/SCENE_Rey_FarmTest.unity"
+    path: "Assets/Scenes/Test/Developer/Reyhan Sena C\u0327imen/SCENE_Rey_FarmTest.unity"
     guid: 6424c5e91d811ea45ae2f563d368c9a4
+  - enabled: 1
+    path: Assets/Scenes/Test/Developer/Yusuf Sadi Pesen/SCENE_Sadi_FarmTest.unity
+    guid: 61fae025330bce94d99c824d2f0a6c7d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
