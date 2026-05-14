@@ -29,6 +29,11 @@ namespace LLMValley.NPCChat
 
         public override void interact_event()
         {
+            if (IsChatOpen())
+            {
+                return;
+            }
+
             base.interact_event();
 
             if (chatAgent == null)
@@ -37,6 +42,21 @@ namespace LLMValley.NPCChat
             }
 
             chatAgent.BeginConversation();
+        }
+
+        protected override bool CanShowInteractionPrompt()
+        {
+            return !IsChatOpen();
+        }
+
+        protected override bool CanTriggerInteraction()
+        {
+            return !IsChatOpen();
+        }
+
+        private static bool IsChatOpen()
+        {
+            return NPCChatUIManager.FindExisting()?.IsOpen == true;
         }
     }
 }

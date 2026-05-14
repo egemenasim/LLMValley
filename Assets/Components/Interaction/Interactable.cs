@@ -74,12 +74,28 @@ public class Interactable : MonoBehaviour
 
     private void Update()
     {
+        if (_playerInRange)
+        {
+            if (CanShowInteractionPrompt())
+            {
+                SpawnButton();
+            }
+            else
+            {
+                DestroyButton();
+            }
+        }
+
         if (_spawnedButton != null && _buttonRect != null)
+        {
             UpdateButtonPosition();
+        }
 
         // Don't allow interaction while player is sleeping
-        if (_playerInRange && _spawnedButton != null && !Sleepable.IsPlayerSleeping && Input.GetKeyDown(KeyCode.E))
+        if (_playerInRange && _spawnedButton != null && CanTriggerInteraction() && !Sleepable.IsPlayerSleeping && Input.GetKeyDown(KeyCode.E))
+        {
             interact_event();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -131,6 +147,16 @@ public class Interactable : MonoBehaviour
         onInteract?.Invoke();
     }
 
+    protected virtual bool CanShowInteractionPrompt()
+    {
+        return true;
+    }
+
+    protected virtual bool CanTriggerInteraction()
+    {
+        return CanShowInteractionPrompt();
+    }
+
     // ──────────────────────────────────────────────────────────
     //  Button helpers
     // ──────────────────────────────────────────────────────────
@@ -169,6 +195,7 @@ public class Interactable : MonoBehaviour
 
     private void SpawnButton()
     {
+        if (!CanShowInteractionPrompt()) return;
         if (_spawnedButton != null) return;
 
         if (interactButtonPrefab == null)
