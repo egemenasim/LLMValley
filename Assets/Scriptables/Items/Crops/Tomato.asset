@@ -20,12 +20,8 @@ MonoBehaviour:
   baseValue: 25
   isStackable: 1
   maxStackSize: 99
-  maxGrowthLevel: 4
-  minGrowthLevel: 4
-  growthSprites:
-  - {fileID: -3962807554240710951, guid: 37b6c8d9ab2eff6408fc3b41133a7a06, type: 3}
-  - {fileID: 6958885263435235732, guid: 37b6c8d9ab2eff6408fc3b41133a7a06, type: 3}
-  - {fileID: 5759767783725158912, guid: 37b6c8d9ab2eff6408fc3b41133a7a06, type: 3}
-  - {fileID: 3771087122062061247, guid: 37b6c8d9ab2eff6408fc3b41133a7a06, type: 3}
-  totalGrowthDays: 4
+  maxGrowthLevel: 0
+  minGrowthLevel: 0
+  growthSprites: []
+  totalGrowthDays: 0
   outputCrop: {fileID: 11400000}

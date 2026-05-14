@@ -2,6 +2,7 @@ using UnityEngine;
 using Systems.Calendar;
 using System.Collections;
 using LLMValley.SaveSystem;
+using LLMValley.Farm;
 
 /// <summary>
 /// Subclass of Interactable for bed objects. Handles sleep logic and prevents
@@ -71,6 +72,8 @@ public class Sleepable : Interactable
                 CalendarSystem.Instance.AdvanceDay();
                 SaveManager.SaveGame();
             }
+
+            FarmSaveEventBus.PublishPlayerSlept();
 
             // Wait a tiny bit more while black
             yield return new WaitForSeconds(0.5f);

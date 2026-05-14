@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Playables;
 using Systems.Calendar;
+using LLMValley.Farm;
 
 public class FarmableArea : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class FarmableArea : MonoBehaviour
     [Header("Interaction")]
     [SerializeField] private float interactRadius = 2.0f;
     private Transform _player;
+
+    public int DataID; // Unique ID for saving/loading
 
     public bool HasPlant => currentPlant != null;
     public Plantable CurrentPlant => currentPlant;
@@ -54,21 +57,15 @@ public class FarmableArea : MonoBehaviour
 
     private void Start()
     {
-        if (CalendarSystem.Instance != null)
-        {
-            CalendarSystem.Instance.OnDayChanged.AddListener(HandleDayChanged);
-        }
+        FarmSaveEventBus.playerSlept += HandlePlayerSlept;
     }
 
     private void OnDestroy()
     {
-        if (CalendarSystem.Instance != null)
-        {
-            CalendarSystem.Instance.OnDayChanged.RemoveListener(HandleDayChanged);
-        }
+        FarmSaveEventBus.playerSlept -= HandlePlayerSlept;
     }
 
-    private void HandleDayChanged(CalendarDate _)
+    private void HandlePlayerSlept()
     {
         if (isWatered)
         {
@@ -104,8 +101,8 @@ public class FarmableArea : MonoBehaviour
             return false;
 
         isTilled = true;
-        UpdateVisuals();
 
+        OnAnyChange();
         return true;
     }
 
@@ -145,6 +142,7 @@ public class FarmableArea : MonoBehaviour
             currentPlant.Water();
         }
 
+        OnAnyChange();
         return true;
     }
 
@@ -188,7 +186,7 @@ public class FarmableArea : MonoBehaviour
             currentPlant.Water();
         }
 
-
+        OnAnyChange();
         return true;
     }
 
@@ -216,7 +214,7 @@ public class FarmableArea : MonoBehaviour
             currentPlant.Water();
         }
         
-
+        OnAnyChange();
         return true;
     }
 
@@ -233,10 +231,11 @@ public class FarmableArea : MonoBehaviour
         }
 
         currentPlant = null;
+        OnAnyChange();
         return true;
     }
 
-    public void Clear()
+    private void ResetStateWithoutNotification()
     {
         if (currentPlant != null)
         {
@@ -246,6 +245,78 @@ public class FarmableArea : MonoBehaviour
 
         isTilled = false;
         isWatered = false;
+        UpdateVisuals();
+    }
+
+    public void Clear()
+    {
+        ResetStateWithoutNotification();
+        OnAnyChange();
+    }
+
+    private FarmTileData BuildTileData()
+    {
+        return new FarmTileData
+        {
+            isTilled = isTilled,
+            isWatered = isWatered,
+            levelData = HasPlant ? CurrentPlant.CurrentLevel : 0,
+            daysGrown = HasPlant ? CurrentPlant.DaysGrown : 0,
+            plantItemData = HasPlant ? CurrentPlant.PlantData : null
+        };
+    }
+
+    public void OnAnyChange()
+    {
+        if (DataID >= 0)
+        {
+            FarmSaveEventBus.PublishSaveSpecificFarmTile(DataID, BuildTileData());
+        }
+
+        FarmSaveEventBus.PublishSaveFarmField();
+        FarmSaveEventBus.PublishFarmDataSaveRequested();
+        UpdateVisuals();
+    }
+
+    public void RestoreFromData(FarmTileData tileData)
+    {
+        if (tileData == null)
+            return;
+
+        ResetStateWithoutNotification();
+
+        isTilled = tileData.isTilled;
+        isWatered = tileData.isWatered;
+
+        if (tileData.plantItemData != null)
+        {
+            if (basePlantPrefab == null)
+            {
+                Debug.LogError($"[FarmableArea] Missing basePlantPrefab on '{name}' while restoring saved crop.");
+            }
+            else
+            {
+                Vector3 spawnPosition = transform.position + new Vector3(0f, 0.8f, 0f);
+                currentPlant = Instantiate(basePlantPrefab, spawnPosition, Quaternion.identity, transform);
+                currentPlant.transform.localScale = basePlantPrefab.transform.localScale;
+
+                var sr = currentPlant.GetComponentInChildren<SpriteRenderer>();
+                if (_spriteRenderer != null && sr != null)
+                {
+                    sr.sortingLayerID = _spriteRenderer.sortingLayerID;
+                    sr.sortingOrder = _spriteRenderer.sortingOrder + 1;
+                }
+
+                currentPlant.Initialize(tileData.plantItemData, sr);
+                Debug.Log($"[Restore] FarmableArea '{name}' DataID={DataID}: daysGrown={tileData.daysGrown}, levelData={tileData.levelData}, isWatered={tileData.isWatered}");
+                currentPlant.RestoreGrowthState(tileData.daysGrown);
+                if (isWatered)
+                {
+                    currentPlant.Water();
+                }
+            }
+        }
+
         UpdateVisuals();
     }
 }
