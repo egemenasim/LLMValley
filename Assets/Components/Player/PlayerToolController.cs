@@ -92,7 +92,7 @@ namespace LLMValley.Player
                 if (_discardHoldTime >= 0f)
                 {
                     _discardHoldTime += Time.deltaTime;
-                    if (_discardHoldTime >= 1.5f)
+                    if (_discardHoldTime >= 0.3f)
                     {
                         Debug.Log($"[PlayerToolController] Discarding {stack.quantity}x {stack.item.itemName}");
                         ConsumeSelectedStackItem(stack.quantity);

@@ -35,10 +35,14 @@ namespace LLMValley.UI
         [Tooltip("Image used as a selection highlight / border.")]
         [SerializeField] public Image selectionHighlight;
 
+        [Tooltip("Slot seçildiğinde görünür olacak prefab/child (örn. 'Delete tuşu ile sil' prompt). selectionHighlight ile birlikte aç/kapat olur.")]
+        [SerializeField] private GameObject deletePromptVisual;
+
         // ─── Events ───────────────────────────────────────────────────────────────
 
         [Header("State")]
         private bool _isSelected;
+        private bool _hasItem;
 
         [Header("Events")]
 
@@ -92,6 +96,9 @@ namespace LLMValley.UI
                 quantityText.text    = quantity.ToString();
                 quantityText.enabled = showQuantity;
             }
+
+            _hasItem = true;
+            UpdateDeletePromptVisibility();
         }
 
         /// <summary>
@@ -110,6 +117,9 @@ namespace LLMValley.UI
                 quantityText.text    = string.Empty;
                 quantityText.enabled = false;
             }
+
+            _hasItem = false;
+            UpdateDeletePromptVisibility();
         }
 
         /// <summary>
@@ -125,6 +135,14 @@ namespace LLMValley.UI
 
             if (selectionHighlight != null)
                 selectionHighlight.enabled = false;
+
+            UpdateDeletePromptVisibility();
+        }
+
+        private void UpdateDeletePromptVisibility()
+        {
+            if (deletePromptVisual != null)
+                deletePromptVisual.SetActive(_isSelected && _hasItem);
         }
 
         // ─── Unity Lifecycle ──────────────────────────────────────────────────────
