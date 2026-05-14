@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 using LLMValley.SaveSystem;
 using System.Linq;
+using LLMValley.NPCChat;
 
 namespace LLMValley.SceneManagement
 {
@@ -76,6 +77,15 @@ namespace LLMValley.SceneManagement
             {
                 Debug.Log($"[SceneTransitionManager] Player position before: {playerBefore.transform.position}");
             }
+
+            var npcChatUI = NPCChatUIManager.FindExisting();
+            if (npcChatUI != null && npcChatUI.IsOpen)
+            {
+                npcChatUI.CloseConversation();
+            }
+
+            PlayerInputLock.ForceReset();
+            DialogInputManager.ClearAll();
 
             // Lock input
             PlayerInputLock.Lock();
@@ -224,6 +234,7 @@ namespace LLMValley.SceneManagement
             {
                 // Always unlock input
                 PlayerInputLock.Unlock();
+                PlayerInputLock.ForceReset();
                 _isTransitioning = false;
             }
         }

@@ -43,6 +43,8 @@ namespace LLMValley.NPCChat
         private PlayerInventory currentInventory;
         private PlayerWallet currentWallet;
         private bool isSending;
+        private bool hasInputLock;
+        private bool isRegisteredForDialogInput;
 
         public static NPCChatUIManager Instance { get; private set; }
         public bool IsOpen => panelRoot != null && panelRoot.activeSelf;
@@ -79,6 +81,20 @@ namespace LLMValley.NPCChat
 
         // IDialog — CloseDialog is called by DialogInputManager when Escape is pressed.
         public void CloseDialog() => CloseConversation();
+
+        private void OnDisable()
+        {
+            ReleaseDialogState(notifyAgent: true);
+        }
+
+        private void OnDestroy()
+        {
+            ReleaseDialogState(notifyAgent: true);
+            if (Instance == this)
+            {
+                Instance = null;
+            }
+        }
 
         private void Update()
         {
@@ -130,8 +146,17 @@ namespace LLMValley.NPCChat
             RefreshRelationshipBars();
 
             // Lock player movement globally while the chat is open.
-            PlayerInputLock.Lock();
-            DialogInputManager.Register(this);
+            if (!hasInputLock)
+            {
+                PlayerInputLock.Lock();
+                hasInputLock = true;
+            }
+
+            if (!isRegisteredForDialogInput)
+            {
+                DialogInputManager.Register(this);
+                isRegisteredForDialogInput = true;
+            }
 
             RenderHistory(agent.CurrentConversation.messages);
             RefreshShop(agent);
@@ -248,19 +273,42 @@ namespace LLMValley.NPCChat
         {
             if (!IsOpen)
             {
+                ReleaseDialogState(notifyAgent: true);
                 return;
             }
 
-            var agent = currentAgent;
-            currentAgent = null;
             SetLoading(false, string.Empty);
             panelRoot.SetActive(false);
             ClearMessages();
             ClearShopItems();
             ToggleShopPanel(false);
-            DialogInputManager.Unregister(this);
-            PlayerInputLock.Unlock();
-            agent?.EndConversation();
+            ReleaseDialogState(notifyAgent: true);
+        }
+
+        private void ReleaseDialogState(bool notifyAgent)
+        {
+            var agent = currentAgent;
+            currentAgent = null;
+            currentInventory = null;
+            currentWallet = null;
+            isSending = false;
+
+            if (isRegisteredForDialogInput)
+            {
+                DialogInputManager.Unregister(this);
+                isRegisteredForDialogInput = false;
+            }
+
+            if (hasInputLock)
+            {
+                PlayerInputLock.Unlock();
+                hasInputLock = false;
+            }
+
+            if (notifyAgent)
+            {
+                agent?.EndConversation();
+            }
         }
 
         private void SubmitInput()

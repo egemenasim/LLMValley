@@ -31,15 +31,22 @@ namespace LLMValley.NPCChat
         {
             if (Instance != null && Instance != this)
             {
-                Destroy(gameObject);
+                Destroy(this);
+                return;
+            }
+
+            if (transform.parent != null || GetComponent<NPCChatUIManager>() != null)
+            {
+                var host = new GameObject(nameof(NPCOpenRouterClient));
+                var persistentClient = host.AddComponent<NPCOpenRouterClient>();
+                persistentClient.httpReferer = httpReferer;
+                persistentClient.titleHeader = titleHeader;
+                persistentClient.enableConsoleDebug = enableConsoleDebug;
+                Destroy(this);
                 return;
             }
 
             Instance = this;
-            // DontDestroyOnLoad requires a root GameObject; detach from the prefab
-            // hierarchy first so Unity doesn't throw an error when this component
-            // lives inside a nested prefab (e.g. NPC Chat UI System).
-            transform.SetParent(null);
             DontDestroyOnLoad(gameObject);
         }
 
