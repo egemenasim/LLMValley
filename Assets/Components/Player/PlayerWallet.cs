@@ -18,6 +18,9 @@ namespace LLMValley.Player
         [Header("Events")]
         public UnityEngine.Events.UnityEvent<int> OnGoldChanged = new UnityEngine.Events.UnityEvent<int>();
 
+        public static PlayerWallet Instance { get; private set; }
+        public static event System.Action<PlayerWallet> OnInstanceChanged;
+
         public void SetGold(int amount)
         {
             currentGold = Mathf.Max(0, amount);
@@ -31,11 +34,23 @@ namespace LLMValley.Player
             {
                 currentGold = startingGold;
             }
+
+            Instance = this;
+            OnInstanceChanged?.Invoke(this);
         }
 
         private void Start()
         {
             OnGoldChanged?.Invoke(currentGold);
+        }
+
+        private void OnDestroy()
+        {
+            if (Instance == this)
+            {
+                Instance = null;
+                OnInstanceChanged?.Invoke(null);
+            }
         }
 
         public void AddGold(int amount)
