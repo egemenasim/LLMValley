@@ -96,6 +96,8 @@ namespace LLMValley.UI
 
         // ─── Public API ───────────────────────────────────────────────────────────
 
+        public event System.Action<int> OnSlotClickedEvent;
+
         public int SelectedIndex => _selectedIndex;
 
         /// <summary>
@@ -194,7 +196,11 @@ namespace LLMValley.UI
 
         // ─── Private Helpers ──────────────────────────────────────────────────────
 
-        private void OnSlotClicked(int index) => SelectSlot(index);
+        private void OnSlotClicked(int index)
+        {
+            SelectSlot(index);
+            OnSlotClickedEvent?.Invoke(index);
+        }
 
         private void RefreshTooltip()
         {
