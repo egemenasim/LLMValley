@@ -37,9 +37,13 @@ public sealed class PlantDateTest : MonoBehaviour
             {
                 Debug.LogWarning("[PlantDateTest] PlayerInventory.Instance is null. Cannot clear inventory.");
             }
+
+            // Clear all PlayerPrefs
+            PlayerPrefs.DeleteAll();
+            PlayerPrefs.Save();
+            Debug.Log("[PlantDateTest] All PlayerPrefs cleared.");
         }
     }
-
     [ContextMenu("Refresh Areas From Scene")]
     public void RefreshAreasFromScene()
     {
