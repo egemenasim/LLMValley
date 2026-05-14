@@ -1,4 +1,5 @@
 using UnityEngine;
+using LLMValley.Farm;
 
 public class GlobalFarmTileDataTable : MonoBehaviour
 {
@@ -17,12 +18,24 @@ public class GlobalFarmTileDataTable : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+
+        FarmSaveEventBus.playerSlept += HandlePlayerSlept;
     }
 
     private void OnDestroy()
     {
         if (Instance == this)
+        {
+            FarmSaveEventBus.playerSlept -= HandlePlayerSlept;
             Instance = null;
+        }
+    }
+
+    private void HandlePlayerSlept()
+    {
+        globalGrowWateredPlants();
+        globalWaterReset();
+        FarmSaveEventBus.PublishLoadFarmField();
     }
 
     public void globalWaterReset()
@@ -34,6 +47,44 @@ public class GlobalFarmTileDataTable : MonoBehaviour
         {
             if (farmTileDataArray[i] != null)
                 farmTileDataArray[i].isWatered = false;
+        }
+    }
+
+    public void globalGrowWateredPlants()
+    {
+        if (farmTileDataArray == null)
+            return;
+
+        for (int i = 0; i < farmTileDataArray.Length; i++)
+        {
+            var tile = farmTileDataArray[i];
+            if (tile == null || !tile.isWatered || tile.plantItemData == null)
+                continue;
+
+            int minLevel = Mathf.Max(0, tile.plantItemData.minGrowthLevel);
+            int maxLevel = Mathf.Max(minLevel, tile.plantItemData.maxGrowthLevel);
+
+            if (tile.levelData >= maxLevel)
+                continue;
+
+            tile.daysGrown++;
+
+            int intermediateLevels = maxLevel - minLevel;
+            int totalGrowthDays = tile.plantItemData.totalGrowthDays;
+
+            if (intermediateLevels <= 0 || totalGrowthDays <= 0)
+            {
+                tile.levelData = maxLevel;
+            }
+            else if (tile.daysGrown >= totalGrowthDays)
+            {
+                tile.levelData = maxLevel;
+            }
+            else
+            {
+                float progress = (float)tile.daysGrown / totalGrowthDays;
+                tile.levelData = minLevel + Mathf.FloorToInt(progress * intermediateLevels);
+            }
         }
     }
 }

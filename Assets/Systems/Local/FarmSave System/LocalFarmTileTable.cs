@@ -65,6 +65,7 @@ public class LocalFarmTileTable : MonoBehaviour
             isTilled = farmableArea.IsTilled,
             isWatered = farmableArea.IsWatered,
             levelData = farmableArea.HasPlant ? farmableArea.CurrentPlant.CurrentLevel : 0,
+            daysGrown = farmableArea.HasPlant ? farmableArea.CurrentPlant.DaysGrown : 0,
             plantItemData = farmableArea.HasPlant ? farmableArea.CurrentPlant.PlantData : null
         };
     }
