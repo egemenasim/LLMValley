@@ -34,7 +34,7 @@ namespace LLMValley.NPCShop
 
         public string ShopDisplayName => string.IsNullOrWhiteSpace(shopDisplayName) ? gameObject.name : shopDisplayName;
         public bool OpenShopOnInteract => openShopOnInteract;
-        public IReadOnlyList<NPCShopListing> Stock => stock;
+        public virtual IReadOnlyList<NPCShopListing> Stock => stock;
 
         public int GetPurchasePrice(NPCShopListing listing)
         {
@@ -60,7 +60,7 @@ namespace LLMValley.NPCShop
             return friendshipTiers * 0.05f;
         }
 
-        public bool TryPurchase(
+        public virtual bool TryPurchase(
             NPCShopListing listing,
             PlayerInventory inventory,
             PlayerWallet wallet,

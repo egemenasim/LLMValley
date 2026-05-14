@@ -20,3 +20,11 @@ MonoBehaviour:
   baseValue: 50
   isStackable: 0
   maxStackSize: 1
+  hasDurability: 1
+  maxDurability: 50
+  isIndestructible: 0
+  maxGrowthLevel: 0
+  minGrowthLevel: 0
+  growthSprites: []
+  totalGrowthDays: 0
+  outputCrop: {fileID: 0}
