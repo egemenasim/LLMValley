@@ -17,6 +17,9 @@ namespace LLMValley.Interaction
         [Tooltip("Maximum number of distinct item slots in this chest.")]
         public int slotCount = 30;
 
+        [Tooltip("Items to spawn in this chest when a new game starts.")]
+        public List<ItemStack> startingItems = new List<ItemStack>();
+
         private List<ItemStack> _items = new List<ItemStack>();
         public IReadOnlyList<ItemStack> Items => _items;
 
@@ -96,6 +99,21 @@ namespace LLMValley.Interaction
                     if (item != null)
                     {
                         _items.Add(new ItemStack(item, itemData.quantity));
+                    }
+                }
+            }
+            else
+            {
+                // No save data exists for this chest, so initialize with starting items if any
+                _items.Clear();
+                if (startingItems != null)
+                {
+                    foreach (var stack in startingItems)
+                    {
+                        if (stack != null && stack.IsValid)
+                        {
+                            _items.Add(new ItemStack(stack.item, stack.quantity));
+                        }
                     }
                 }
             }
