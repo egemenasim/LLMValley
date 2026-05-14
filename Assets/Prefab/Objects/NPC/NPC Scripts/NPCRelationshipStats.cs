@@ -116,6 +116,39 @@ namespace LLMValley.NPCChat
             lastEvaluationSummary = "No relationship evaluation yet.";
         }
 
+        public void AddTrust(int amount)
+        {
+            trust = Mathf.Clamp(trust + amount, 0, 100);
+        }
+
+        public void AddFriendship(int amount)
+        {
+            friendship = Mathf.Clamp(friendship + amount, 0, 100);
+        }
+
+        public void AddLove(int amount)
+        {
+            love = Mathf.Clamp(love + amount, 0, 100);
+        }
+
+        [ContextMenu("Force Save Inspector Stats To File")]
+        public void ForceSaveToDisk()
+        {
+            var agent = GetComponent<NPCChatAgent>();
+            if (agent == null)
+            {
+                Debug.LogWarning("Cannot force save: No NPCChatAgent found on this GameObject.");
+                return;
+            }
+
+            // Load existing or create new
+            var conversation = NPCConversationStore.Load(agent.ConversationSaveId, "override");
+            SaveToConversation(conversation);
+            NPCConversationStore.Save(conversation);
+            
+            Debug.Log($"[NPCRelationshipStats] Successfully overwrote saved stats for {agent.ConversationSaveId} with Inspector values: Love={love}, Friendship={friendship}, Trust={trust}");
+        }
+
         private static string FormatDelta(int delta)
         {
             return delta > 0 ? $"+{delta}" : delta.ToString();

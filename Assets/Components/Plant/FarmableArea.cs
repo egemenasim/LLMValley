@@ -57,44 +57,20 @@ public class FarmableArea : MonoBehaviour
 
     private void Start()
     {
-        if (CalendarSystem.Instance != null)
-        {
-            CalendarSystem.Instance.OnDayChanged.AddListener(HandleDayChanged);
-        }
-
         FarmSaveEventBus.playerSlept += HandlePlayerSlept;
     }
 
     private void OnDestroy()
     {
-        if (CalendarSystem.Instance != null)
-        {
-            CalendarSystem.Instance.OnDayChanged.RemoveListener(HandleDayChanged);
-        }
-
         FarmSaveEventBus.playerSlept -= HandlePlayerSlept;
     }
 
     private void HandlePlayerSlept()
     {
-        if (GlobalFarmTileDataTable.Instance != null)
-        {
-            GlobalFarmTileDataTable.Instance.globalWaterReset();
-        }
-
         if (isWatered)
         {
             isWatered = false;
             UpdateVisuals();
-        }
-    }
-
-    private void HandleDayChanged(CalendarDate _)
-    {
-        if (isWatered)
-        {
-            isWatered = false;
-            OnAnyChange();
         }
     }
 
@@ -285,6 +261,7 @@ public class FarmableArea : MonoBehaviour
             isTilled = isTilled,
             isWatered = isWatered,
             levelData = HasPlant ? CurrentPlant.CurrentLevel : 0,
+            daysGrown = HasPlant ? CurrentPlant.DaysGrown : 0,
             plantItemData = HasPlant ? CurrentPlant.PlantData : null
         };
     }
@@ -331,6 +308,7 @@ public class FarmableArea : MonoBehaviour
                 }
 
                 currentPlant.Initialize(tileData.plantItemData, sr);
+                currentPlant.RestoreGrowthState(tileData.daysGrown);
                 if (isWatered)
                 {
                     currentPlant.Water();

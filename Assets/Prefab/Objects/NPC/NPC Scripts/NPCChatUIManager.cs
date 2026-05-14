@@ -407,7 +407,13 @@ namespace LLMValley.NPCChat
             }
 
             RefreshGoldLabel();
-            SetShopStatus(hasMerchant ? "Select an inventory item to sell." : "Select an item to buy.");
+            
+            string merchantStatus = "Select an inventory item to sell.";
+            if (merchant is DonaldMerchantComponent donald)
+            {
+                merchantStatus = $"Select an inventory item to sell. (Daily Limit: {donald.RemainingLimit}g)";
+            }
+            SetShopStatus(hasMerchant ? merchantStatus : "Select an item to buy.");
 
             if (hasMerchant)
             {

@@ -20,6 +20,7 @@ public abstract class Plantable : MonoBehaviour
     [SerializeField] [UnityEngine.Serialization.FormerlySerializedAs("_daysSinceLevel")] private int _daysGrown;
 
     public int CurrentLevel => _currentLevel;
+    public int DaysGrown => _daysGrown;
     public bool IsWateredToday => _isWateredToday;
     public ItemData PlantData => plantData;
 
@@ -49,23 +50,21 @@ public abstract class Plantable : MonoBehaviour
 
     protected virtual void Start()
     {
-        if (CalendarSystem.Instance != null)
-        {
-            CalendarSystem.Instance.OnDayChanged.AddListener(HandleDayChanged);
-        }
     }
 
     protected virtual void OnDestroy()
     {
-        if (CalendarSystem.Instance != null)
-        {
-            CalendarSystem.Instance.OnDayChanged.RemoveListener(HandleDayChanged);
-        }
     }
 
     public void Water()
     {
         _isWateredToday = true;
+    }
+
+    public void RestoreGrowthState(int daysGrown)
+    {
+        _daysGrown = Mathf.Max(0, daysGrown);
+        UpdateLevelBasedOnDaysGrown();
     }
 
     public void ResetPlant()
@@ -104,27 +103,6 @@ public abstract class Plantable : MonoBehaviour
             _currentLevel = Mathf.Clamp(_currentLevel + amount, _minLevel, _maxLevel);
             UpdateVisuals();
         }
-    }
-
-    private void HandleDayChanged(CalendarDate _)
-    {
-        if (_isWateredToday)
-        {
-            TryGrow();
-        }
-
-        _isWateredToday = false;
-    }
-
-    private void TryGrow()
-    {
-        if (_currentLevel >= _maxLevel)
-        {
-            return;
-        }
-
-        _daysGrown++;
-        UpdateLevelBasedOnDaysGrown();
     }
 
     private void UpdateLevelBasedOnDaysGrown()

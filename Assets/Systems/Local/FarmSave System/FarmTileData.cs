@@ -6,6 +6,7 @@ using LLMValley.Items;
 public class FarmTileData
 {
     public int levelData;
+    public int daysGrown;
     public ItemData plantItemData;
     public bool isTilled;
     public bool isWatered;
