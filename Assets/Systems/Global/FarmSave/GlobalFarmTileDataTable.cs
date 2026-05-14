@@ -58,7 +58,16 @@ public class GlobalFarmTileDataTable : MonoBehaviour
         for (int i = 0; i < farmTileDataArray.Length; i++)
         {
             var tile = farmTileDataArray[i];
-            if (tile == null || !tile.isWatered || tile.plantItemData == null)
+            if (tile == null)
+            {
+                Debug.Log($"[Grow] tile[{i}] is null, skipping");
+                continue;
+            }
+
+            string plantName = tile.plantItemData != null ? tile.plantItemData.itemName : "none";
+            Debug.Log($"[Grow] BEFORE tile[{i}]: plant={plantName}, isWatered={tile.isWatered}, daysGrown={tile.daysGrown}, levelData={tile.levelData}");
+
+            if (!tile.isWatered || tile.plantItemData == null)
                 continue;
 
             int minLevel = Mathf.Max(0, tile.plantItemData.minGrowthLevel);
@@ -85,6 +94,8 @@ public class GlobalFarmTileDataTable : MonoBehaviour
                 float progress = (float)tile.daysGrown / totalGrowthDays;
                 tile.levelData = minLevel + Mathf.FloorToInt(progress * intermediateLevels);
             }
+
+            Debug.Log($"[Grow] AFTER  tile[{i}]: daysGrown={tile.daysGrown}, levelData={tile.levelData} (max={maxLevel}, totalGrowthDays={totalGrowthDays})");
         }
     }
 }

@@ -27,5 +27,5 @@ MonoBehaviour:
   - {fileID: 6958885263435235732, guid: 37b6c8d9ab2eff6408fc3b41133a7a06, type: 3}
   - {fileID: 5759767783725158912, guid: 37b6c8d9ab2eff6408fc3b41133a7a06, type: 3}
   - {fileID: 3771087122062061247, guid: 37b6c8d9ab2eff6408fc3b41133a7a06, type: 3}
-  totalGrowthDays: 6
+  totalGrowthDays: 4
   outputCrop: {fileID: 11400000, guid: f17b43dd93133c24ab92fbf6e153572f, type: 2}

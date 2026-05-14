@@ -114,4 +114,4 @@ MonoBehaviour:
   _daysGrown: 0
   harvestRadius: 1.25
   harvestPromptOffset: {x: 0.1, y: 0.15, z: 0}
-  harvestPromptPrefab: {fileID: 7749871493230907835, guid: feedd78e014ba6c4f9b477c0341d95ea, type: 3}
+  harvestPromptPrefab: {fileID: 6760711105736247104, guid: 20274b68223c22448b97b44d5b302a0f, type: 3}
