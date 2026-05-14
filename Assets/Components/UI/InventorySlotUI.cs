@@ -20,7 +20,7 @@ namespace LLMValley.UI
     /// before any click events fire.
     /// </summary>
     [RequireComponent(typeof(Button))]
-    public class InventorySlotUI : MonoBehaviour, IPointerClickHandler
+    public class InventorySlotUI : MonoBehaviour
     {
         // ─── Inspector References ─────────────────────────────────────────────────
 
@@ -127,20 +127,23 @@ namespace LLMValley.UI
                 selectionHighlight.enabled = false;
         }
 
-        // ─── IPointerClickHandler ─────────────────────────────────────────────────
-
-        /// <inheritdoc/>
-        public void OnPointerClick(PointerEventData eventData)
-        {
-            OnSlotClicked?.Invoke(SlotIndex);
-        }
-
         // ─── Unity Lifecycle ──────────────────────────────────────────────────────
 
         private void Awake()
         {
             // Ensure the highlight starts hidden at runtime.
             SetSelected(false);
+
+            Button btn = GetComponent<Button>();
+            if (btn != null)
+            {
+                // Disable UI navigation to prevent WASD from moving button focus
+                Navigation nav = btn.navigation;
+                nav.mode = Navigation.Mode.None;
+                btn.navigation = nav;
+
+                btn.onClick.AddListener(() => OnSlotClicked?.Invoke(SlotIndex));
+            }
         }
     }
 }

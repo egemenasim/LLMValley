@@ -391,7 +391,7 @@ namespace LLMValley.SaveSystem
         /// <summary>
         /// Finds an ItemData by its ID at runtime
         /// </summary>
-        private static LLMValley.Items.ItemData GetItemById(int itemId)
+        public static LLMValley.Items.ItemData GetItemById(int itemId)
         {
             try
             {
@@ -437,6 +437,31 @@ namespace LLMValley.SaveSystem
                 Debug.LogError($"[SaveManager] Error finding item {itemId}: {e.Message}");
                 return null;
             }
+        }
+
+        /// <summary>
+        /// Saves a chest's inventory to PlayerPrefs
+        /// </summary>
+        public static void SaveChest(string chestId, InventorySaveData inventory)
+        {
+            if (string.IsNullOrEmpty(chestId)) return;
+            string key = $"Chest_{chestId}";
+            PlayerPrefs.SetString(key, JsonConvert.SerializeObject(inventory));
+            PlayerPrefs.Save();
+        }
+
+        /// <summary>
+        /// Loads a chest's inventory from PlayerPrefs
+        /// </summary>
+        public static InventorySaveData LoadChest(string chestId)
+        {
+            if (string.IsNullOrEmpty(chestId)) return null;
+            string key = $"Chest_{chestId}";
+            if (PlayerPrefs.HasKey(key))
+            {
+                return JsonConvert.DeserializeObject<InventorySaveData>(PlayerPrefs.GetString(key));
+            }
+            return null;
         }
     }
 }
