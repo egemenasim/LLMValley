@@ -3555,6 +3555,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2098048135651374960, guid: f3296b988663843449214cb276a05afe, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2731656920347307490, guid: f3296b988663843449214cb276a05afe, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.91
@@ -3595,6 +3599,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5275136851293180769, guid: f3296b988663843449214cb276a05afe, type: 3}
+      propertyPath: sellComponent
+      value: 
+      objectReference: {fileID: 1500104655}
     - target: {fileID: 8310505513581014690, guid: f3296b988663843449214cb276a05afe, type: 3}
       propertyPath: m_Name
       value: Ezekiel NPC
@@ -3602,8 +3610,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8310505513581014690, guid: f3296b988663843449214cb276a05afe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1500104655}
   m_SourcePrefab: {fileID: 100100000, guid: f3296b988663843449214cb276a05afe, type: 3}
+--- !u!1 &1500104654 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8310505513581014690, guid: f3296b988663843449214cb276a05afe, type: 3}
+  m_PrefabInstance: {fileID: 1500104653}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1500104655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500104654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26de311179e3bef438df092251f0e95f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LLMValley.NPCShop.EzekielSellComponent
+  shopDisplayName: NPC Shop
+  openShopOnInteract: 1
+  stock: []
+  key1:
+    item: {fileID: 11400000, guid: 97539c04d258d5140a7ac6148176489f, type: 2}
+  key2:
+    item: {fileID: 11400000, guid: fe98e15d0a64878409a16d1052492d69, type: 2}
+  key3:
+    item: {fileID: 11400000, guid: 0b2097d374b9bf547901ee92db5c6fe9, type: 2}
 --- !u!1001 &1541618604
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3641,6 +3678,38 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 598300039235538557, guid: f1e175b8854a47f4eac9ddd1d74f5eb0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 744937182721086649, guid: f1e175b8854a47f4eac9ddd1d74f5eb0, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 744937182721086649, guid: f1e175b8854a47f4eac9ddd1d74f5eb0, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 744937182721086649, guid: f1e175b8854a47f4eac9ddd1d74f5eb0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 744937182721086649, guid: f1e175b8854a47f4eac9ddd1d74f5eb0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1363955565136128371, guid: f1e175b8854a47f4eac9ddd1d74f5eb0, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1363955565136128371, guid: f1e175b8854a47f4eac9ddd1d74f5eb0, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1363955565136128371, guid: f1e175b8854a47f4eac9ddd1d74f5eb0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1363955565136128371, guid: f1e175b8854a47f4eac9ddd1d74f5eb0, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
@@ -3761,6 +3830,22 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3911278180819781252, guid: f1e175b8854a47f4eac9ddd1d74f5eb0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135498663324290651, guid: f1e175b8854a47f4eac9ddd1d74f5eb0, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135498663324290651, guid: f1e175b8854a47f4eac9ddd1d74f5eb0, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135498663324290651, guid: f1e175b8854a47f4eac9ddd1d74f5eb0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135498663324290651, guid: f1e175b8854a47f4eac9ddd1d74f5eb0, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
@@ -3921,6 +4006,22 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7458190712767169376, guid: f1e175b8854a47f4eac9ddd1d74f5eb0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7710739847542120697, guid: f1e175b8854a47f4eac9ddd1d74f5eb0, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7710739847542120697, guid: f1e175b8854a47f4eac9ddd1d74f5eb0, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7710739847542120697, guid: f1e175b8854a47f4eac9ddd1d74f5eb0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7710739847542120697, guid: f1e175b8854a47f4eac9ddd1d74f5eb0, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
@@ -4413,6 +4514,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Donald NPC
       objectReference: {fileID: 0}
+    - target: {fileID: 2516274715444571936, guid: a33815f9d9d6d4c5481ba8897e99a626, type: 3}
+      propertyPath: merchantComponent
+      value: 
+      objectReference: {fileID: 1768181478}
     - target: {fileID: 7189705925289041873, guid: a33815f9d9d6d4c5481ba8897e99a626, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.46
@@ -4453,11 +4558,39 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8935755885538262971, guid: a33815f9d9d6d4c5481ba8897e99a626, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 10149850843851241, guid: a33815f9d9d6d4c5481ba8897e99a626, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1768181478}
   m_SourcePrefab: {fileID: 100100000, guid: a33815f9d9d6d4c5481ba8897e99a626, type: 3}
+--- !u!1 &1768181477 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 10149850843851241, guid: a33815f9d9d6d4c5481ba8897e99a626, type: 3}
+  m_PrefabInstance: {fileID: 1768181476}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1768181478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768181477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6a6fa8b1d369624e816aa822058f689, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LLMValley.NPCShop.DonaldMerchantComponent
+  merchantDisplayName: Merchant
+  openMerchantOnInteract: 1
+  acceptedItemTypes: 01000000030000000000000007000000
+  sellPriceMultiplier: 0.8
 --- !u!1 &1782338604
 GameObject:
   m_ObjectHideFlags: 0
@@ -4647,6 +4780,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 246914456365119923, guid: c199dd1f44c3f465ea2e3bedb8cfdf1a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4769074692135734683, guid: c199dd1f44c3f465ea2e3bedb8cfdf1a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.75
@@ -4687,6 +4824,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6036269339549288605, guid: c199dd1f44c3f465ea2e3bedb8cfdf1a, type: 3}
+      propertyPath: sellComponent
+      value: 
+      objectReference: {fileID: 2007540033}
     - target: {fileID: 8447864089862513630, guid: c199dd1f44c3f465ea2e3bedb8cfdf1a, type: 3}
       propertyPath: m_Name
       value: Rudy NPC
@@ -4694,8 +4835,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8447864089862513630, guid: c199dd1f44c3f465ea2e3bedb8cfdf1a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2007540033}
   m_SourcePrefab: {fileID: 100100000, guid: c199dd1f44c3f465ea2e3bedb8cfdf1a, type: 3}
+--- !u!1 &2007540032 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8447864089862513630, guid: c199dd1f44c3f465ea2e3bedb8cfdf1a, type: 3}
+  m_PrefabInstance: {fileID: 2007540031}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2007540033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007540032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c57669cc405f4b4d88658bf2537334a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LLMValley.NPCShop.RudySellComponent
+  shopDisplayName: NPC Shop
+  openShopOnInteract: 1
+  stock:
+  - item: {fileID: 11400000, guid: 41a3ccdd71bfd524f9b6f1585b2b328a, type: 2}
+  - item: {fileID: 11400000, guid: 11960d472736de64abcaa167460bb7ba, type: 2}
+  - item: {fileID: 11400000, guid: 88f8de392098b4047a501fed397082bd, type: 2}
+  goldenFishingRod:
+    item: {fileID: 11400000, guid: 88f8de392098b4047a501fed397082bd, type: 2}
+  goldenWateringCan:
+    item: {fileID: 11400000, guid: 11960d472736de64abcaa167460bb7ba, type: 2}
+  goldenHoe:
+    item: {fileID: 11400000, guid: 41a3ccdd71bfd524f9b6f1585b2b328a, type: 2}
 --- !u!1001 &2085578835
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4704,6 +4877,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 588419427352836881, guid: 8d5e5859292ab4293a7bc912314c9264, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7270395463871969611, guid: 8d5e5859292ab4293a7bc912314c9264, type: 3}
+      propertyPath: love
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7270395463871969611, guid: 8d5e5859292ab4293a7bc912314c9264, type: 3}
+      propertyPath: trust
+      value: 61
+      objectReference: {fileID: 0}
+    - target: {fileID: 7270395463871969611, guid: 8d5e5859292ab4293a7bc912314c9264, type: 3}
+      propertyPath: lockChatWhenAnyStatIncreases
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7463053004049535600, guid: 8d5e5859292ab4293a7bc912314c9264, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.8342423
@@ -4748,11 +4937,49 @@ PrefabInstance:
       propertyPath: m_Name
       value: Helen NPC
       objectReference: {fileID: 0}
+    - target: {fileID: 8101979183539082037, guid: 8d5e5859292ab4293a7bc912314c9264, type: 3}
+      propertyPath: sellComponent
+      value: 
+      objectReference: {fileID: 2085578837}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7666248048276086253, guid: 8d5e5859292ab4293a7bc912314c9264, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2085578837}
   m_SourcePrefab: {fileID: 100100000, guid: 8d5e5859292ab4293a7bc912314c9264, type: 3}
+--- !u!1 &2085578836 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7666248048276086253, guid: 8d5e5859292ab4293a7bc912314c9264, type: 3}
+  m_PrefabInstance: {fileID: 2085578835}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2085578837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2085578836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d16ef27d76688524fa621db9ffd80b5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LLMValley.NPCShop.HelenSellComponent
+  shopDisplayName: Seed Shop
+  openShopOnInteract: 1
+  stock:
+  - item: {fileID: 11400000, guid: 1ce92ad627bba0a4a8ed834d0b071b66, type: 2}
+  - item: {fileID: 11400000, guid: 47493baabd18ca848a6e047b1f3f4690, type: 2}
+  - item: {fileID: 11400000, guid: fb3e0d07275f1d140b5091b4bcdfd5e1, type: 2}
+  - item: {fileID: 11400000, guid: 0ff977aa2d4f9974a994870a4c0ac340, type: 2}
+  extraSeedsPool:
+  - item: {fileID: 11400000, guid: 608efafe34f341d49bbd49a4acd0e105, type: 2}
+  - item: {fileID: 11400000, guid: 608efafe34f341d49bbd49a4acd0e105, type: 2}
+  - item: {fileID: 11400000, guid: 608efafe34f341d49bbd49a4acd0e105, type: 2}
+  - item: {fileID: 11400000, guid: 608efafe34f341d49bbd49a4acd0e105, type: 2}
+  - item: {fileID: 11400000, guid: 608efafe34f341d49bbd49a4acd0e105, type: 2}
+  - item: {fileID: 11400000, guid: 608efafe34f341d49bbd49a4acd0e105, type: 2}
 --- !u!1001 &3537218155233735903
 PrefabInstance:
   m_ObjectHideFlags: 0

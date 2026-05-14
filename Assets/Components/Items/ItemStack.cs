@@ -19,6 +19,9 @@ namespace LLMValley.Items
         [Min(1)]
         public int quantity = 1;
 
+        [Tooltip("Current durability of the item in this stack. -1 if not initialized or has no durability.")]
+        public int currentDurability = -1;
+
         // ─── Constructors ─────────────────────────────────────────────────────────
 
         public ItemStack() { }
@@ -27,6 +30,15 @@ namespace LLMValley.Items
         {
             this.item     = item;
             this.quantity = Mathf.Max(1, quantity);
+            
+            if (item != null && item.hasDurability)
+            {
+                this.currentDurability = item.maxDurability;
+            }
+            else
+            {
+                this.currentDurability = -1;
+            }
         }
 
         // ─── Helpers ──────────────────────────────────────────────────────────────

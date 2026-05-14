@@ -48,6 +48,18 @@ namespace LLMValley.Items
         [Min(1)]
         public int maxStackSize = 99;
 
+        // ─── Durability ──────────────────────────────────────────────────────────
+        [Header("Durability")]
+        [Tooltip("Does this item break after a certain number of uses?")]
+        public bool hasDurability;
+
+        [Tooltip("The maximum number of uses before it breaks.")]
+        [Min(1)]
+        public int maxDurability = 100;
+
+        [Tooltip("If true, the item never loses durability (e.g., Golden Tools).")]
+        public bool isIndestructible;
+
         // ─── Plant (Optional) ────────────────────────────────────────────────────
         [Header("Plant (Optional)")]
 
