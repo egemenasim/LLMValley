@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9dc30e2ec7995aa4fb40a3cda6741e16, type: 3}
-  m_Name: water
+  m_Name: Potato
   m_EditorClassIdentifier: Assembly-CSharp::LLMValley.Items.ItemData
-  itemName: Watering Can
-  description: Essential for keeping your crops hydrated.
-  icon: {fileID: 1212236800271682782, guid: 71c87f228ee2bf648aa31249a335eb6d, type: 3}
-  itemID: 4004
-  itemType: 5
-  baseValue: 50
-  isStackable: 0
-  maxStackSize: 1
-  hasDurability: 1
-  maxDurability: 50
+  itemName: Potato
+  description: 
+  icon: {fileID: -4121517270082971212, guid: 5996d22f3d7c4f44ea8e4175a17f278b, type: 3}
+  itemID: 2008
+  itemType: 1
+  baseValue: 35
+  isStackable: 1
+  maxStackSize: 99
+  hasDurability: 0
+  maxDurability: 100
   isIndestructible: 0
   maxGrowthLevel: 0
   minGrowthLevel: 0

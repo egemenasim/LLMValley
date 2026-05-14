@@ -9,8 +9,8 @@ namespace LLMValley.Player
     {
         public ItemType ItemType => ItemType.Rod;
 
-        [Tooltip("The item to give when fishing succeeds.")]
-        [SerializeField] private ItemData fishReward;
+        [Tooltip("Possible fish rewards when fishing succeeds. One fish will be chosen randomly.")]
+        [SerializeField] public ItemData[] fishRewards;
 
         private PlayerAnimationManager _animationManager;
 
@@ -86,13 +86,21 @@ namespace LLMValley.Player
             if (success)
             {
                 Debug.Log("[RodToolAction] Fishing successful!");
-                if (fishReward != null)
+                ItemData reward = null;
+
+                if (fishRewards != null && fishRewards.Length > 0)
                 {
-                    PlayerInventory.Instance.CollectItem(fishReward, 1);
+                    int index = Random.Range(0, fishRewards.Length);
+                    reward = fishRewards[index];
+                }
+
+                if (reward != null)
+                {
+                    PlayerInventory.Instance.CollectItem(reward, 1);
                 }
                 else
                 {
-                    Debug.LogWarning("[RodToolAction] No fishReward assigned in inspector.");
+                    Debug.LogWarning("[RodToolAction] No fishRewards assigned in inspector.");
                 }
             }
             else

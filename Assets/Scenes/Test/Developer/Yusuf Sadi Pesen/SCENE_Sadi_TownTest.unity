@@ -4864,11 +4864,11 @@ MonoBehaviour:
   - item: {fileID: 11400000, guid: 11960d472736de64abcaa167460bb7ba, type: 2}
   - item: {fileID: 11400000, guid: 88f8de392098b4047a501fed397082bd, type: 2}
   goldenFishingRod:
-    item: {fileID: 11400000, guid: 88f8de392098b4047a501fed397082bd, type: 2}
+    item: {fileID: 11400000, guid: da393fb67bdd8724ca9d8d3c266773c6, type: 2}
   goldenWateringCan:
-    item: {fileID: 11400000, guid: 11960d472736de64abcaa167460bb7ba, type: 2}
+    item: {fileID: 11400000, guid: c6ac2fbaf80252741be21de472aca8cf, type: 2}
   goldenHoe:
-    item: {fileID: 11400000, guid: 41a3ccdd71bfd524f9b6f1585b2b328a, type: 2}
+    item: {fileID: 11400000, guid: 68ba38456a1d9af45ace0b2e403e32dd, type: 2}
 --- !u!1001 &2085578835
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4974,12 +4974,10 @@ MonoBehaviour:
   - item: {fileID: 11400000, guid: fb3e0d07275f1d140b5091b4bcdfd5e1, type: 2}
   - item: {fileID: 11400000, guid: 0ff977aa2d4f9974a994870a4c0ac340, type: 2}
   extraSeedsPool:
-  - item: {fileID: 11400000, guid: 608efafe34f341d49bbd49a4acd0e105, type: 2}
-  - item: {fileID: 11400000, guid: 608efafe34f341d49bbd49a4acd0e105, type: 2}
-  - item: {fileID: 11400000, guid: 608efafe34f341d49bbd49a4acd0e105, type: 2}
-  - item: {fileID: 11400000, guid: 608efafe34f341d49bbd49a4acd0e105, type: 2}
-  - item: {fileID: 11400000, guid: 608efafe34f341d49bbd49a4acd0e105, type: 2}
-  - item: {fileID: 11400000, guid: 608efafe34f341d49bbd49a4acd0e105, type: 2}
+  - item: {fileID: 11400000, guid: fb25225104e32ae4caba85ef3077f806, type: 2}
+  - item: {fileID: 11400000, guid: ba3ea93607d74604e89d013a970fa956, type: 2}
+  - item: {fileID: 11400000, guid: 2eca1ad9a29d22c4da6cebfe1e468fdd, type: 2}
+  - item: {fileID: 11400000, guid: 5898fb1082ab34f4a98ae3dd72df94af, type: 2}
 --- !u!1001 &3537218155233735903
 PrefabInstance:
   m_ObjectHideFlags: 0

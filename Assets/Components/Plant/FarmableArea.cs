@@ -308,6 +308,7 @@ public class FarmableArea : MonoBehaviour
                 }
 
                 currentPlant.Initialize(tileData.plantItemData, sr);
+                Debug.Log($"[Restore] FarmableArea '{name}' DataID={DataID}: daysGrown={tileData.daysGrown}, levelData={tileData.levelData}, isWatered={tileData.isWatered}");
                 currentPlant.RestoreGrowthState(tileData.daysGrown);
                 if (isWatered)
                 {

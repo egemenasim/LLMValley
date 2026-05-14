@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dc30e2ec7995aa4fb40a3cda6741e16, type: 3}
+  m_Name: Onion_Seed
+  m_EditorClassIdentifier: Assembly-CSharp::LLMValley.Items.ItemData
+  itemName: Onion Seed
+  description: 
+  icon: {fileID: 4206968556728965966, guid: 5996d22f3d7c4f44ea8e4175a17f278b, type: 3}
+  itemID: 1009
+  itemType: 0
+  baseValue: 40
+  isStackable: 1
+  maxStackSize: 99
+  hasDurability: 0
+  maxDurability: 100
+  isIndestructible: 0
+  maxGrowthLevel: 4
+  minGrowthLevel: 0
+  growthSprites:
+  - {fileID: -2004733081760871359, guid: 5996d22f3d7c4f44ea8e4175a17f278b, type: 3}
+  - {fileID: 7970753316438003428, guid: 5996d22f3d7c4f44ea8e4175a17f278b, type: 3}
+  - {fileID: 4748092831001568428, guid: 5996d22f3d7c4f44ea8e4175a17f278b, type: 3}
+  - {fileID: -1142901117228979249, guid: 5996d22f3d7c4f44ea8e4175a17f278b, type: 3}
+  totalGrowthDays: 4
+  outputCrop: {fileID: 11400000, guid: 447259ee6219ef44eb55c9ce9c73fa01, type: 2}
