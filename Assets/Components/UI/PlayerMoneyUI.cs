@@ -5,23 +5,45 @@ namespace LLMValley.Player
 {
     public class PlayerMoneyUI : MonoBehaviour
     {
-        [SerializeField] private PlayerWallet playerWallet;
         [SerializeField] private TextMeshProUGUI moneyText;
+
+        private PlayerWallet boundWallet;
 
         private void OnEnable()
         {
-            if (playerWallet != null)
-            {
-                playerWallet.OnGoldChanged.AddListener(UpdateMoneyUI);
-                UpdateMoneyUI(playerWallet.CurrentGold);
-            }
+            PlayerWallet.OnInstanceChanged += BindWallet;
+            BindWallet(PlayerWallet.Instance);
         }
 
         private void OnDisable()
         {
-            if (playerWallet != null)
+            PlayerWallet.OnInstanceChanged -= BindWallet;
+            UnbindWallet();
+        }
+
+        private void BindWallet(PlayerWallet wallet)
+        {
+            if (boundWallet == wallet)
             {
-                playerWallet.OnGoldChanged.RemoveListener(UpdateMoneyUI);
+                return;
+            }
+
+            UnbindWallet();
+
+            boundWallet = wallet;
+            if (boundWallet != null)
+            {
+                boundWallet.OnGoldChanged.AddListener(UpdateMoneyUI);
+                UpdateMoneyUI(boundWallet.CurrentGold);
+            }
+        }
+
+        private void UnbindWallet()
+        {
+            if (boundWallet != null)
+            {
+                boundWallet.OnGoldChanged.RemoveListener(UpdateMoneyUI);
+                boundWallet = null;
             }
         }
 
