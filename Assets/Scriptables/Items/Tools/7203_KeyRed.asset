@@ -16,8 +16,8 @@ MonoBehaviour:
   description: 
   icon: {fileID: -2008967323, guid: 15b1067bebb058447ac77496e38474e2, type: 3}
   itemID: 0
-  itemType: 0
-  baseValue: 0
+  itemType: 8
+  baseValue: 20
   isStackable: 0
   maxStackSize: 99
   maxGrowthLevel: 0
