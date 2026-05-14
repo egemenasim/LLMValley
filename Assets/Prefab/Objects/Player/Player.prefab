@@ -309,50 +309,242 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GlobalFarmTileDataTable
   farmTileDataArray:
   - levelData: 0
+    daysGrown: 0
     plantItemData: {fileID: 0}
     isTilled: 0
     isWatered: 0
   - levelData: 0
+    daysGrown: 0
     plantItemData: {fileID: 0}
     isTilled: 0
     isWatered: 0
   - levelData: 0
+    daysGrown: 0
     plantItemData: {fileID: 0}
     isTilled: 0
     isWatered: 0
   - levelData: 0
+    daysGrown: 0
     plantItemData: {fileID: 0}
     isTilled: 0
     isWatered: 0
   - levelData: 0
+    daysGrown: 0
     plantItemData: {fileID: 0}
     isTilled: 0
     isWatered: 0
   - levelData: 0
+    daysGrown: 0
     plantItemData: {fileID: 0}
     isTilled: 0
     isWatered: 0
   - levelData: 0
+    daysGrown: 0
     plantItemData: {fileID: 0}
     isTilled: 0
     isWatered: 0
   - levelData: 0
+    daysGrown: 0
     plantItemData: {fileID: 0}
     isTilled: 0
     isWatered: 0
   - levelData: 0
+    daysGrown: 0
     plantItemData: {fileID: 0}
     isTilled: 0
     isWatered: 0
   - levelData: 0
+    daysGrown: 0
     plantItemData: {fileID: 0}
     isTilled: 0
     isWatered: 0
   - levelData: 0
+    daysGrown: 0
     plantItemData: {fileID: 0}
     isTilled: 0
     isWatered: 0
   - levelData: 0
+    daysGrown: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    daysGrown: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    daysGrown: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    daysGrown: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    daysGrown: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    daysGrown: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    daysGrown: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    daysGrown: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    daysGrown: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    daysGrown: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    daysGrown: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    daysGrown: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    daysGrown: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    daysGrown: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    daysGrown: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    daysGrown: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    daysGrown: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    daysGrown: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    daysGrown: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    daysGrown: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    daysGrown: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    daysGrown: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    daysGrown: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    daysGrown: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    daysGrown: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    daysGrown: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    daysGrown: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    daysGrown: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    daysGrown: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    daysGrown: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    daysGrown: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    daysGrown: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    daysGrown: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    daysGrown: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    daysGrown: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    daysGrown: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    daysGrown: 0
     plantItemData: {fileID: 0}
     isTilled: 0
     isWatered: 0
