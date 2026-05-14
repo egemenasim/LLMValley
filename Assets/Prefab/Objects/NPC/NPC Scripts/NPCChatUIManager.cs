@@ -16,6 +16,11 @@ namespace LLMValley.NPCChat
         [SerializeField] private TMP_Text titleLabel;
         [SerializeField] private TMP_Text statusLabel;
         [SerializeField] private Image portraitImage;
+        [Header("Relationship Bars")]
+        [SerializeField] private GameObject relationshipBarsRoot;
+        [SerializeField] private Image loveBarFill;
+        [SerializeField] private Image friendshipBarFill;
+        [SerializeField] private Image trustBarFill;
         [SerializeField] private ScrollRect historyScrollRect;
         [SerializeField] private Transform messageContainer;
         [SerializeField] private TMP_Text userMessageTemplate;
@@ -69,6 +74,7 @@ namespace LLMValley.NPCChat
             }
 
             CacheShopReferences();
+            CacheRelationshipBarReferences();
         }
 
         // IDialog — CloseDialog is called by DialogInputManager when Escape is pressed.
@@ -120,6 +126,8 @@ namespace LLMValley.NPCChat
                 portraitImage.sprite = agent.PersonaPortrait;
                 portraitImage.enabled = agent.PersonaPortrait != null;
             }
+
+            RefreshRelationshipBars();
 
             // Lock player movement globally while the chat is open.
             PlayerInputLock.Lock();
@@ -211,6 +219,31 @@ namespace LLMValley.NPCChat
             SetLoading(false, message);
         }
 
+        public void RefreshRelationshipBars()
+        {
+            CacheRelationshipBarReferences();
+
+            var stats = currentAgent != null ? currentAgent.RelationshipStats : null;
+            var hasStats = stats != null;
+
+            if (relationshipBarsRoot != null)
+            {
+                relationshipBarsRoot.SetActive(hasStats);
+            }
+
+            if (!hasStats)
+            {
+                SetRelationshipBar(loveBarFill, 0);
+                SetRelationshipBar(friendshipBarFill, 0);
+                SetRelationshipBar(trustBarFill, 0);
+                return;
+            }
+
+            SetRelationshipBar(loveBarFill, stats.Love);
+            SetRelationshipBar(friendshipBarFill, stats.Friendship);
+            SetRelationshipBar(trustBarFill, stats.Trust);
+        }
+
         public void CloseConversation()
         {
             if (!IsOpen)
@@ -260,6 +293,51 @@ namespace LLMValley.NPCChat
             }
 
             activeMessageObjects.Clear();
+        }
+
+        private void CacheRelationshipBarReferences()
+        {
+            if (panelRoot == null)
+            {
+                return;
+            }
+
+            var header = panelRoot.transform.Find("Header");
+            var barsRootTransform = header != null ? header.Find("RelationshipBars") : null;
+
+            if (relationshipBarsRoot == null && barsRootTransform != null)
+            {
+                relationshipBarsRoot = barsRootTransform.gameObject;
+            }
+
+            if (loveBarFill == null)
+            {
+                loveBarFill = barsRootTransform?.Find("LoveBar/Fill")?.GetComponent<Image>();
+            }
+
+            if (friendshipBarFill == null)
+            {
+                friendshipBarFill = barsRootTransform?.Find("FriendshipBar/Fill")?.GetComponent<Image>();
+            }
+
+            if (trustBarFill == null)
+            {
+                trustBarFill = barsRootTransform?.Find("TrustBar/Fill")?.GetComponent<Image>();
+            }
+        }
+
+        private static void SetRelationshipBar(Image fillImage, int value)
+        {
+            if (fillImage == null)
+            {
+                return;
+            }
+
+            var normalizedValue = Mathf.Clamp01(value / 100f);
+            fillImage.type = Image.Type.Filled;
+            fillImage.fillMethod = Image.FillMethod.Vertical;
+            fillImage.fillOrigin = (int)Image.OriginVertical.Bottom;
+            fillImage.fillAmount = normalizedValue;
         }
 
         private void CacheShopReferences()

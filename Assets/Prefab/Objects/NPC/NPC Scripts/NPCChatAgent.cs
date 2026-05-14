@@ -57,6 +57,14 @@ namespace LLMValley.NPCChat
         public string ChatAvailabilityMessage => CanSendMessages
             ? "Talk to the NPC."
             : relationshipStats.LockedStatusMessage;
+        public NPCRelationshipStats RelationshipStats
+        {
+            get
+            {
+                relationshipStats ??= GetComponent<NPCRelationshipStats>();
+                return relationshipStats;
+            }
+        }
         public NPCSellComponent SellComponent => sellComponent != null && sellComponent.isActiveAndEnabled ? sellComponent : null;
         public NPCMerchantComponent MerchantComponent => merchantComponent != null && merchantComponent.isActiveAndEnabled ? merchantComponent : null;
 
@@ -483,6 +491,7 @@ namespace LLMValley.NPCChat
 
             if (uiManager != null && uiManager.CurrentAgent == this)
             {
+                uiManager.RefreshRelationshipBars();
                 uiManager.SetLoading(false, ChatAvailabilityMessage);
             }
         }
