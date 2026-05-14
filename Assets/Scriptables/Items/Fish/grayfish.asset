@@ -17,6 +17,14 @@ MonoBehaviour:
   icon: {fileID: -5615804977267432492, guid: c3056994a1e173a47be86ad0b29bc164, type: 3}
   itemID: 3003
   itemType: 3
-  baseValue: 45
+  baseValue: 30
   isStackable: 1
   maxStackSize: 99
+  hasDurability: 0
+  maxDurability: 100
+  isIndestructible: 0
+  maxGrowthLevel: 0
+  minGrowthLevel: 0
+  growthSprites: []
+  totalGrowthDays: 0
+  outputCrop: {fileID: 0}

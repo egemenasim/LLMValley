@@ -294,7 +294,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a20877f18aaa864490c408d9b55fe76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LLMValley.Player.RodToolAction
-  fishReward: {fileID: 11400000, guid: 1cffb7dd98852854ab3f3fb0dd4a2a75, type: 2}
+  fishRewards:
+  - {fileID: 11400000, guid: 1cffb7dd98852854ab3f3fb0dd4a2a75, type: 2}
+  - {fileID: 11400000, guid: a50c887e76279bf4d92d23d5de183184, type: 2}
+  - {fileID: 11400000, guid: 58b13fbf839ee2f4291457b19834d4bf, type: 2}
 --- !u!114 &8689931037623755268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -572,4 +575,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a20877f18aaa864490c408d9b55fe76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LLMValley.Player.RodToolAction
-  fishReward: {fileID: 11400000, guid: 1cffb7dd98852854ab3f3fb0dd4a2a75, type: 2}
+  fishRewards: []
