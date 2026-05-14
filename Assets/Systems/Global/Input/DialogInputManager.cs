@@ -81,6 +81,11 @@ public class DialogInputManager : MonoBehaviour
         _dialogStack.Remove(dialog);
     }
 
+    public static void ClearAll()
+    {
+        _dialogStack.Clear();
+    }
+
     // ── Private helpers ───────────────────────────────────────────────────
     private static void CloseTopmostDialog()
     {
@@ -88,7 +93,7 @@ public class DialogInputManager : MonoBehaviour
         for (int i = _dialogStack.Count - 1; i >= 0; i--)
         {
             var dialog = _dialogStack[i];
-            if (dialog == null)
+            if (dialog == null || dialog is Object unityObject && unityObject == null)
             {
                 _dialogStack.RemoveAt(i);
                 continue;

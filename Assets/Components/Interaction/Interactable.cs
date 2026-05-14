@@ -30,6 +30,9 @@ public class Interactable : MonoBehaviour
     [Tooltip("World-space offset from this object's position where the button appears.")]
     [SerializeField] private Vector3 buttonWorldOffset = new Vector3(0f, 1.5f, 0f);
 
+    [Tooltip("Scale applied to the spawned interact button.")]
+    [SerializeField, Min(0.1f)] private float buttonScaleMultiplier = 1f;
+
     [Header("Events")]
     [Tooltip("Raised when the Player enters the trigger area.")]
     public UnityEvent onPlayerEnteredArea;
@@ -59,7 +62,7 @@ public class Interactable : MonoBehaviour
 
     private void Awake()
     {
-        _cam = Camera.main;
+        CacheCamera();
         FindTargetCanvas();
     }
 
@@ -152,6 +155,10 @@ public class Interactable : MonoBehaviour
         if (_targetCanvas != null)
         {
             _canvasRect = _targetCanvas.GetComponent<RectTransform>();
+            if (_cam == null && _targetCanvas.renderMode != RenderMode.ScreenSpaceOverlay)
+            {
+                _cam = _targetCanvas.worldCamera;
+            }
             Debug.Log("[Interactable] Canvas found in scene for: " + gameObject.name, this);
         }
         else
@@ -179,6 +186,7 @@ public class Interactable : MonoBehaviour
         // Spawn as a child of the Canvas so UI renders correctly
         _spawnedButton = Instantiate(interactButtonPrefab, _targetCanvas.transform);
         _buttonRect = _spawnedButton.GetComponent<RectTransform>();
+        _spawnedButton.transform.localScale = Vector3.one * buttonScaleMultiplier;
 
         // Snap to position immediately (no one-frame pop)
         UpdateButtonPosition();
@@ -210,7 +218,13 @@ public class Interactable : MonoBehaviour
     /// </summary>
     private void UpdateButtonPosition()
     {
-        if (_cam == null || _canvasRect == null || _buttonRect == null) return;
+        if (_canvasRect == null || _buttonRect == null) return;
+
+        CacheCamera();
+        if (_cam == null)
+        {
+            return;
+        }
 
         // World point → screen point
         Vector3 worldPos = transform.position + buttonWorldOffset;
@@ -225,5 +239,19 @@ public class Interactable : MonoBehaviour
             out Vector2 localPoint);
 
         _buttonRect.localPosition = localPoint;
+    }
+
+    private void CacheCamera()
+    {
+        if (_cam != null)
+        {
+            return;
+        }
+
+        _cam = Camera.main;
+        if (_cam == null)
+        {
+            _cam = FindFirstObjectByType<Camera>();
+        }
     }
 }

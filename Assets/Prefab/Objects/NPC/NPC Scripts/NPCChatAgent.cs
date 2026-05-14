@@ -37,6 +37,7 @@ namespace LLMValley.NPCChat
         [SerializeField] private NPCRelationshipStats relationshipStats;
         [SerializeField] private NPCSellComponent sellComponent;
         [SerializeField] private NPCMerchantComponent merchantComponent;
+        [SerializeField] private NPCInteractable npcInteractable;
 
         [Header("Detection")]
         [SerializeField] private Collider interactionTrigger;
@@ -75,6 +76,7 @@ namespace LLMValley.NPCChat
             if (relationshipStats == null) relationshipStats = GetComponent<NPCRelationshipStats>();
             if (sellComponent == null) sellComponent = GetComponent<NPCSellComponent>();
             if (merchantComponent == null) merchantComponent = GetComponent<NPCMerchantComponent>();
+            if (npcInteractable == null) npcInteractable = GetComponentInChildren<NPCInteractable>(true);
 
             if (interactionTrigger != null)
             {
@@ -117,6 +119,7 @@ namespace LLMValley.NPCChat
             if (relationshipStats == null) relationshipStats = GetComponent<NPCRelationshipStats>();
             if (sellComponent == null) sellComponent = GetComponent<NPCSellComponent>();
             if (merchantComponent == null) merchantComponent = GetComponent<NPCMerchantComponent>();
+            if (npcInteractable == null) npcInteractable = GetComponentInChildren<NPCInteractable>(true);
 
             RequestVisualRefresh();
             RefreshPromptReferences();
@@ -140,6 +143,13 @@ namespace LLMValley.NPCChat
 
         private void Update()
         {
+            if (npcInteractable == null) npcInteractable = GetComponentInChildren<NPCInteractable>(true);
+            if (npcInteractable != null)
+            {
+                UpdateInteractionPrompt(false);
+                return;
+            }
+
             var uiIsOpen = NPCChatUIManager.FindExisting()?.IsOpen == true;
             if (uiIsOpen)
             {
@@ -215,7 +225,7 @@ namespace LLMValley.NPCChat
         public void EndConversation()
         {
             requestInFlight = false;
-            UpdateInteractionPrompt(IsPlayerInRange());
+            UpdateInteractionPrompt(npcInteractable == null && IsPlayerInRange());
         }
 
         public bool ClearConversationHistory()
