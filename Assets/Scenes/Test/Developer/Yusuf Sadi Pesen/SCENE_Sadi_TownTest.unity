@@ -4974,12 +4974,10 @@ MonoBehaviour:
   - item: {fileID: 11400000, guid: fb3e0d07275f1d140b5091b4bcdfd5e1, type: 2}
   - item: {fileID: 11400000, guid: 0ff977aa2d4f9974a994870a4c0ac340, type: 2}
   extraSeedsPool:
-  - item: {fileID: 11400000, guid: 608efafe34f341d49bbd49a4acd0e105, type: 2}
-  - item: {fileID: 11400000, guid: 608efafe34f341d49bbd49a4acd0e105, type: 2}
-  - item: {fileID: 11400000, guid: 608efafe34f341d49bbd49a4acd0e105, type: 2}
-  - item: {fileID: 11400000, guid: 608efafe34f341d49bbd49a4acd0e105, type: 2}
-  - item: {fileID: 11400000, guid: 608efafe34f341d49bbd49a4acd0e105, type: 2}
-  - item: {fileID: 11400000, guid: 608efafe34f341d49bbd49a4acd0e105, type: 2}
+  - item: {fileID: 11400000, guid: fb25225104e32ae4caba85ef3077f806, type: 2}
+  - item: {fileID: 11400000, guid: ba3ea93607d74604e89d013a970fa956, type: 2}
+  - item: {fileID: 11400000, guid: 2eca1ad9a29d22c4da6cebfe1e468fdd, type: 2}
+  - item: {fileID: 11400000, guid: 5898fb1082ab34f4a98ae3dd72df94af, type: 2}
 --- !u!1001 &3537218155233735903
 PrefabInstance:
   m_ObjectHideFlags: 0
