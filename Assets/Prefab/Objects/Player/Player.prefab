@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 3765155899702950733}
   - component: {fileID: 5029747609061366762}
   - component: {fileID: 4978098580873103115}
+  - component: {fileID: 8689931037623755268}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -290,6 +291,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LLMValley.Player.PlayerWallet
   startingGold: 250
   currentGold: 0
+  OnGoldChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &4978098580873103115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,3 +307,64 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LLMValley.Player.RodToolAction
   fishReward: {fileID: 11400000, guid: 1cffb7dd98852854ab3f3fb0dd4a2a75, type: 2}
+--- !u!114 &8689931037623755268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423409442739029937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c7241a5b5171ce42bd0b5bda5118564, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GlobalFarmTileDataTable
+  farmTileDataArray:
+  - levelData: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0

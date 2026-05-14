@@ -9,23 +9,64 @@ public class LocalFarmTileTable : MonoBehaviour
 
     private void Awake()
     {
+        // Subscribe to events early so this table is ready whenever the bus fires.
+        FarmSaveEventBus.SaveFarmField += SaveFarmField;
+        FarmSaveEventBus.SaveSpecificFarmTile += SaveSpecificFarmTile;
+        FarmSaveEventBus.LoadFarmField += LoadFarmField;
+    }
+
+    private void Start()
+    {
         globalTable = FindObjectOfType<GlobalFarmTileDataTable>();
         if (globalTable == null)
         {
             Debug.LogError("[LocalFarmTileTable] GlobalFarmTileDataTable not found!");
-            return;
         }
-
-        // Subscribe to events
-        FarmSaveEventBus.SaveFarmField += SaveFarmField;
-        FarmSaveEventBus.LoadFarmField += LoadFarmField;
+        else
+        {
+            // On scene load, immediately sync scene tile objects from the global data table.
+            FarmSaveEventBus.PublishLoadFarmField();
+        }
     }
 
     private void OnDestroy()
     {
         // Unsubscribe from events
         FarmSaveEventBus.SaveFarmField -= SaveFarmField;
+        FarmSaveEventBus.SaveSpecificFarmTile -= SaveSpecificFarmTile;
         FarmSaveEventBus.LoadFarmField -= LoadFarmField;
+    }
+
+    private void SaveSpecificFarmTile(int dataId, FarmTileData tileData)
+    {
+        if (globalTable == null || tileData == null || dataId < 0)
+            return;
+
+        if (globalTable.farmTileDataArray == null || globalTable.farmTileDataArray.Length <= dataId)
+        {
+            int newSize = Mathf.Max(dataId + 1, globalTable.farmTileDataArray != null ? globalTable.farmTileDataArray.Length : 0);
+            var newArray = new FarmTileData[newSize];
+            if (globalTable.farmTileDataArray != null)
+                globalTable.farmTileDataArray.CopyTo(newArray, 0);
+            globalTable.farmTileDataArray = newArray;
+        }
+
+        globalTable.farmTileDataArray[dataId] = tileData;
+        Debug.Log($"[LocalFarmTileTable] Saved tile ID {dataId} to global farm data table.");
+    }
+
+    private FarmTileData CreateTileData(FarmableArea farmableArea)
+    {
+        if (farmableArea == null)
+            return null;
+
+        return new FarmTileData
+        {
+            isTilled = farmableArea.IsTilled,
+            isWatered = farmableArea.IsWatered,
+            levelData = farmableArea.HasPlant ? farmableArea.CurrentPlant.CurrentLevel : 0,
+            plantItemData = farmableArea.HasPlant ? farmableArea.CurrentPlant.PlantData : null
+        };
     }
 
     private void SaveFarmField()
@@ -39,15 +80,7 @@ public class LocalFarmTileTable : MonoBehaviour
             var farmableArea = plantableAreas[i]?.GetComponent<FarmableArea>();
             if (farmableArea == null) continue;
 
-            var tileData = new FarmTileData
-            {
-                isTilled = farmableArea.IsTilled,
-                isWatered = farmableArea.IsWatered,
-                levelData = farmableArea.HasPlant ? farmableArea.CurrentPlant.CurrentLevel : 0,
-                plantItemData = farmableArea.HasPlant ? farmableArea.CurrentPlant.PlantData : null
-            };
-
-            globalTable.farmTileDataArray[i] = tileData;
+            globalTable.farmTileDataArray[i] = CreateTileData(farmableArea);
         }
 
         Debug.Log($"[LocalFarmTileTable] Saved {plantableAreas.Length} farm tiles.");
@@ -57,36 +90,20 @@ public class LocalFarmTileTable : MonoBehaviour
     {
         if (globalTable == null || plantableAreas == null || globalTable.farmTileDataArray == null) return;
 
-        for (int i = 0; i < Mathf.Min(plantableAreas.Length, globalTable.farmTileDataArray.Length); i++)
+        for (int i = 0; i < plantableAreas.Length; i++)
         {
             var farmableArea = plantableAreas[i]?.GetComponent<FarmableArea>();
-            var tileData = globalTable.farmTileDataArray[i];
+            if (farmableArea == null)
+                continue;
 
-            if (farmableArea == null || tileData == null) continue;
+            if (farmableArea.DataID < 0 || farmableArea.DataID >= globalTable.farmTileDataArray.Length)
+                continue;
 
-            // Clear existing state
-            farmableArea.Clear();
+            var tileData = globalTable.farmTileDataArray[farmableArea.DataID];
+            if (tileData == null)
+                continue;
 
-            // Apply saved state
-            if (tileData.isTilled)
-            {
-                farmableArea.Till();
-            }
-
-            if (tileData.isWatered)
-            {
-                farmableArea.Water();
-            }
-
-            if (tileData.plantItemData != null)
-            {
-                farmableArea.Plant(tileData.plantItemData);
-                if (farmableArea.CurrentPlant != null && tileData.levelData > 0)
-                {
-                    // Assuming Plantable has a way to set level, but for now, just plant
-                    // You may need to add level setting logic here
-                }
-            }
+            farmableArea.RestoreFromData(tileData);
         }
 
         Debug.Log($"[LocalFarmTileTable] Loaded {Mathf.Min(plantableAreas.Length, globalTable.farmTileDataArray.Length)} farm tiles.");

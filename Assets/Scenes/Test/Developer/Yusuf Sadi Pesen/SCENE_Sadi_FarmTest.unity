@@ -147,7 +147,8 @@ Transform:
   m_LocalPosition: {x: 3.0259, y: -4.08324, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1365788812}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &100429780 stripped
@@ -773,6 +774,112 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 481661828858585425, guid: 5371ce3e951eca346ad34e75382923af, type: 3}
   m_PrefabInstance: {fileID: 4735698694961601462}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1365788811
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1365788812}
+  - component: {fileID: 1365788814}
+  - component: {fileID: 1365788813}
+  m_Layer: 0
+  m_Name: SaveFarm System Global
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1365788812
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365788811}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 89855553}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1365788813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365788811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c7241a5b5171ce42bd0b5bda5118564, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GlobalFarmTileDataTable
+  farmTileDataArray:
+  - levelData: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+  - levelData: 0
+    plantItemData: {fileID: 0}
+    isTilled: 0
+    isWatered: 0
+--- !u!114 &1365788814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365788811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61428786bf757814aabc8cdf4088053b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LLMValley.Farm.FarmSaveEventBus
 --- !u!1001 &1378214887
 PrefabInstance:
   m_ObjectHideFlags: 0

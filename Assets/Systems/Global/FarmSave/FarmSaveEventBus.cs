@@ -12,7 +12,7 @@ namespace LLMValley.Farm
         public static FarmSaveEventBus Instance { get; private set; }
 
         public static event Action SaveFarmField;
-        public static event Action<FarmTileData> SaveSpecificFarmTile;
+        public static event Action<int, FarmTileData> SaveSpecificFarmTile;
         public static event Action FarmDataSaveRequested;
         public static event Action LoadFarmField;
 
@@ -55,9 +55,9 @@ namespace LLMValley.Farm
             SaveFarmField?.Invoke();
         }
 
-        public static void PublishSaveSpecificFarmTile(FarmTileData tileData)
+        public static void PublishSaveSpecificFarmTile(int dataId, FarmTileData tileData)
         {
-            SaveSpecificFarmTile?.Invoke(tileData);
+            SaveSpecificFarmTile?.Invoke(dataId, tileData);
         }
 
         public static void PublishFarmDataSaveRequested()
