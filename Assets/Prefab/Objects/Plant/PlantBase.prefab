@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f22a53277a10c14fa9e6f250b410bf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BasicPlant
-  plantData: {fileID: 0}
+  plantData: {fileID: 11400000, guid: f17b43dd93133c24ab92fbf6e153572f, type: 2}
   spriteRenderer: {fileID: 0}
   collectiblePrefab: {fileID: 3061926740277520479, guid: 3643e5ac1d1674345995707fb24ab67a, type: 3}
   _currentLevel: 0
