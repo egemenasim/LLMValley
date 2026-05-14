@@ -208,7 +208,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 142155730075815087, guid: 59de8ad181d38244cb477caf0ebc27e7, type: 3}
       propertyPath: targetSceneName
-      value: SCENE_Sadi_HouseInside
+      value: SCENE_Deniz_HouseInside
       objectReference: {fileID: 0}
     - target: {fileID: 2434708173743331826, guid: 59de8ad181d38244cb477caf0ebc27e7, type: 3}
       propertyPath: m_Name
@@ -232,7 +232,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7267536252149667398, guid: 59de8ad181d38244cb477caf0ebc27e7, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.1823
+      value: 0.98190016
       objectReference: {fileID: 0}
     - target: {fileID: 7267536252149667398, guid: 59de8ad181d38244cb477caf0ebc27e7, type: 3}
       propertyPath: m_LocalScale.y
@@ -240,7 +240,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7267536252149667398, guid: 59de8ad181d38244cb477caf0ebc27e7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.2057
+      value: 2.0241
       objectReference: {fileID: 0}
     - target: {fileID: 7267536252149667398, guid: 59de8ad181d38244cb477caf0ebc27e7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -385,7 +385,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5301921816651302432, guid: 05b5020d03dd42f4cae1ecc8667c9f2f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
