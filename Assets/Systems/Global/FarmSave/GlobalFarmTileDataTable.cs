@@ -24,4 +24,16 @@ public class GlobalFarmTileDataTable : MonoBehaviour
         if (Instance == this)
             Instance = null;
     }
+
+    public void globalWaterReset()
+    {
+        if (farmTileDataArray == null)
+            return;
+
+        for (int i = 0; i < farmTileDataArray.Length; i++)
+        {
+            if (farmTileDataArray[i] != null)
+                farmTileDataArray[i].isWatered = false;
+        }
+    }
 }

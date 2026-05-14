@@ -15,6 +15,7 @@ namespace LLMValley.Farm
         public static event Action<int, FarmTileData> SaveSpecificFarmTile;
         public static event Action FarmDataSaveRequested;
         public static event Action LoadFarmField;
+        public static event Action playerSlept;
 
         private void Awake()
         {
@@ -68,6 +69,11 @@ namespace LLMValley.Farm
         public static void PublishLoadFarmField()
         {
             LoadFarmField?.Invoke();
+        }
+
+        public static void PublishPlayerSlept()
+        {
+            playerSlept?.Invoke();
         }
     }
 }

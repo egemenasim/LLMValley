@@ -61,6 +61,8 @@ public class FarmableArea : MonoBehaviour
         {
             CalendarSystem.Instance.OnDayChanged.AddListener(HandleDayChanged);
         }
+
+        FarmSaveEventBus.playerSlept += HandlePlayerSlept;
     }
 
     private void OnDestroy()
@@ -68,6 +70,22 @@ public class FarmableArea : MonoBehaviour
         if (CalendarSystem.Instance != null)
         {
             CalendarSystem.Instance.OnDayChanged.RemoveListener(HandleDayChanged);
+        }
+
+        FarmSaveEventBus.playerSlept -= HandlePlayerSlept;
+    }
+
+    private void HandlePlayerSlept()
+    {
+        if (GlobalFarmTileDataTable.Instance != null)
+        {
+            GlobalFarmTileDataTable.Instance.globalWaterReset();
+        }
+
+        if (isWatered)
+        {
+            isWatered = false;
+            UpdateVisuals();
         }
     }
 
