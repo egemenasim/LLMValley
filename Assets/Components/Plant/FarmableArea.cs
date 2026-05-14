@@ -22,6 +22,8 @@ public class FarmableArea : MonoBehaviour
     [SerializeField] private float interactRadius = 2.0f;
     private Transform _player;
 
+    public int DataID; // Unique ID for saving/loading
+
     public bool HasPlant => currentPlant != null;
     public Plantable CurrentPlant => currentPlant;
 
