@@ -10,7 +10,7 @@ The prototype combines a lightweight life simulation environment with an AI-powe
 
 ### Project Website
 
-https://llmvalley.vercel.app/#gameplay
+https://llmvalley.vercel.app
 
 The reports and user manual are available on the website
 
